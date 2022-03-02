@@ -11,15 +11,16 @@ The application is designed to help beginer mixologists create cocktails based o
     * [User Stories](#user-stories)
     * [Wire Frames](#wire-frames)
     * [Flow Chart](#flowchart)
-* [Features](#features) 
+    * [Database schema](#database-schema)
+<!-- * [Features](#features) 
     * [feature](#feature-screen)
 * [Features left to implement](features-left-to-implement)
-     * [feature](#feature-screen)
+     * [feature](#feature-screen) -->
 * [Testing](#testing)
 * [Technologies Used](technologies-used)
     * [Languages](#languages)
     * [Version Control](#version-control)
-    * [Python Packages](#python-packages)
+    * [Packages and frameworks](#packages-and-frameworks)
     * [Other Software](#other-software)
 * [Deployment](#deployment)
 * [Credits](#credits)
@@ -82,7 +83,35 @@ To help sketch out what data would be needed and how best to store it I created 
 
 ![admin-flowchart](./static/images/database-schema.png) 
 
+## Technologies Used
 
+### Languages
+
+* HTML5 - was the markup language used for the body of the site. 
+* CSS3 - was used to style the site's html. 
+* JavaScript - was used to provide interactivity to the site's html. 
+* Python3 - was used as the backend. 
+
+### Version Control
+
+* Github - All version control was handled through Github. 
+
+### Database
+
+* Postgres - the project makes use of a postgres database to store all required data. 
+
+### Packages and frameworks
+* Django - the backend was built using the django framework. This handled all database requests and helped to create html templates to drastically reduce the amount of html needed. 
+* Bootstrap4 - the site relies on the bootstrap libariy to quickly write and style html. 
+
+### Other Software
+* [Adobe XD](https://www.adobe.com/uk/products/xd.html) - was used to create the prototype wireframes and to help get the design of the site. 
+* [Creately](https://creately.com) - was used to create the database schema and to create flowcharts for the various processes. 
+* [coolors](https://coolors.co/) - the colour scheme for the site was generated using coolers.co
+
+### Fonts 
+* [Adobe fonts](https://fonts.adobe.com) - I used [Forma DJR](https://fonts.adobe.com/fonts/forma-djr-text) and [Corporate A](https://fonts.adobe.com/fonts/corporate-a) font families from adobe fonts. They were licensed as part of my adobe creative cloud subscription. 
+* [Font Awesome](https://fontawesome.com/) - all icons were taken from Fontawesome. 
 
 
 
