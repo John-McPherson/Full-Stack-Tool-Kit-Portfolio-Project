@@ -3,7 +3,7 @@
 This project is the forth milestone project for the Code Institute Diploma in Full Stack Software Development. 
 <!-- You can see the final deployed site [here.](site) -->
 
-
+The application is designed to help beginer mixologists create cocktails based on ingredients they already have. 
 
 <!-- ![Site mock-up](./assets/imgs/site-mock-up.png) -->
 
@@ -62,9 +62,19 @@ The app is designed to allow new mixologists to easily make cocktails using ingr
 
 I used Adobe UX to prototype the websites UX. I took a mobile first approach to the development as due to the (hopefully) social aspect of cocktail making I anticipate most users would be using the app through their mobile phone. 
 
-Here is a [link](https://xd.adobe.com/view/bd1eac7b-6ea7-4898-aef5-78bbcce64842-e84d/?fullscreen) to the working prototype mobile version and to the desk top version [link](https://xd.adobe.com/view/71cbb1d2-a3c2-43d0-a581-7bcd2a058295-2498/).
+Here is a [link](https://xd.adobe.com/view/bd1eac7b-6ea7-4898-aef5-78bbcce64842-e84d/?fullscreen) to the working prototype mobile version and to the desktop version [link](https://xd.adobe.com/view/71cbb1d2-a3c2-43d0-a581-7bcd2a058295-2498/).
 
+### Flow Chart
 
+To help understand the logic required when designing the apps processes I built out the following flow charts;
+
+#### User Processes
+
+![user-flowchart](./static/images/user-flowchart.png) 
+
+#### Admin Processes
+
+![admin-flowchart](./static/images/admin-flowchart.png) 
 
 
 
