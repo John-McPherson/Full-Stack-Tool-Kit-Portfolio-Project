@@ -62,27 +62,10 @@ The app is designed to allow new mixologists to easily make cocktails using ingr
 
 I used Adobe UX to prototype the websites UX. I took a mobile first approach to the development as due to the (hopefully) social aspect of cocktail making I anticipate most users would be using the app through their mobile phone. 
 
-Here is a [link](https://xd.adobe.com/view/bd1eac7b-6ea7-4898-aef5-78bbcce64842-e84d/?fullscreen) to the working prototype mobile version. 
+Here is a [link](https://xd.adobe.com/view/bd1eac7b-6ea7-4898-aef5-78bbcce64842-e84d/?fullscreen) to the working prototype mobile version and to the desk top version [link](https://xd.adobe.com/view/71cbb1d2-a3c2-43d0-a581-7bcd2a058295-2498/).
 
-I took a simple design approach to the 
 
-![mobile sign in](./static/images/mobile-sign-in)
-![mobile create account username](./static/images/mobile-create-account-username.png)
-![mobile create account password](./static/images/mobile-create-account-password.png)
-![mobile create account dob](./static/images/mobile-create-account-dob.png)
-![mobile create account email](./static/images/mobile-create-account-email.png)
-![mobile too young](./static/images/mobile-create-account-too-young)
-![mobile login](./static/images/mobile-login-page.png)
-![mobile landing page](./static/images/mobile-landing-page.png)
-![mobile landing page dropdown](./static/images/mobile-landing-page-drop-down.png)
-![mobile settings](./static/images/mobile-settings.png)
-![mobile no ingredients](./static/images/mobile-landing-page-no-ingredients.png)
-![mobile add ingredients](./static/images/mobile-ingredients.png)
-![mobile mixers and modifiers](./static/images/mobile-mixers.png)
-![mobile choose drink](./static/images/mobile-drink-old-fashioned.png)
-![mobile choose drink different option](./static/images/mobile-drink-martini.png)
-![mobile recipe old fashioned](./static/images/mobile-old-fashioned.png)
-![mobile recipe martini](./static/images/mobile-martini.png)
-![mobile recipe fav recipes](./static/images/mobile-favs.png)
-![mobile recipe fav recipes](./static/images/mobile-add-recipe.png)
+
+
+
 
