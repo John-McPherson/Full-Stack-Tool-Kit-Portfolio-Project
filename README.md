@@ -114,5 +114,16 @@ To help sketch out what data would be needed and how best to store it I created 
 * [Font Awesome](https://fontawesome.com/) - all icons were taken from Fontawesome. 
 
 
+## **Credits**
+
+### **Content**
+
+Any code that is not included as part of a framework or libary was was written by me.
+
+### **Acknowledgements** 
+
+* My mentor [Antonija Simic](https://github.com/tonkec) for their feedback and support during the development of the project. 
+* [Code Institute](https://codeinstitute.net/) for giving me the skills through their tutorials to create this app. 
+<!-- * [W3Schools](https://www.w3schools.com/) for helping me whenever I got stuck. -->
 
 
