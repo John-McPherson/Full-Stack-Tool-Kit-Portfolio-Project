@@ -76,6 +76,14 @@ To help understand the logic required when designing the apps processes I built 
 
 ![admin-flowchart](./static/images/admin-flowchart.png) 
 
+### Database Schema
+
+To help sketch out what data would be needed and how best to store it I created the following diagram; 
+
+![admin-flowchart](./static/images/database-schema.png) 
+
+
+
 
 
 
