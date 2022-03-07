@@ -16,7 +16,7 @@ The application is designed to help beginer mixologists create cocktails based o
     * [feature](#feature-screen)
 * [Features left to implement](features-left-to-implement)
      * [feature](#feature-screen) -->
-* [Testing](#testing)
+<!-- * [Testing](#testing) -->
 * [Technologies Used](technologies-used)
     * [Languages](#languages)
     * [Version Control](#version-control)
@@ -112,6 +112,29 @@ To help sketch out what data would be needed and how best to store it I created 
 ### Fonts 
 * [Adobe fonts](https://fonts.adobe.com) - I used [Forma DJR](https://fonts.adobe.com/fonts/forma-djr-text) and [Corporate A](https://fonts.adobe.com/fonts/corporate-a) font families from adobe fonts. They were licensed as part of my adobe creative cloud subscription. 
 * [Font Awesome](https://fontawesome.com/) - all icons were taken from Fontawesome. 
+
+## Deployment
+
+The app is deplpoyed via [Heroku](https://www.heroku.com/). If you have cloned the repo follow the steps below to deploy your own version. 
+
+1. Go to the [Heroku website](https://heroku.com/) and log in to your account. If you have not made one yet first create an account.
+
+2. On the home page click the new button and then click create new app. 
+
+3. On the next page enter a name for the app. This has to be unnique. You cannot use the same name as I have. Then enter your location before clicking create app. 
+
+4. Click on the resources tab and then add-ons. Use the search bar to locate Heroku Postgres database and add it to the application. 
+
+5. Go to the setting tab and click reveal config vars. Copy the URL value for the DATABASE_URL. 
+
+6. In your IDE create a env.py file on the top level directory. In this file import os and set the following enviroment variables os.environ["DATABASE_URL"] and os.environ["SECRET_KEY"]. Paste your DATABASE_URL from Heroku into the database url and create a random secret key for the other vairable. 
+
+7. Go back to the settings tab in Heroku and add the secret key to the Config Vars using SECRET_KEY as the vairable name. 
+
+8. Click on the Deploy tab on Heroku and scroll down to the deployment method. Select Github. Locatate the mixr cocktail app directory and link it to the heroku. 
+
+9. Select main branch in the manual deployment section and click deploy branch. 
+
 
 
 ## **Credits**
