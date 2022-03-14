@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-
+# Choices for integerFields in classes. 
 STATUS = ((0, "Awaiting Approval"), (1, "Approved"))
 INGREDIENT_TYPES = ((0, "Base"), (1, "Modifier"))
 DRINK_TYPES = ((0, "Up"), (1, "On The Rocks"), (2, "Long"))
