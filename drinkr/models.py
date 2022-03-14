@@ -7,7 +7,7 @@ INGREDIENT_TYPES = ((0, "Base"), (1, "Modifier"))
 DRINK_TYPES = ((0, "Up"), (1, "On The Rocks"), (2, "Long"))
 
 
-class Ingredients(models.Model):
+class Ingredient(models.Model):
     """
     A class to represent cocktail ingredients
     ----------
@@ -26,7 +26,7 @@ class Ingredients(models.Model):
         return self.ingredient_name
 
 
-class Recipes(models.Model):
+class Recipe(models.Model):
     """
     A class to represent cocktail recipes
     ----------
@@ -61,6 +61,7 @@ class UserData(models.Model):
     Attributes
     ----------
     user_name: str
+    user_dob: date
     user_ingredients: list
     user_modifers: list
     user_drinks: list
@@ -71,11 +72,12 @@ class UserData(models.Model):
     user_name = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user_name"
     )
-    user_ingredients = models.TextField()
-    user_modifers = models.TextField()
-    user_drinks = models.TextField()
-    user_favs = models.TextField()
-    user_dislikes = models.TextField()
+    user_dob = models.DateTimeField()
+    user_ingredients = models.TextField(null=True)
+    user_modifers = models.TextField(null=True)
+    user_drinks = models.TextField(null=True)
+    user_favs = models.TextField(null=True)
+    user_dislikes = models.TextField(null=True)
 
     def __str__(self):
-        return self.user_name
+        return f"{self.user_name}"
