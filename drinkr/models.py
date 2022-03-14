@@ -47,7 +47,7 @@ class Recipes(models.Model):
     ingredients_list = models.TextField()
     modifiers = models.TextField()
     ingredients = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipie")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author")
     approved = models.IntegerField(choices=STATUS, default=0)
 
     def __str__(self):
@@ -69,7 +69,7 @@ class UserData(models.Model):
     """
 
     user_name = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="recipie"
+        User, on_delete=models.CASCADE, related_name="user_name"
     )
     user_ingredients = models.TextField()
     user_modifers = models.TextField()
