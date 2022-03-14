@@ -19,7 +19,7 @@ class Ingredients(models.Model):
         The type of ingredient (if it is a modifier or a base ingredient)
     """
 
-    ingredient_name = models.CharField(max=200, unique=True)
+    ingredient_name = models.CharField(max_length=200, unique=True)
     ingredient_type = models.IntegerField(choices=INGREDIENT_TYPES, default=0)
 
     def __str__(self):
@@ -41,7 +41,7 @@ class Recipes(models.Model):
     approved: boolean
     """
 
-    recipe_name = models.CharField(max=200, unique=True)
+    recipe_name = models.CharField(max_length=200, unique=True)
     drink_type = models.IntegerField(choices=DRINK_TYPES, default=0)
     recipe_steps = models.TextField()
     ingredients_list = models.TextField()
