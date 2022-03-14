@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+# from django.views import generic
+
+def home_page(request):
+    return render(request, '../templates/index.html')
