@@ -24,7 +24,6 @@
     background-color: var(--mixr-yellow) !important;
 }
 
-
 /* NavBar styles */
 
 
@@ -48,4 +47,42 @@
 .logo>i {
     vertical-align: top;
     font-size: 2.10rem;
+}
+
+/* Nav links */
+
+nav a {
+    font-family: var(--heading-text);
+    font-weight: 800;
+    vertical-align: middle;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--white);
+}
+
+/* resposnive design */
+
+@media screen and (max-width:576px) {
+    nav li a {
+        text-align: center;
+    }
+
+    nav li {
+        padding: .5em;
+        border-top: 3px solid var(--white);
+    }
+
+    nav ul {
+        border-bottom: 3px solid var(--white);
+        margin-top: .5em;
+    }
+
+    .navbar {
+        padding-bottom: 0;
+    }
+
+    .navbar .logo {
+        padding: .5em;
+    }
 }
