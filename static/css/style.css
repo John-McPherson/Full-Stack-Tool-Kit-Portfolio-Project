@@ -12,6 +12,8 @@
     --mixr-yellow: #FFC71F;
     /* white color for text */
     --white: #ffffff;
+    /* hightlight/hover color */
+    --highlight: #011936;
     /* heading text */
     --heading-text: 'forma-djr-deck', sans-serif;
     /* body text*/
@@ -33,6 +35,10 @@
     border-color: rgba(0, 0, 0, 0);
     font-size: 2rem;
     color: var(--white);
+}
+
+.navbar-dark .navbar-toggler :hover {
+    color: var(--highlight);
 }
 
 /* logo */
@@ -59,6 +65,21 @@ nav a {
 
 .navbar-dark .navbar-nav .nav-link {
     color: var(--white);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--highlight);
+}
+
+/* footer */
+
+footer a {
+    color: var(--white);
+    font-size: 1.5em;
+}
+
+footer a :hover {
+    color: var(--highlight);
 }
 
 /* resposnive design */
