@@ -1,0 +1,51 @@
+/* removes default margins, padding and sets box-sizing to border-box */
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+/* CSS variables */
+:root {
+    /* main brand color */
+    --mixr-yellow: #FFC71F;
+    /* white color for text */
+    --white: #ffffff;
+    /* heading text */
+    --heading-text: 'forma-djr-deck', sans-serif;
+    /* body text*/
+    --body-text: 'corporate-a', serif;
+}
+
+/* base styles */
+
+.bg-primary {
+    background-color: var(--mixr-yellow) !important;
+}
+
+
+/* NavBar styles */
+
+
+/* Toggler */
+
+.navbar-dark .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0);
+    font-size: 2rem;
+    color: var(--white);
+}
+
+/* logo */
+
+.logo {
+    font-family: var(--heading-text);
+    font-size: 2rem;
+    font-weight: 800;
+    padding: .10em .75em;
+}
+
+.logo>i {
+    vertical-align: top;
+    font-size: 2.10rem;
+}
