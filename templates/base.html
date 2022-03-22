@@ -14,6 +14,8 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- font awesome install -->
     <script src="https://kit.fontawesome.com/b6cc208011.js" crossorigin="anonymous"></script>
+    <!-- fonts - imported from adobe fonts-->
+    <link rel="stylesheet" href="https://use.typekit.net/qys8cio.css">
     <!-- link to custom css -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
@@ -21,8 +23,22 @@
 <body>
     <!-- Nav bar -->
     <header>
-        <nav>
-            <h1>nav</h1>
+        <nav class="navbar navbar-light bg-primary navbar-expand-sm">
+            <a href="#"><span class="navbar-brand logo">MIXr<i class="fa-solid fa-martini-glass-citrus"></i></span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#narbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggles Navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="narbarMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
     <main>
