@@ -7,6 +7,41 @@
 {% block content %}
 {% if user.is_authenticated %}
 <!-- if the user is logged loads main content-->
+<div class="container">
+    <div class="row">
+        <div class="col-10 offset-1 landing-page-heading">
+            <h1>Welcome to <span class="logo">MIXr<i class="fa-solid fa-martini-glass-citrus"></i></span></h1>
+            <p>Let's get started</p>
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        <div class=" col-6 icon-container ">
+            <a href="#">
+                <i class="fa-solid fa-martini-glass-empty"></i>
+            </a>
+            <p>Drink?</p>
+        </div>
+        <div class="col-6">
+            <div class="icon-container">
+                <a href="#">
+                    <i class="fa-solid fa-wine-bottle"></i>
+                </a>
+                <p>Ingredients</p>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="icon-container">
+                <a href="#">
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                </a>
+                <p>Recipes</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
 {% else %}
 <!-- Else the load the sign up/ login page -->
 <div class="col-12 logo-container">
