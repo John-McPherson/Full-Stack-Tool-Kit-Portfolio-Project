@@ -17,7 +17,7 @@ The application is designed to help beginer mixologists create cocktails based o
 * [Features left to implement](features-left-to-implement)
      * [feature](#feature-screen) -->
 <!-- * [Testing](#testing) -->
-* [Technologies Used](technologies-used)
+* [Technologies Used](#technologies-used)
     * [Languages](#languages)
     * [Version Control](#version-control)
     * [Packages and frameworks](#packages-and-frameworks)
@@ -90,7 +90,7 @@ To help sketch out what data would be needed and how best to store it I created 
 * HTML5 - was the markup language used for the body of the site. 
 * CSS3 - was used to style the site's html. 
 * JavaScript - was used to provide interactivity to the site's html. 
-* Python3 - was used as the backend. 
+* Python3 - was used to create the backend. 
 
 ### Version Control
 
@@ -100,8 +100,9 @@ To help sketch out what data would be needed and how best to store it I created 
 
 * Postgres - the project makes use of a postgres database to store all required data. 
 
+
 ### Packages and frameworks
-* Django - the backend was built using the django framework. This handled all database requests and helped to create html templates to drastically reduce the amount of html needed. 
+* Django - the backend was built using the django framework. 
 * Bootstrap4 - the site relies on the bootstrap libariy to quickly write and style html. 
 
 ### Other Software
