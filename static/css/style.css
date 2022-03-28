@@ -25,6 +25,10 @@ body {
     font-family: var(--body-text);
 }
 
+a {
+    text-decoration: none;
+}
+
 /* NavBar styles */
 
 
@@ -107,6 +111,8 @@ footer a :hover {
     }
 }
 
+
+
 /* account management */
 
 .empty {
@@ -126,6 +132,10 @@ footer a :hover {
     border-radius: 2em;
     width: 100%;
     margin: .5em 0;
+}
+
+.account-management-btn:hover {
+    background-color: var(--highlight);
 }
 
 .account-management label {
@@ -159,4 +169,53 @@ footer a :hover {
 /* Microsoft Edge */
 .account-management ::-ms-input-placeholder {
     color: var(--black);
+}
+
+/* Landing page */
+
+/* user not logged in landing page */
+
+/* landing page background */
+.landing-page {
+    background-color: var(--mixr-yellow);
+}
+
+/* landing page buttons */
+.alt-btn {
+    color: var(--mixr-yellow);
+    background-color: var(--white);
+    width: 80%;
+    font-size: 1.2em;
+}
+
+/* landing page logo */
+
+.logo-landing-page {
+    font-size: 5em;
+    color: var(--white);
+    text-align: center;
+    padding: 0;
+    margin-top: 50vh;
+}
+
+.logo-landing-page i {
+    font-size: 1.03em;
+    color: var(--white);
+}
+
+/* landing page disclaimer */
+
+.legal-disclaimer {
+    padding: 2em;
+    font-size: 1.1em;
+    text-align: center;
+    color: var(--white);
+}
+
+.legal-disclaimer>a {
+    color: var(--highlight);
+}
+
+.legal-disclaimer>a:hover {
+    text-decoration: underline;
 }
