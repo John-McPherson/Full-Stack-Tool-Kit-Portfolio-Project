@@ -17,10 +17,10 @@
   {% endif %}
   <!-- <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a> -->
   <button class="primaryAction account-management-btn" type="submit">{% trans "Sign In" %}</button>
-  <a href="#">
-    <button class="account-management-btn">Back</button>
-  </a>
 </form>
+<a href="{% url 'home'%}">
+  <button class="account-management-btn">Back</button>
+</a>
 
 
 {% endblock %}
