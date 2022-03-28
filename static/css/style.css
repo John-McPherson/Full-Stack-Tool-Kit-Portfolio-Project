@@ -7,6 +7,8 @@
     --white: #ffffff;
     /* hightlight/hover color */
     --highlight: #011936;
+    /* black color for text */
+    --black: #000000;
     /* heading text */
     --heading-text: 'forma-djr-deck', sans-serif;
     /* body text*/
@@ -103,4 +105,58 @@ footer a :hover {
     .navbar .logo {
         padding: .5em;
     }
+}
+
+/* account management */
+
+.empty {
+    height: 30vh;
+}
+
+.account-management-btn {
+    background-color: var(--mixr-yellow);
+    color: var(--white);
+    font-family: var(--heading-text);
+    font-size: 1.5em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border: none;
+    padding: .5em;
+    border-radius: 2em;
+    width: 100%;
+    margin: .5em 0;
+}
+
+.account-management label {
+    display: block;
+
+}
+
+.account-management input {
+    font-family: var(--heading-text);
+    font-weight: 800;
+    font-size: 1.5em;
+    color: --black;
+    border: none;
+    border-bottom: #FFC71F solid 3px;
+}
+
+/* code to change default placeholder text taken from https://www.w3schools.com/howto/howto_css_placeholder.asp */
+
+/* Chrome, Firefox, Opera, Safari 10.1+ */
+.account-management ::placeholder {
+    color: var(--black);
+    /* Firefox */
+    opacity: 1;
+}
+
+/* Internet Explorer 10-11 */
+.account-management :-ms-input-placeholder {
+    color: var(--black);
+}
+
+/* Microsoft Edge */
+.account-management ::-ms-input-placeholder {
+    color: var(--black);
 }
