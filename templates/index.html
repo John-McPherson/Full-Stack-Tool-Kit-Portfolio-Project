@@ -1,5 +1,33 @@
-{% extends "base.html" %}
-
+<!-- checks to see if the user is authenticated and loads the correct template -->
+{% if user.is_authenticated %}
+{% include "base.html" %}
+{% else %}
+{% include "login_landing_page.html" %}
+{% endif%}
 {% block content %}
-<p>This should be bold</p>
+{% if user.is_authenticated %}
+<!-- if the user is logged loads main content-->
+{% else %}
+<!-- Else the load the sign up/ login page -->
+<div class="col-12 logo-container">
+    <h1 class="logo logo-landing-page">MIXr<i class="fa-solid fa-martini-glass-citrus"></i></h1>
+</div>
+<div class="col-8  offset-3">
+    <a href="#">
+        <button class="account-management-btn alt-btn">Login</button>
+    </a>
+    <a href="#">
+        <button class="account-management-btn alt-btn">Sign up</button>
+    </a>
+</div>
+<div class="col-10  offset-1"></div>
+<p class="legal-disclaimer">Drink Responsibly. For infomation about healthy drinking habits please visit <a
+        href="https://www.drinkaware.co.uk/" target="_blank"
+        aria-label="external link to the drink aware site">drinkaware.co.uk</a></p>
+</div>
+</div>
+
+
+
+{% endif%}
 {%endblock%}
