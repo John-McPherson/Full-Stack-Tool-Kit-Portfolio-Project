@@ -1,12 +1,5 @@
-/* removes default margins, padding and sets box-sizing to border-box */
-
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
 /* CSS variables */
+
 :root {
     /* main brand color */
     --mixr-yellow: #FFC71F;
@@ -24,6 +17,10 @@
 
 .bg-primary {
     background-color: var(--mixr-yellow) !important;
+}
+
+body {
+    font-family: var(--body-text);
 }
 
 /* NavBar styles */
