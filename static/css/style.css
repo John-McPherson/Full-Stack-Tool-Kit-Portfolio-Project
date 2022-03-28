@@ -219,3 +219,57 @@ footer a :hover {
 .legal-disclaimer>a:hover {
     text-decoration: underline;
 }
+
+/* landing page logged in */
+
+/* icons */
+
+.icon-container i {
+    background-color: var(--mixr-yellow);
+    color: var(--white);
+    font-size: 5em;
+    padding: .5em;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+}
+
+.icon-container {
+    text-align: center;
+    height: auto;
+    padding-bottom: 2.5em;
+}
+
+.icon-container a :hover {
+    color: var(--highlight);
+}
+
+/* text descriptions */
+.icon-container p {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+/* headings  */
+
+.landing-page-heading .logo {
+    padding: 0;
+}
+
+.landing-page-heading {
+    margin-top: 8vh;
+    margin-bottom: 5vh;
+}
+
+.landing-page-heading h1 {
+    border-bottom: 3px solid var(--mixr-yellow);
+    padding-bottom: 10px;
+    font-family: var(--heading-text);
+    font-weight: 800;
+}
+
+.landing-page-heading p {
+    font-size: 1.25em;
+}
