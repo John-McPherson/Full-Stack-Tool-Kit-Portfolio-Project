@@ -371,3 +371,10 @@ footer a :hover {
     margin-top: .5em;
 
 }
+
+/* smaller icon for recipe page  */
+
+.smaller-icon i {
+    font-size: 4em;
+    padding: 30px;
+}
