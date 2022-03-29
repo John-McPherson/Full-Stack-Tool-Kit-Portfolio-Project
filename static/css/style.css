@@ -33,6 +33,13 @@ a {
     margin-top: 2em;
 }
 
+
+/* adds space so that the footer doesn't overlap with content at bottom of page */
+
+.spacer {
+    height: 10vh;
+}
+
 /* NavBar styles */
 
 
