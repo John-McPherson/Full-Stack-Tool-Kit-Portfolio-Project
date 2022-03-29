@@ -7,6 +7,10 @@
 {% block content %}
 {% if user.is_authenticated %}
 <!-- if the user is logged loads main content-->
+
+<!-- checks to see if the user has any ingredients -->
+
+
 <div class="container">
     <div class="row">
         <div class="col-10 offset-1 landing-page-heading">
@@ -23,7 +27,7 @@
         </div>
         <div class="col-6">
             <div class="icon-container">
-                <a href="#">
+                <a href="{% url 'ingredient_list' %}">
                     <i class="fa-solid fa-wine-bottle"></i>
                 </a>
                 <p>Ingredients</p>
