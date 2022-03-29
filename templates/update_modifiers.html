@@ -16,9 +16,18 @@
         <div class="col-12 justify-content-around">
             {% for ingredient in ingredient_list %}
 
-            <div class="ingredient ingredient-active">{{ingredient.ingredient_name}}</div>
+            <div class="ingredient">{{ingredient.ingredient_name}}</div>
 
             {% endfor %}
+            <div class="row">
+                <div class="col-4 offset-2">
+                    <a href="{% url 'confirm_recipe' %}">
+                        <button class="account-management-btn mixr-button">
+                            <span class="logo logo-inline">MIXr<i class="fa-solid fa-martini-glass-citrus"></i></span>
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
