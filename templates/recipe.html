@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-10 offset-1 page-heading">
+            <h1>{{recipe_list.0.recipe_name}} </h1>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1 icon-container">
+                <!-- if statment to check recipe type and loads correct fontawesome icon -->
+                {% if recipe_list.0.drink_type is 0 %}
+                <i class="fa-solid fa-martini-glass"></i>
+                {% elif recipe_list.0.drink_type is 1 %}
+                <i class="fa-solid fa-whiskey-glass"></i>
+                {% elif recipe_list.0.drink_type is 2 %}
+                <i class="fa-solid fa-glass"></i>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-10 offset-1 sub-heading page-heading remove-margin decorative-line">
+            <h2>Ingredients</h2>
+        </div>
+        <div class="col-10 offset-1">
+            <p class="recipe-text">
+                {{ recipe_list.0.ingredients_list }}
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1 sub-heading page-heading remove-margin decorative-line">
+            <h2>How to make</h2>
+        </div>
+        <div class="col-10 offset-1">
+            <p class="recipe-text">
+                {{ recipe_list.0.recipe_steps }}
+            </p>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-10 offset-1 sub-heading page-heading remove-margin">
+            <h2 class="bold-header decorative-line">How'd you like it?</h2>
+        </div>
+        <div class="row container-gap ">
+            <div class="col-4 offset-1 icon-container icon-container-small">
+                <a href="#">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <p>Not my thing</p>
+                </a>
+            </div>
+            <div class="col-4 offset-2 icon-container icon-container-small ">
+                <a href="#">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p>Loved it</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-8 offset-2 icon-container ">
+            <a href="#">
+                <i class="fa-solid fa-martini-glass-empty"></i>
+                <p>Fancy a differnt drink?</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+{%endblock%}
