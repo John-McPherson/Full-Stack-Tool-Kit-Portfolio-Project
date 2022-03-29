@@ -58,6 +58,14 @@ a {
     font-size: 2.10rem;
 }
 
+.logo-inline {
+    padding: 0;
+}
+
+.logo-inline i {
+    font-size: 2.35rem;
+}
+
 /* Nav links */
 
 nav a {
@@ -274,6 +282,13 @@ footer a :hover {
     font-size: 1.25em;
 }
 
+.sub-heading {
+    padding: .5em;
+    font-family: var(--heading-text);
+    font-weight: 800;
+
+}
+
 /* ingredient list */
 
 
@@ -302,4 +317,25 @@ footer a :hover {
 /* removes the margin from the default page heading */
 .remove-margin {
     margin-bottom: 0;
+}
+
+/* make drink btn  */
+
+.mixr-button {
+    text-transform: none;
+    width: 200px;
+}
+
+/* smaller icons */
+
+.icon-container-small i {
+    padding: .25em;
+
+}
+
+.icon-container-small p {
+    margin-top: .5em;
+    font-weight: 800;
+    color: var(--black);
+
 }
