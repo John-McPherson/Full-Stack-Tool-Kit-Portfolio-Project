@@ -24,3 +24,7 @@ class ConfirmRecipe(generic.ListView):
     queryset = Recipe.objects.filter(approved=1)
     template_name = 'confirm_recipe.html'
 
+class DisplayRecipe(generic.ListView):
+    model = Recipe
+    queryset = Recipe.objects.filter(approved=1)
+    template_name = 'recipe.html'
