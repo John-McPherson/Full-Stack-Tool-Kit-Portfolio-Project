@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-10 offset-1 page-heading">
+            <h1>We think you'll love an... </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1 icon-container">
+            <!-- if statment to check recipe type and loads correct fontawesome icon -->
+            {% if recipe_list.0.drink_type is 0 %}
+            <i class="fa-solid fa-martini-glass"></i>
+            {% elif recipe_list.0.drink_type is 1 %}
+            <i class="fa-solid fa-whiskey-glass"></i>
+            {% elif recipe_list.0.drink_type is 2 %}
+            <i class="fa-solid fa-glass"></i>
+            {% endif %}
+            <h2 class="sub-heading"> {{recipe_list.0.recipe_name}}</h2>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-4 offset-1 icon-container icon-container-small">
+            <a href="#">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <p>I’m not sure…</p>
+            </a>
+        </div>
+        <div class="col-4 offset-2 icon-container icon-container-small">
+            <a href="#">
+                <i class="fa-solid fa-circle-check"></i>
+                <p>Sounds good</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
