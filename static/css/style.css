@@ -276,6 +276,8 @@ footer a :hover {
 
 /* ingredient list */
 
+
+/* style for the ingredient buttons */
 .ingredient {
     border: 2px solid var(--black);
     display: inline-block;
@@ -289,9 +291,15 @@ footer a :hover {
     text-transform: uppercase;
 }
 
+/* style for active ingredients */
 .ingredient-active {
     border: 2px solid var(--mixr-yellow);
     color: var(--white);
     background-color: var(--mixr-yellow);
 
+}
+
+/* removes the margin from the default page heading */
+.remove-margin {
+    margin-bottom: 0;
 }
