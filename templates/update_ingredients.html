@@ -1,13 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>
+<div class="container">
+    <div class="row">
 
-    {% for ingredient in ingredient_list %}
 
-    <span>{{ingredient.ingredient_name}}</span>
+        <div class="col-10 offset-1 page-heading">
+            <h1>What’s in your cupboards?</h1>
+            <p>Let’s put those dusty old bottles to use. Select all bottles you have below…</p>
+        </div>
+    </div>
 
-    {% endfor %}
-</p>
+    <div class="row">
+
+        <div class="col-12 justify-content-around">
+            {% for ingredient in ingredient_list %}
+
+            <div class="ingredient ingredient-active">{{ingredient.ingredient_name}}</div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
 {%endblock%}

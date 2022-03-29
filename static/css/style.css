@@ -254,22 +254,44 @@ footer a :hover {
 
 /* headings  */
 
-.landing-page-heading .logo {
+.page-heading .logo {
     padding: 0;
 }
 
-.landing-page-heading {
+.page-heading {
     margin-top: 8vh;
     margin-bottom: 5vh;
 }
 
-.landing-page-heading h1 {
+.page-heading h1 {
     border-bottom: 3px solid var(--mixr-yellow);
     padding-bottom: 10px;
     font-family: var(--heading-text);
     font-weight: 800;
 }
 
-.landing-page-heading p {
+.page-heading p {
     font-size: 1.25em;
+}
+
+/* ingredient list */
+
+.ingredient {
+    border: 2px solid var(--black);
+    display: inline-block;
+    margin: .25em;
+    padding: .25em 1em;
+    border-radius: 25px;
+    letter-spacing: 3px;
+    text-align: center;
+    font-family: var(--heading-text);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.ingredient-active {
+    border: 2px solid var(--mixr-yellow);
+    color: var(--white);
+    background-color: var(--mixr-yellow);
+
 }
