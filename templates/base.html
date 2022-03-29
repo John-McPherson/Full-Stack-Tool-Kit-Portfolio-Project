@@ -24,7 +24,7 @@
     <!-- Nav bar -->
     <header>
         <nav class="navbar navbar-dark bg-primary navbar-expand-sm">
-            <a href="#" class="navbar-brand h1 logo mb-0">
+            <a href="{% url 'home' %}" class="navbar-brand h1 logo mb-0">
                 MIXr<i class="fa-solid fa-martini-glass-citrus"></i>
             </a>
             <button class="navbar-toggler pe-3 " type="button" data-bs-toggle="collapse" data-bs-target="#narbarMenu"
@@ -55,10 +55,10 @@
         <div class="row bg-primary text-center fixed-bottom p-4">
             <div class="col-sm-2"></div>
             <div class="col-3 col-sm-2">
-                <a href="#"><i class="fa-solid fa-martini-glass"></i></a>
+                <a href="{% url 'modifier_list' %}"><i class="fa-solid fa-martini-glass"></i></a>
             </div>
             <div class="col-3 col-sm-2">
-                <a href="#"><i class="fa-solid fa-wine-bottle"></i></a>
+                <a href="{% url 'ingredient_list' %}"><i class="fa-solid fa-wine-bottle"></i></a>
             </div>
             <div class="col-3 col-sm-2">
                 <a href="#"><i class="fa-solid fa-heart"></i></a>
