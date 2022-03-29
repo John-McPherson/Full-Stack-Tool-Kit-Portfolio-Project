@@ -29,6 +29,10 @@ a {
     text-decoration: none;
 }
 
+.container-gap {
+    margin-top: 2em;
+}
+
 /* NavBar styles */
 
 
@@ -289,6 +293,17 @@ footer a :hover {
 
 }
 
+.bold-header {
+    font-weight: 800;
+    font-size: 1.75em;
+}
+
+.decorative-line {
+    border-bottom: 3px solid var(--mixr-yellow);
+    padding-bottom: 0.5em;
+    margin-bottom: .1em;
+}
+
 /* ingredient list */
 
 
@@ -317,6 +332,7 @@ footer a :hover {
 /* removes the margin from the default page heading */
 .remove-margin {
     margin-bottom: 0;
+    margin-top: 2vh;
 }
 
 /* make drink btn  */
@@ -337,5 +353,14 @@ footer a :hover {
     margin-top: .5em;
     font-weight: 800;
     color: var(--black);
+
+}
+
+/* recipes */
+
+.recipe-text {
+    font-size: 1.3em;
+    font-weight: 800;
+    margin-top: .5em;
 
 }
