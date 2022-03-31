@@ -14,11 +14,31 @@
     <div class="row">
 
         <div class="col-12 justify-content-around">
-            {% for ingredient in ingredient_list %}
+            <form action="">
+                {% csrf_token %}
 
-            <div class="ingredient ingredient-active">{{ingredient.ingredient_name}}</div>
+                {% for ingredient in ingredient_list %}
+                <!-- add an if statement that checks to see if an ingredient exisits in users ingredients -->
+                {% if ingredient.ingredient_name in user_ingredients.0.0 %}
+                <input class="d-none" type="checkbox" id="{{ingredient.ingredient_name| lower | cut:' '}}" checked
+                    name="{{ingredient.ingredient_name| lower | cut:' '}}" value="{{ingredient.ingredient_name}}">
+                {%else%}
+                <input class="d-none" type="checkbox" id="{{ingredient.ingredient_name| lower | cut:' '}}"
+                    name="{{ingredient.ingredient_name| lower | cut:' '}}" value="{{ingredient.ingredient_name}}">
+                {%endif%}
+                <label class="ingredient"
+                    for="{{ingredient.ingredient_name| lower | cut:' '}}">{{ingredient.ingredient_name}}</label>
+                {% endfor %}
+                <!-- submit button -->
+                <div class="col-4 offset-3">
 
-            {% endfor %}
+                    <button class="account-management-btn mixr-button">
+                        UPDATE
+                    </button>
+                </div>
+            </form>
+
+            <!-- {{user_ingredients.0.0}} -->
         </div>
     </div>
 </div>
