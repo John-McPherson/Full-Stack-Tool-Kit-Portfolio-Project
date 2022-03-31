@@ -3,6 +3,7 @@ from django.views import generic, View
 from .models import Ingredient, Recipe, UserData
 
 
+
 def home_page(request):
     return render(request, '../templates/index.html')
 
@@ -15,8 +16,7 @@ class IngredientList(View):
         queryset = Ingredient.objects.filter(ingredient_type=0)
         ingredient_list = queryset
         user_ingredients = UserData.objects.filter(user_name=request.user).values_list('user_ingredients')
-        # user_ingredients = self.request.UserData.user_ingredients
-
+    
 
         return render(
             request,'update_ingredients.html',
@@ -25,7 +25,27 @@ class IngredientList(View):
                  'user_ingredients' : list(user_ingredients)
             }
             )
-        # template_name = 'update_ingredients.html'
+
+    def post(self,request, *args, **kwargs):
+        model = Ingredient
+        queryset = Ingredient.objects.filter(ingredient_type=0)
+        ingredient_list = queryset
+        user_ingredients = UserData.objects.filter(user_name=request.user).values_list('user_ingredients')
+
+        updated_user_ingredients = request.POST.getlist('ingredient')
+
+        user = UserData.objects.get(user_name=request.user)
+        user.user_ingredients = updated_user_ingredients
+        user.save()
+
+
+        return render(
+            request,'update_ingredients.html',
+            {
+                 'ingredient_list' : queryset,
+                 'user_ingredients' : list(user_ingredients),
+            }
+            )
 
 
 class ModifierList(generic.ListView):
