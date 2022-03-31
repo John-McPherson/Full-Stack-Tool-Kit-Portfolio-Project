@@ -1,16 +1,31 @@
 from django.shortcuts import render
 from django.views import generic, View
-from .models import Ingredient, Recipe
+from .models import Ingredient, Recipe, UserData
 
 
 def home_page(request):
     return render(request, '../templates/index.html')
 
 
-class IngredientList(generic.ListView):
-    model = Ingredient
-    queryset = Ingredient.objects.filter(ingredient_type=0)
-    template_name = 'update_ingredients.html'
+class IngredientList(View):
+
+
+    def get(self,request):
+        model = Ingredient
+        queryset = Ingredient.objects.filter(ingredient_type=0)
+        ingredient_list = queryset
+        user_ingredients = UserData.objects.filter(user_name=request.user).values_list('user_ingredients')
+        # user_ingredients = self.request.UserData.user_ingredients
+
+
+        return render(
+            request,'update_ingredients.html',
+            {
+                 'ingredient_list' : queryset,
+                 'user_ingredients' : list(user_ingredients)
+            }
+            )
+        # template_name = 'update_ingredients.html'
 
 
 class ModifierList(generic.ListView):
