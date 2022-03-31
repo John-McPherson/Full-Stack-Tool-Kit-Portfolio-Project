@@ -329,7 +329,7 @@ footer a :hover {
 }
 
 /* style for active ingredients */
-.ingredient-active {
+input:checked+label {
     border: 2px solid var(--mixr-yellow);
     color: var(--white);
     background-color: var(--mixr-yellow);
