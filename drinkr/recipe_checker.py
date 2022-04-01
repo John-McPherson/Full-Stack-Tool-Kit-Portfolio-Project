@@ -46,9 +46,8 @@ def get_random_recipe(user):
     """
     pulls a random recipe from the users drinks section
     """
-    # get_random_index()
+
     recipe = Recipe.objects.filter(recipe_name=user.user_drinks[get_random_index(len(user.user_drinks))])
-    # print(f'recipes {recipe} type {type(recipe)}')
     return recipe
 
 def get_random_index(index):
@@ -57,5 +56,4 @@ def get_random_index(index):
 
     """
     random = randint(0,index-1)
-    print(random)
     return(random)
