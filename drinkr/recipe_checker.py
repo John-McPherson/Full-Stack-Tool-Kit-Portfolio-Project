@@ -3,15 +3,21 @@ from django.views import generic, View
 from .models import Ingredient, Recipe, UserData
 
 
-def check_ingredients(user):
+def check_ingredients(user,update_type):
     """
     automatically updates the users recipes whenever they change their ingredients
     """
     
     # gets data from the database and prepares and converts it unto python lists
+
+    if update_type == "base":
+        user_ingredients = user.user_ingredients
+        user_ingredients.extend(user.user_modifers.replace('[','').replace("'","").replace(']','').split(", "))
+    else: 
+        user_ingredients = user.user_modifers
+        user_ingredients.extend(user.user_ingredients.replace('[','').replace("'","").replace(']','').split(", "))
+
     recipes = Recipe.objects.filter(approved=1).values_list()
-    user_ingredients = user.user_ingredients
-    user_ingredients.extend(user.user_modifers.replace('[','').replace("'","").replace(']','').split(", "))
     # creates an empty vairable to contain the data
     user_recipes = []
 
@@ -30,6 +36,6 @@ def check_ingredients(user):
             # adds the recipe name to the user_recipe list
             user_recipes.append(drink_name)
  
-    # returns the final data to be used in the database 
+    # returns the final data to be used in the database
     return user_recipes
 
