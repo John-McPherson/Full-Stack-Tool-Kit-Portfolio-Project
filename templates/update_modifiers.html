@@ -14,20 +14,29 @@
     <div class="row">
 
         <div class="col-12 justify-content-around">
-            {% for ingredient in ingredient_list %}
+            <form method="post">
+                {% csrf_token %}
 
-            <div class="ingredient">{{ingredient.ingredient_name}}</div>
+                {% for ingredient in ingredient_list %}
+                <!-- checks to see if the user already has the ingredient in their database -->
+                {% if ingredient.ingredient_name in user_ingredients.0.0 %}
+                <input class="d-none" type="checkbox" id="{{ingredient.ingredient_name| lower | cut:' '}}" checked
+                    name="ingredient" value="{{ingredient.ingredient_name}}">
+                {%else%}
+                <input class="d-none" type="checkbox" id="{{ingredient.ingredient_name| lower | cut:' '}}"
+                    name="ingredient" value="{{ingredient.ingredient_name}}">
+                {%endif%}
+                <label class="ingredient"
+                    for="{{ingredient.ingredient_name| lower | cut:' '}}">{{ingredient.ingredient_name}}</label>
+                {% endfor %}
+                <!-- submit button -->
+                <div class="col-4 offset-3">
 
-            {% endfor %}
-            <div class="row">
-                <div class="col-4 offset-2">
-                    <a href="{% url 'confirm_recipe' %}">
-                        <button class="account-management-btn mixr-button">
-                            <span class="logo logo-inline">MIXr<i class="fa-solid fa-martini-glass-citrus"></i></span>
-                        </button>
-                    </a>
+                    <button class="account-management-btn mixr-button" type="submit">
+                        <span class="logo logo-inline">MIXr<i class="fa-solid fa-martini-glass-citrus"></i></span>
+                    </button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
