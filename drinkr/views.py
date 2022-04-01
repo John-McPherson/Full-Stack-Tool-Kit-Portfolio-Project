@@ -42,7 +42,7 @@ class IngredientList(View):
 
 
         return render(
-            request,'update_ingredients.html',
+            request,'update_modifiers.html',
             {
                  'ingredient_list' : queryset,
                  'user_ingredients' : list(user_ingredients),
@@ -56,7 +56,7 @@ class ModifierList(View):
         model = Ingredient
         queryset = Ingredient.objects.filter(ingredient_type=1)
         ingredient_list = queryset
-        user_ingredients = UserData.objects.filter(user_name=request.user).values_list('user_ingredients')
+        user_ingredients = UserData.objects.filter(user_name=request.user).values_list('user_modifers')
     
 
         return render(
