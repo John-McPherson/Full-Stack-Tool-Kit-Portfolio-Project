@@ -37,10 +37,8 @@ class IngredientList(View):
 
         user = UserData.objects.get(user_name=request.user)
         user.user_ingredients = updated_user_ingredients
-        user.user_drinks = check_ingredients(user)
+        user.user_drinks = check_ingredients(user, 'base')
         user.save()
-
-        # check_ingredients(user)
 
 
         return render(
@@ -51,11 +49,51 @@ class IngredientList(View):
             }
             )
 
+class ModifierList(View):
 
-class ModifierList(generic.ListView):
-    model = Ingredient
-    queryset = Ingredient.objects.filter(ingredient_type=1)
-    template_name = 'update_modifiers.html'
+
+    def get(self,request):
+        model = Ingredient
+        queryset = Ingredient.objects.filter(ingredient_type=1)
+        ingredient_list = queryset
+        user_ingredients = UserData.objects.filter(user_name=request.user).values_list('user_ingredients')
+    
+
+        return render(
+            request,'update_ingredients.html',
+            {
+                 'ingredient_list' : queryset,
+                 'user_ingredients' : list(user_ingredients)
+            }
+            )
+
+    def post(self,request, *args, **kwargs):
+        model = Ingredient
+        queryset = Ingredient.objects.filter(ingredient_type=1)
+        ingredient_list = queryset
+        user_ingredients = UserData.objects.filter(user_name=request.user).values_list('user_modifers')
+
+        updated_user_ingredients = request.POST.getlist('ingredient')
+
+        user = UserData.objects.get(user_name=request.user)
+        user.user_modifers = updated_user_ingredients
+        user.user_drinks = check_ingredients(user, "modifiers")
+        user.save()
+
+
+        return render(
+            request,'update_modifiers.html',
+            {
+                 'ingredient_list' : queryset,
+                 'user_ingredients' : list(user_ingredients),
+            }
+            )
+
+
+# class ModifierList(generic.ListView):
+#     model = Ingredient
+#     queryset = Ingredient.objects.filter(ingredient_type=1)
+#     template_name = 'update_modifiers.html'
 
 
 class ConfirmRecipe(generic.ListView):
