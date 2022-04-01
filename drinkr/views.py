@@ -42,7 +42,7 @@ class IngredientList(View):
 
 
         return render(
-            request,'update_modifiers.html',
+            request,'update_ingredients.html',
             {
                  'ingredient_list' : queryset,
                  'user_ingredients' : list(user_ingredients),
@@ -60,7 +60,7 @@ class ModifierList(View):
     
 
         return render(
-            request,'update_ingredients.html',
+            request,'update_modifiers.html',
             {
                  'ingredient_list' : queryset,
                  'user_ingredients' : list(user_ingredients)
