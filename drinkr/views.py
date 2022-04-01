@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic, View
 from .models import Ingredient, Recipe, UserData
-from .recipe_checker import check_ingredients
+from .recipe_checker import check_ingredients, get_random_recipe
 
 
 
@@ -80,20 +80,16 @@ class ModifierList(View):
         user.user_drinks = check_ingredients(user, "modifiers")
         user.save()
 
+        # get_random_recipe(user)
+
 
         return render(
-            request,'update_modifiers.html',
+            request,'recipe.html',
             {
-                 'ingredient_list' : queryset,
-                 'user_ingredients' : list(user_ingredients),
+                 'recipe' : get_random_recipe(user)
             }
             )
 
-
-# class ModifierList(generic.ListView):
-#     model = Ingredient
-#     queryset = Ingredient.objects.filter(ingredient_type=1)
-#     template_name = 'update_modifiers.html'
 
 
 class ConfirmRecipe(generic.ListView):
