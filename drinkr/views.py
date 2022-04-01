@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic, View
 from .models import Ingredient, Recipe, UserData
+from .recipe_checker import check_ingredients
 
 
 
@@ -36,7 +37,10 @@ class IngredientList(View):
 
         user = UserData.objects.get(user_name=request.user)
         user.user_ingredients = updated_user_ingredients
+        user.user_drinks = check_ingredients(user)
         user.save()
+
+        # check_ingredients(user)
 
 
         return render(
