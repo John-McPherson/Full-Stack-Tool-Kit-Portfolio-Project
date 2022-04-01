@@ -4,16 +4,16 @@
 <div class="container">
     <div class="row">
         <div class="col-10 offset-1 page-heading">
-            <h1>{{recipe_list.0.recipe_name}} </h1>
+            <h1>{{recipe.0.recipe_name}} </h1>
         </div>
         <div class="row">
             <div class="col-10 offset-1 icon-container">
                 <!-- if statment to check recipe type and loads correct fontawesome icon -->
-                {% if recipe_list.0.drink_type is 0 %}
+                {% if recipe.0.drink_type is 0 %}
                 <i class="fa-solid fa-martini-glass"></i>
-                {% elif recipe_list.0.drink_type is 1 %}
+                {% elif recipe.0.drink_type is 1 %}
                 <i class="fa-solid fa-whiskey-glass"></i>
-                {% elif recipe_list.0.drink_type is 2 %}
+                {% elif recipe.0.drink_type is 2 %}
                 <i class="fa-solid fa-glass"></i>
                 {% endif %}
             </div>
@@ -26,7 +26,7 @@
         </div>
         <div class="col-10 offset-1">
             <p class="recipe-text">
-                {{ recipe_list.0.ingredients_list }}
+                {{ recipe.0.ingredients_list }}
             </p>
         </div>
     </div>
@@ -36,7 +36,14 @@
         </div>
         <div class="col-10 offset-1">
             <p class="recipe-text">
-                {{ recipe_list.0.recipe_steps }}
+                {{recipe.0.recipe_steps }}
+                <!-- <ul>
+
+                    {%for step in recipe.0.recipe_steps %}
+                    <li>{{step}}</li>
+
+                    {%endfor%}
+                </ul> -->
             </p>
         </div>
     </div>
