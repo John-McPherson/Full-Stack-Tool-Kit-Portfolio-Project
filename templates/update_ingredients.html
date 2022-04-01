@@ -18,7 +18,7 @@
                 {% csrf_token %}
 
                 {% for ingredient in ingredient_list %}
-                <!-- add an if statement that checks to see if an ingredient exisits in users ingredients -->
+                <!-- checks to see if the user already has the ingredient in their database -->
                 {% if ingredient.ingredient_name in user_ingredients.0.0 %}
                 <input class="d-none" type="checkbox" id="{{ingredient.ingredient_name| lower | cut:' '}}" checked
                     name="ingredient" value="{{ingredient.ingredient_name}}">
