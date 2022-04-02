@@ -130,9 +130,9 @@ footer a :hover {
     }
 }
 
+/* forms */
 
-
-/* account management */
+/* account management forms */
 
 .empty {
     height: 30vh;
@@ -169,6 +169,11 @@ footer a :hover {
     color: --black;
     border: none;
     border-bottom: #FFC71F solid 3px;
+}
+
+/* user submitted cocktails */
+.ingredient-input {
+    width: 100%;
 }
 
 /* code to change default placeholder text taken from https://www.w3schools.com/howto/howto_css_placeholder.asp */
