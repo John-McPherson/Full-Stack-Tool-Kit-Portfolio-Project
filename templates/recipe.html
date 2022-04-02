@@ -2,9 +2,31 @@
 
 {% block content %}
 <div class="container">
+    {% if recipe.0.recipe_name == 'No Recipes' %}
     <div class="row">
+
         <div class="col-10 offset-1 page-heading">
-            <h1>{{recipe.0.recipe_name}} </h1>
+            <h1>So Empty :(</h1>
+            <p>Looks like you don't have enough booze to make a drink. Why don't you add something to your cupboards?
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1">
+            <div class="icon-container">
+                <a href="{% url 'ingredient_list' %}">
+                    <i class="fa-solid fa-wine-bottle"></i>
+                </a>
+                <p>Ingredients</p>
+            </div>
+        </div>
+    </div>
+    {%else%}
+
+    <div class="row">
+
+        <div class="col-10 offset-1 page-heading">
+            <h1>{{recipe.0.recipe_name}}</h1>
         </div>
         <div class="row">
             <div class="col-10 offset-1 icon-container">
@@ -75,6 +97,7 @@
             </a>
         </div>
     </div>
+    {% endif %}
 </div>
 
 
