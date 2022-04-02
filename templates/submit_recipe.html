@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-10 offset-1 page-heading">
+            <h1>Get an idea for a cocktail?</h1>
+            <p>Fill out the form and if it's tasty we'll get it added to our database.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="contain account-management">
+
+
+    <div class="row">
+        <form method="post">
+            <div class="col-10 offset-1">
+                {% csrf_token %}
+                <!-- input for the drink name -->
+                <input type="text" name="drink-name" id="drink-name" class="account-management"
+                    placeholder="Drink Name?" required>
+                <label for="drink-name">What do you want to call it? </label>
+            </div>
+            <div class="row">
+                <!-- title for the ingredients section -->
+                <div class="col-10 offset-1">
+                    <h2>Ingredients</h2>
+                </div>
+            </div>
+            <div id="ingredients-section">
+
+
+                <div class="row">
+                    <!-- volume required of ingredient -->
+                    <div class="col-1 offset-1">
+                        <input class='recipe-input' type="number" name="volume" id="volume" placeholder="00">
+                    </div>
+                    <!-- type of measurement -->
+                    <div class="col-3">
+                        <select class='recipe-input' id="measurement" name="measurement">
+                            <option value="barspoons">barspoons</option>
+                            <option value="ml">ml</option>
+                            <option value="dashes">dashes</option>
+                            <option value="fl-oz">fl oz</option>
+                        </select>
+                    </div>
+                    <div class="col-1">
+                        <p class='recipe-input'>of</p>
+                    </div>
+                    <!-- name of ingredient -->
+                    <div class="col-5">
+                        <input class='recipe-input' type="text" id="ingredient-name" name="ingredient-1"
+                            placeholder="ingredient">
+                    </div>
+                </div>
+            </div>
+            <!-- adds/ removes ingredient lines -->
+            <div class="row">
+                <div class="col-6 offset-2">
+                    <button class="account-management-btn mixr-button minus-plus" id="ing-minus">-</button>
+                    <button class="account-management-btn mixr-button minus-plus" id="ing-plus">+</button>
+                </div>
+            </div>
+            <div class="row">
+                <!-- title for the Recipe Steps section -->
+                <div class="col-10 offset-1">
+                    <h2>Recipe Steps</h2>
+                </div>
+            </div>
+            <!-- Recipe step input -->
+            <div class="row">
+                <div class="col-1 offset-1">
+                    <p>1.</p>
+                </div>
+                <div class="col-9">
+                    <input class='recipe-input' type="text" id="step-name" name="step-1" placeholder="step">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 offset-2">
+                    <button class="account-management-btn mixr-button minus-plus" id="step-minus">-</button>
+                    <button class="account-management-btn mixr-button minus-plus" id="step-plus">+</button>
+                </div>
+            </div>
+            <div class="col-4 offset-3">
+                <button class="account-management-btn mixr-button" type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+
+    </div>
+    <!-- custom JavaScript to add/ remove lines from the ingredient and recipe step section -->
+    {% load static %}
+    <script src="{% static 'js/add_lines.js' %}"></script>
+
+</div>
+
+{%endblock%}
