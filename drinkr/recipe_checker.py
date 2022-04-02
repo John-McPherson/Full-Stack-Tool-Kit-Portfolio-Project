@@ -46,11 +46,11 @@ def get_random_recipe(user):
     """
     pulls a random recipe from the users drinks section
     """
-    if len(Recipe.objects.filter(recipe_name=user.user_drinks)) > 1:
-        recipe = Recipe.objects.filter(recipe_name=user.user_drinks[get_random_index(len(user.user_drinks))])
-    else:
-        recipe = Recipe.objects.filter(recipe_name='No Recipes')
-    return recipe
+    if user.user_drinks:
+        return  Recipe.objects.filter(recipe_name=user.user_drinks[get_random_index(len(user.user_drinks))])
+    else: 
+        return Recipe.objects.filter(recipe_name='No Recipes')
+    
 
 def get_random_index(index):
     """
