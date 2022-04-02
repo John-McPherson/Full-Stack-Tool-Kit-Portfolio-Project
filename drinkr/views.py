@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import generic, View
 from .models import Ingredient, Recipe, UserData
 from .recipe_checker import check_ingredients, get_random_recipe
+from .forms import NewRecipeForm
 
 
 
@@ -80,9 +81,6 @@ class ModifierList(View):
         user.user_drinks = check_ingredients(user, "modifiers")
         user.save()
 
-        # get_random_recipe(user)
-
-
         return render(
             request,'recipe.html',
             {
@@ -101,3 +99,19 @@ class DisplayRecipe(generic.ListView):
     model = Recipe
     queryset = Recipe.objects.filter(approved=1)
     template_name = 'recipe.html'
+
+
+class SubmitRecipe(View):
+
+
+    def get(self,request):
+
+        return render(
+            request,'submit_recipe.html',
+            {
+                 'recipe_form' : NewRecipeForm(),
+            }
+            )
+
+
+    # post(self,request, *args, **kwargs):
