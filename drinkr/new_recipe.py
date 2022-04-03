@@ -1,6 +1,7 @@
 
 from .models import Ingredient, Recipe, UserData
 
+
 def recipe_steps(recipe):
     """
     Gets the steps from from and formats them into usable data
@@ -17,14 +18,17 @@ def ingredient_list(ingredients,measurement, volume):
     """
     Converts form data ingredient, measurement, and volume into usable data
     """
-    step_list = []
+    ing_list = []
     y = 0 
     for ingredient in ingredients:
         if ingredient:
-            line = f'{volume[y]} {measurement[y]} of {ingredient.title()}'
+            print(f'{volume[y]} {measurement[y]} of {ingredient.title()}')
+            ing_list.append(f'{volume[y]} {measurement[y]} of {ingredient.title()}')
             y+=1
-            step_list.append(line)
-    return step_list
+        else: 
+            print("not working")
+    print (ing_list)
+    return ing_list
 
 def modifer_or_ingredient_list(ingredients, type):
     """
@@ -35,13 +39,18 @@ def modifer_or_ingredient_list(ingredients, type):
     for ingredient in ingredients:
         if ingredient:
             if type == "modifier":
-                ing = Ingredient.objects.filter(ingredient_type=1).filter(ingredient_name=ingredient).values_list()
-            else: 
-                ing = Ingredient.objects.filter(ingredient_type=0).filter(ingredient_name=ingredient).values_list()
-            if ing:
-                ing_list.append(ingredient)
+                ing = Ingredient.objects.filter(ingredient_type=1).filter(ingredient_name=ingredient.title()).values_list()
+                if ing:
+                    ing_list.append(ingredient.title())    
+            elif type =="ingredient": 
+                ing = Ingredient.objects.filter(ingredient_type=0).filter(ingredient_name=ingredient.title()).values_list()
+                # ing_list.append(ingredient.title())
+                if ing:
+                    ing_list.append(ingredient.title())
             else:
-                new_ing_list.append(ingredient)
+                ing = Ingredient.objects.filter(ingredient_name=ingredient.title()).values_list()
+                if not ing:
+                    new_ing_list.append(ingredient.title())
     if type == 'new':
         return new_ing_list
     else: 
