@@ -43,7 +43,7 @@ function addLines(counter, type) {
         if (type === 'step') {
             html += ` <div class="row">
             <div class="col-1 offset-1">
-            <p>${i+1}.</p>
+            <p class='recipe-input input-p'>${i+1}.</p>
             </div>
             <div class="col-9">
             <input class='recipe-input' type="text" id="step-${i+1}" name="step" placeholder="Step">
@@ -52,24 +52,24 @@ function addLines(counter, type) {
             `
         } else if (type === 'ingredient') {
             html += `<div class="row">
-            <!-- volume required of ingredient -->
-            <div class="col-1 offset-1">
+            <div class="col-2 offset-1">
+            <label for="volume-${i+1}" class='d-none'></label>
                 <input class='recipe-input' type="number" name="volume" id="volume-${i+1}" placeholder="00">
             </div>
-            <!-- type of measurement -->
-            <div class="col-3">
+            <div class="col-2">
+            <label for="measurement-${i+1}" class='d-none'></label>
                 <select class='recipe-input' id="measurement-${i+1}" name="measurement">
-                    <option value="barspoons">barspoons</option>
                     <option value="ml">ml</option>
+                    <option value="barspoons">bsp</option>
                     <option value="dashes">dashes</option>
                     <option value="fl-oz">fl oz</option>
                 </select>
             </div>
-            <div class="col-1">
-                <p class='recipe-input'>of</p>
+            <div class="col-1 d-flex">
+                <p class='recipe-input input-p align-items-center'>of</p>
             </div>
-            <!-- name of ingredient -->
             <div class="col-5">
+            <label for="ingredient-name-${i}" class='d-none'></label>
                 <input class='recipe-input' type="text" id="ingredient-name-${i}" name="ingredient-1"
                     placeholder="ingredient">
             </div>

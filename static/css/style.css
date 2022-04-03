@@ -172,8 +172,49 @@ footer a :hover {
 }
 
 /* user submitted cocktails */
-.ingredient-input {
+.recipe-input {
     width: 100%;
+}
+
+.minus-plus {
+    color: var(--mixr-yellow);
+    background-color: var(--black);
+    width: 75px;
+    text-align: center;
+    padding: .25em .5em;
+    margin: 2em 0;
+    /* margin: 0 50px; */
+}
+
+select {
+    /* CSS for reseting style taken from https://moderncss.dev/custom-select-styles-with-pure-css/
+    A reset of styles, including removing the default dropdown arrow */
+    appearance: none;
+    /* Additional resets for further consistency */
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    width: 100%;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    /* custom styles  */
+    border-bottom: #FFC71F solid 3px;
+    text-align: center;
+    font-family: var(--heading-text);
+    font-weight: 800;
+    font-size: 1.25em;
+    height: 100%;
+}
+
+.input-p {
+    height: 100%;
+    padding-top: 20%;
+    font-family: var(--heading-text);
+    font-weight: 800;
+    font-size: 1.25em;
+    margin-bottom: 0 !important;
+    line-height: normal;
 }
 
 /* code to change default placeholder text taken from https://www.w3schools.com/howto/howto_css_placeholder.asp */
@@ -278,6 +319,7 @@ footer a :hover {
 
 /* headings  */
 
+
 .page-heading .logo {
     padding: 0;
 }
@@ -303,6 +345,7 @@ footer a :hover {
     font-family: var(--heading-text);
     font-weight: 800;
 
+
 }
 
 .bold-header {
@@ -313,7 +356,16 @@ footer a :hover {
 .decorative-line {
     border-bottom: 3px solid var(--mixr-yellow);
     padding-bottom: 0.5em;
-    margin-bottom: .1em;
+    margin-bottom: 2em;
+    margin-top: -.5em;
+}
+
+h2 {
+    font-family: var(--heading-text);
+    font-weight: 800;
+    color: var(--black);
+    font-size: 1.5em;
+    margin-top: 1em;
 }
 
 /* ingredient list */
