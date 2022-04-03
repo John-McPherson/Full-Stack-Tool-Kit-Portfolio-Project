@@ -11,64 +11,68 @@
         </div>
     </div>
 </div>
-<div class="contain account-management">
 
-
-    <div class="row">
-        <form method="post">
-            <div class="col-10 offset-1">
+<div class="container account-management">
+    <form method="post">
+        <div class="row justify-content-center">
+            <div class="col-10">
                 {% csrf_token %}
                 <!-- input for the drink name -->
-                <input type="text" name="drink-name" id="drink-name" class="account-management"
+                <input type="text" name="drink-name" id="drink-name" class="account-management recipe-input"
                     placeholder="Drink Name?" required>
                 <label for="drink-name">What do you want to call it? </label>
             </div>
-            <div class="row">
-                <!-- title for the ingredients section -->
-                <div class="col-10 offset-1">
-                    <h2>Ingredients</h2>
-                </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- title for the ingredients section -->
+            <div class="col-10 ">
+                <h2>Ingredients</h2>
+                <div class="decorative-line"></div>
             </div>
-            <div id="ingredients-section">
-                <!-- empty container filled with via js function -->
-            </div>
+        </div>
+        <div id="ingredients-section">
+            <!-- empty container filled with via js function -->
+        </div>
 
 
-            <!-- adds/ removes ingredient lines -->
-            <div class="row">
-                <div class="col-6 offset-2">
-                    <button class="account-management-btn mixr-button minus-plus" id="ing-minus">-</button>
-                    <button class="account-management-btn mixr-button minus-plus" id="ing-plus">+</button>
-                </div>
+        <!-- adds/ removes ingredient lines -->
+        <div class="row justify-content-center">
+            <div class="col-6 d-flex justify-content-around ">
+                <button class="account-management-btn  minus-plus" id="ing-minus">-</button>
+                <button class="account-management-btn minus-plus" id="ing-plus">+</button>
             </div>
-            <div class="row">
-                <!-- title for the Recipe Steps section -->
-                <div class="col-10 offset-1">
-                    <h2>Recipe Steps</h2>
-                </div>
+        </div>
+        <div class="row justify-content-center ">
+            <!-- title for the Recipe Steps section -->
+            <div class="col-10">
+                <h2>Recipe Steps</h2>
+                <div class="decorative-line"></div>
             </div>
-            <!-- Recipe step input -->
-            <div id="step-container">
-                <!-- empty container filled with via js function -->
+        </div>
+        <!-- Recipe step input -->
+        <div id="step-container">
+            <!-- empty container filled with via js function -->
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-6 d-flex justify-content-around ">
+                <button class="account-management-btn minus-plus" id="step-minus">-</button>
+                <button class="account-management-btn  minus-plus" id="step-plus">+</button>
             </div>
-            <div class="row">
-                <div class="col-6 offset-2">
-                    <button class="account-management-btn mixr-button minus-plus" id="step-minus">-</button>
-                    <button class="account-management-btn mixr-button minus-plus" id="step-plus">+</button>
-                </div>
-            </div>
-            <div class="col-4 offset-3">
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-10 d-flex justify-content-center">
                 <button class="account-management-btn mixr-button" type="submit">
                     Submit
                 </button>
             </div>
-        </form>
-
-    </div>
-    <!-- custom JavaScript to add/ remove lines from the ingredient and recipe step section -->
-    {% load static %}
-    <script src="{% static 'js/add_lines.js' %}"></script>
+        </div>
+    </form>
 
 </div>
+<!-- custom JavaScript to add/ remove lines from the ingredient and recipe step section -->
+{% load static %}
+<script src="{% static 'js/add_lines.js' %}"></script>
+
+
 
 {%endblock%}
