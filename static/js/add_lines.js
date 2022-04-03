@@ -43,7 +43,7 @@ function addLines(counter, type) {
         if (type === 'step') {
             html += ` <div class="row">
             <div class="col-1 offset-1">
-            <p class='recipe-input input-p'>${i+1}.</p>
+            <p class='recipe-input input-p align-items-center'>${i+1}.</p>
             </div>
             <div class="col-9">
             <input class='recipe-input' type="text" id="step-${i+1}" name="step" placeholder="Step">
@@ -70,7 +70,7 @@ function addLines(counter, type) {
             </div>
             <div class="col-5">
             <label for="ingredient-name-${i}" class='d-none'></label>
-                <input class='recipe-input' type="text" id="ingredient-name-${i}" name="ingredient-1"
+                <input class='recipe-input' type="text" id="ingredient-name-${i}" name="ingredient"
                     placeholder="ingredient">
             </div>
         </div>
