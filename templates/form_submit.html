@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if exists%}
+
+<h1>thank you for submitting {{ recipe_name }}</h1>
+<p>Unforunatley someone has beaten you too it</i></p>
+
+{% else%}
+
+<h1>thank you for submitting {{ recipe_name }}</h1>
+<p>Our Bartenders are currently checking to see if it is legit <i class="fa-solid fa-fire"></i></p>
+{% endif%}
+{%endblock%}
