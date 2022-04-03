@@ -36,7 +36,9 @@ class Recipe(models.Model):
     drink_type: str
     recipe_steps: list
     ingredients_list: list
+    ingredients: list
     modifiers: list
+    new_ingredients: list
     author: str
     approved: boolean
     """
@@ -47,6 +49,7 @@ class Recipe(models.Model):
     ingredients_list = models.TextField()
     modifiers = models.TextField()
     ingredients = models.TextField()
+    new_ingredients = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author")
     approved = models.IntegerField(choices=STATUS, default=0)
 
