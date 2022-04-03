@@ -171,7 +171,13 @@ footer a :hover {
     border-bottom: #FFC71F solid 3px;
 }
 
+
 /* user submitted cocktails */
+
+input[type=number] {
+    text-align: center;
+}
+
 .recipe-input {
     width: 100%;
 }
