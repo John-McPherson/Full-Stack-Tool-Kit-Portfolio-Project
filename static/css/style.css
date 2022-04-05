@@ -435,6 +435,15 @@ input:checked+label {
 
 }
 
+/* turns labels into clickable elements */
+.clickable {
+    cursor: pointer;
+}
+
+.clickable :hover {
+    color: var(--highlight);
+}
+
 /* smaller icon for recipe page  */
 
 .smaller-icon i {
