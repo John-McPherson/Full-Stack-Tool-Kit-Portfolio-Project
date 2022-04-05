@@ -69,16 +69,27 @@
         </div>
         <div class="row container-gap ">
             <div class="col-4 offset-1 icon-container icon-container-small">
-                <a href="#">
-                    <i class="fa-solid fa-circle-xmark"></i>
-                    <p>Not my thing</p>
-                </a>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" value="{{recipe.0.recipe_name}}" name="drink_name" class="d-none">
+                    <input type="submit" name="liked" value='dislike' id="dislike-button" class="d-none">
+                    <label for="dislike-button" class="clickable">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                        <p>Not my thing</p>
+                    </label>
+                </form>
             </div>
             <div class="col-4 offset-2 icon-container icon-container-small ">
-                <a href="#">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <p>Loved it</p>
-                </a>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" value="{{recipe.0.recipe_name}}" name="drink_name" class="d-none">
+                    <input type="submit" name="liked" value='like' id="like-button" class="d-none">
+                    <label for="like-button" class="clickable">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p>Loved it</p>
+                    </label>
+                </form>
+
             </div>
         </div>
     </div>
@@ -96,5 +107,12 @@
 
 
 </div>
+
+<script>
+    function submitButton() {
+        btn = document.getElementById('submit')
+        btn.click()
+    }
+</script>
 
 {%endblock%}
