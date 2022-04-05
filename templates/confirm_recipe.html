@@ -8,17 +8,17 @@
 <div class="container">
     <div class="row">
         <div class="col-10 offset-1 page-heading">
-            <h1>We think you'll love an... </h1>
+            <h1>We think you'll love an {{recipe.0.recipe_name}} </h1>
         </div>
     </div>
     <div class="row">
         <div class="col-10 offset-1 icon-container">
             <!-- if statment to check recipe type and loads correct fontawesome icon -->
-            {% if recipe_list.0.drink_type is 0 %}
+            {% if recipe.0.drink_type is 0 %}
             <i class="fa-solid fa-martini-glass"></i>
-            {% elif recipe_list.0.drink_type is 1 %}
+            {% elif recipe.0.drink_type is 1 %}
             <i class="fa-solid fa-whiskey-glass"></i>
-            {% elif recipe_list.0.drink_type is 2 %}
+            {% elif recipe.0.drink_type is 2 %}
             <i class="fa-solid fa-glass"></i>
             {% endif %}
             <h2 class="sub-heading"> {{recipe_list.0.recipe_name}}</h2>
@@ -34,8 +34,8 @@
             </a>
         </div>
         <div class="col-4 offset-2 icon-container icon-container-small">
-            <a href="{{'display_recipe'}}">
-                <i class="fa-solid fa-circle-check"></i>
+            <a href="{% url 'display_recipe' %}" id="test">
+                <i class=" fa-solid fa-circle-check"></i>
                 <p>Sounds good</p>
             </a>
         </div>
