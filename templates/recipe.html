@@ -59,13 +59,7 @@
         <div class="col-10 offset-1">
             <p class="recipe-text">
                 {{recipe.0.recipe_steps }}
-                <!-- <ul>
 
-                    {%for step in recipe.0.recipe_steps %}
-                    <li>{{step}}</li>
-
-                    {%endfor%}
-                </ul> -->
             </p>
         </div>
     </div>
@@ -91,7 +85,7 @@
     <div class="row">
 
         <div class="col-8 offset-2 icon-container icon-container-small smaller-icon">
-            <a href="#">
+            <a href="{% url 'modifier_list' %}">
                 <i class="fa-solid fa-martini-glass-empty"></i>
                 <p>Fancy a differnt drink?</p>
             </a>
