@@ -13,7 +13,31 @@
             {% for drink in favs%}
             <div class="row">
                 <div class="col-10  sub-heading page-heading remove-margin">
-                    <h2><span class="drink-icon-small"><i class="fa-solid fa-martini-glass"></i></span> {{drink}}</h2>
+
+
+                    {% if forloop.counter == 1 %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="text" value="{{drink}}" name="drink_name" class="d-none">
+                        <input type="submit" name="{{drink}}" value='{{drink}}' id="{{drink}}" class="d-none">
+                        <label for="{{drink}}" class="clickable">
+                            <h2><span class="drink-icon-small"><i class="fa-solid fa-martini-glass"></i></span>{{drink}}
+                            </h2>
+                        </label>
+                    </form>
+                    {%else%}
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="text" value="{{drink | slice:'1:'}}" name="drink_name" class="d-none">
+                        <input type="submit" name="{{drink}}" value='{{drink | slice:"1:"}}' id="{{drink | slice:'1:'}}"
+                            class="d-none">
+                        <label for="{{drink | slice:'1:'}}" class="clickable">
+                            <h2><span class="drink-icon-small"><i class="fa-solid fa-martini-glass"></i></span>{{drink}}
+                            </h2>
+                        </label>
+                    </form>
+                    {%endif%}
+
                 </div>
             </div>
 
