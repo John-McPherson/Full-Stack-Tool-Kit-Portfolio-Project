@@ -4,9 +4,16 @@ def likes(drink, likes):
     """
     checks to see if a drink exists in users likes
     """
-    likes = likes.replace('[','').replace("'","").replace(']','').split(", ")
+    # likes_list = likes.replace('[','').replace("'","").replace('['',','').replace(']','').split(",")
+    print(likes)
+    print(type(likes))
     if drink[0] in likes:
         return likes
     else:
-        likes.append(drink)
+        if likes == "[]":
+            likes = [drink]
+        else:
+            likes = likes.replace('[','').replace("'","").replace('['',','').replace(']','').split(",")
+            likes.append(drink)
         return likes
+
