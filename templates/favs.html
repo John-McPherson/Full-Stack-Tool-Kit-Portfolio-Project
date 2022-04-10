@@ -4,17 +4,15 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-10 offset-1 page-heading">
+        <div class="col-10 offset-1 page-heading remove-margin">
             <h1>Your favourite drinks</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-10 offset-1">
-            {% for drink in favs%}
             <div class="row">
-                <div class="col-10  sub-heading page-heading remove-margin">
-
-
+                {% for drink in favs%}
+                <div class="col-10 sub-heading col-md-5 page-heading remove-margin-total">
                     {% if forloop.counter == 1 %}
                     <form method="post">
                         {% csrf_token %}
@@ -39,10 +37,10 @@
                     {%endif%}
 
                 </div>
+                {% endfor%}
             </div>
 
 
-            {% endfor%}
         </div>
     </div>
 </div>

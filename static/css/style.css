@@ -405,6 +405,10 @@ input:checked+label {
     margin-top: 2vh;
 }
 
+.remove-margin-total {
+    margin-top: 0;
+}
+
 /* make drink btn  */
 
 .mixr-button {
@@ -444,6 +448,8 @@ input:checked+label {
     color: var(--highlight);
 }
 
+
+
 /* smaller icon for recipe page  */
 
 .smaller-icon i {
@@ -460,5 +466,8 @@ input:checked+label {
     font-size: .75em;
     color: var(--white);
     margin: 0 4%;
+}
 
+label {
+    display: block;
 }
