@@ -3,7 +3,7 @@ from django.views import generic, View
 from .models import Ingredient, Recipe, UserData
 from .recipe_checker import check_ingredients, get_random_recipe
 from .new_recipe import recipe_steps, ingredient_list, modifer_or_ingredient_list
-from . likes_dislikes import likes
+from . likes_dislikes import likes, likes_list
 
 current_recipe = None
 
@@ -119,8 +119,7 @@ class DisplayRecipe(View):
         if request.POST.getlist('liked')[0] == 'like': 
             user.user_favs = likes(request.POST.getlist('drink_name')[0], user.user_favs)
             user.save()
-            # print(request.POST.getlist('drink_name')[0])
-            # print("liked")
+
         else: 
             user.user_dislikes = likes(request.POST.getlist('drink_name')[0], user.user_dislikes)
             user.save()
@@ -130,18 +129,6 @@ class DisplayRecipe(View):
                  'recipe' : current_recipe
             }
             )
-
-        # model = Ingredient
-        # queryset = Ingredient.objects.filter(ingredient_type=0)
-        # ingredient_list = queryset
-        # user_ingredients = UserData.objects.filter(user_name=request.user).values_list('user_ingredients')
-
-        # updated_user_ingredients = request.POST.getlist('ingredient')
-
-        # user = UserData.objects.get(user_name=request.user)
-        # user.user_ingredients = updated_user_ingredients
-        # user.user_drinks = check_ingredients(user, 'base')
-        # user.save()
     
 
 
@@ -188,4 +175,15 @@ class SubmitRecipe(View):
             }  
             )
 
+
+class FavsList(View):
+
+    def get(self,request, *args, **kwargs):
+
+        favs = UserData.objects.get(user_name=request.user).user_favs
+        print(favs)
+        return render(
+            request, 'favs.html', {
+            'favs': likes_list(favs)
+        })
 

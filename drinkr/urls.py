@@ -9,4 +9,5 @@ urlpatterns = [
     path('confirm_recipe', views.ConfirmRecipe.as_view(), name='confirm_recipe'),
     path('display_recipe', views.DisplayRecipe.as_view(), name='display_recipe'),
     path('submit_recipe', views.SubmitRecipe.as_view(), name='submit_recipe'),
+    path('user_favs', views.FavsList.as_view(), name='user_favs'),
 ]
