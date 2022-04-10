@@ -17,3 +17,8 @@ def likes(drink, likes):
             likes.append(drink)
         return likes
 
+def likes_list(data):
+    """
+    turns the data into a python list/ usable data
+    """
+    return data.replace('[','').replace("'","").replace("]","").replace("'',", "").split(',')
