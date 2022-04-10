@@ -181,9 +181,24 @@ class FavsList(View):
     def get(self,request, *args, **kwargs):
 
         favs = UserData.objects.get(user_name=request.user).user_favs
-        print(favs)
         return render(
             request, 'favs.html', {
             'favs': likes_list(favs)
         })
 
+    def post(self,request, *args, **kwargs):
+        drink_name = request.POST.get('drink_name')
+        model = Recipe
+        print(drink_name)
+        print(Recipe.objects.filter(recipe_name=drink_name))
+
+
+        return render(
+            request,'recipe.html',
+            {
+                 'recipe' : Recipe.objects.filter(recipe_name=drink_name)
+            })
+
+
+
+# class DisplayFav(View):
