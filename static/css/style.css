@@ -450,3 +450,15 @@ input:checked+label {
     font-size: 4em;
     padding: 30px;
 }
+
+/* icons for user favs page */
+
+.drink-icon-small {
+    background-color: var(--mixr-yellow);
+    border-radius: 50%;
+    padding: .5em;
+    font-size: .75em;
+    color: var(--white);
+    margin: 0 4%;
+
+}
