@@ -3,7 +3,7 @@ from django.views import generic, View
 from .models import Ingredient, Recipe, UserData
 from .recipe_checker import check_ingredients, get_random_recipe
 from .new_recipe import recipe_steps, ingredient_list, modifer_or_ingredient_list
-from . likes_dislikes import likes, likes_list
+from . likes_dislikes import likes, likes_list, fav_drink_types
 
 current_recipe = None
 
@@ -181,9 +181,10 @@ class FavsList(View):
     def get(self,request, *args, **kwargs):
 
         favs = UserData.objects.get(user_name=request.user).user_favs
+        
         return render(
             request, 'favs.html', {
-            'favs': likes_list(favs)
+            'favs': fav_drink_types(favs)
         })
 
     def post(self,request, *args, **kwargs):
@@ -200,5 +201,3 @@ class FavsList(View):
             })
 
 
-
-# class DisplayFav(View):

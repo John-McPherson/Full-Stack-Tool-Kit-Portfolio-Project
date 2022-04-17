@@ -13,28 +13,24 @@
             <div class="row">
                 {% for drink in favs%}
                 <div class="col-10 sub-heading col-md-5 page-heading remove-margin-total">
-                    {% if forloop.counter == 1 %}
+
                     <form method="post">
                         {% csrf_token %}
-                        <input type="text" value="{{drink}}" name="drink_name" class="d-none">
-                        <input type="submit" name="{{drink}}" value='{{drink}}' id="{{drink}}" class="d-none">
-                        <label for="{{drink}}" class="clickable">
-                            <h2><span class="drink-icon-small"><i class="fa-solid fa-martini-glass"></i></span>{{drink}}
+                        <input type="text" value="{{drink.0}}" name="{{drink.0}}" class="d-none">
+                        <input type="submit" name="{{drink.0}}" value='{{drink.0}}' id="{{drink.0}}" class="d-none">
+                        <label for="{{drink.0}}" class="clickable">
+                            <h2><span class="drink-icon-small">
+                                    {% if drink.1 is 0 %}
+                                    <i class="fa-solid fa-martini-glass"></i></span> {{drink.0}}
+                                {% elif drink.1 is 1 %}
+                                <i class="fa-solid fa-whiskey-glass"></i></span> {{drink.0}}
+                                {% elif drink.1  is 2 %}
+                                <i class="fa-solid fa-glass"></i></span> {{drink.0}}
+                                {% endif %}
                             </h2>
                         </label>
                     </form>
-                    {%else%}
-                    <form method="post">
-                        {% csrf_token %}
-                        <input type="text" value="{{drink | slice:'1:'}}" name="drink_name" class="d-none">
-                        <input type="submit" name="{{drink}}" value='{{drink | slice:"1:"}}' id="{{drink | slice:'1:'}}"
-                            class="d-none">
-                        <label for="{{drink | slice:'1:'}}" class="clickable">
-                            <h2><span class="drink-icon-small"><i class="fa-solid fa-martini-glass"></i></span>{{drink}}
-                            </h2>
-                        </label>
-                    </form>
-                    {%endif%}
+
 
                 </div>
                 {% endfor%}
@@ -46,11 +42,11 @@
 </div>
 
 {%endblock%}
-<!-- 
-{% if recipe.0.drink_type is 0 %}
+
+{% if drink.0 is 0 %}
 <i class="fa-solid fa-martini-glass"></i>
-{% elif recipe.0.drink_type is 1 %}
+{% elif drink.0 is 1 %}
 <i class="fa-solid fa-whiskey-glass"></i>
-{% elif recipe.0.drink_type is 2 %}
+{% elif drink.0  is 2 %}
 <i class="fa-solid fa-glass"></i>
-{% endif %} -->
+{% endif %}
