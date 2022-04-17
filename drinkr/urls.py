@@ -11,5 +11,6 @@ urlpatterns = [
     path('submit_recipe', views.SubmitRecipe.as_view(), name='submit_recipe'),
     path('user_favs', views.FavsList.as_view(), name='user_favs'),
     path('account_details', views.AccountDetails.as_view(), name='account_details'),
+    path('awaiting_approval', views.ApproveRecipes.as_view(), name='awaiting_approval'),
     
 ]
