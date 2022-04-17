@@ -21,7 +21,16 @@ def likes_list(data):
     """
     turns the data into a python list/ usable data
     """
-    return data.replace('[','').replace("'","").replace("]","").replace("'',", "").split(',')
+    new_list = []
+    data = data.replace('[','').replace("'","").replace("]","").replace("'',", "").split(',')
+    loop_count = 0;
+    for item in data:
+        if loop_count != 0:
+            item = item[1:]
+        loop_count=+1
+        new_list.append(item)
+    return new_list
+        
 
 
 def fav_drink_types(favs):
@@ -31,11 +40,8 @@ def fav_drink_types(favs):
     drinks = []
     loop_count = 0; 
     for fav in likes_list(favs):
-        if loop_count != 0:
-            fav = fav[1:]
         recipe = Recipe.objects.filter(recipe_name=fav)
         drink = [recipe[0].recipe_name,recipe[0].drink_type]
-        print(drink)
         loop_count=+1
         drinks.append(drink) 
     return drinks
