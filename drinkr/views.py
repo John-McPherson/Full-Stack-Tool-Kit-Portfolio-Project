@@ -200,4 +200,14 @@ class FavsList(View):
                  'recipe' : Recipe.objects.filter(recipe_name=drink_name)
             })
 
+class AccountDetails(View):
+    def get(self,request, *args, **kwargs):
+        # userData = UserData.objects.get(user_name=request.user)
+        user = request.user
+        return render(
+            request,'account_details.html', {
+            # 'user_data': userData,
+            'user': user
+        })
+
 
