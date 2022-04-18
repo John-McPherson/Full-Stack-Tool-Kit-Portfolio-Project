@@ -213,13 +213,21 @@ class ApproveRecipes(View):
     def get(self,request, *args, **kwargs):
         model = Recipe
         queryset = Recipe.objects.filter(approved=0)
-        ingredients = likes_list(queryset[0].ingredients_list)
-        steps = likes_list(queryset[0].recipe_steps)
-        new_ingredients = likes_list(queryset[0].new_ingredients)
+        if queryset[0].recipe_name == "No Recipes":
+            try:
+                recipe = queryset[1]
+            except IndexError:
+                recipe = queryset[0]
+        else: 
+            recipe = queryset[0]
+        ingredients = likes_list(recipe.ingredients_list)
+        steps = likes_list(recipe.recipe_steps)
+        new_ingredients = likes_list(recipe.new_ingredients)
+       
 
         return render(
             request,'awaiting_approval.html', {
-            'recipe': queryset[0],
+            'recipe': recipe,
             'ingredients': ingredients,
             'new_ingredients': new_ingredients,
             'steps': steps
@@ -227,15 +235,15 @@ class ApproveRecipes(View):
 
     def post(self,request, *args, **kwargs):
         old_name = request.POST.get('old-name')
-        model = Recipe()
-        drink = Recipe.objects.filter(recipe_name=old_name)
-        drink[0].recipe_name = request.POST.get('drink-name')
+        drink = Recipe.objects.get(recipe_name=old_name)
+
+        drink.recipe_name = request.POST.get('drink-name')
         recipe_steps = request.POST.getlist('step')
-        drink[0].ingredients_list = request.POST.getlist('ingredient')
-        drink[0].approved = 1
+        drink.ingredients_list = request.POST.getlist('ingredient')
+        drink.approved = 1
         mod = []
         base = []
-        for x in likes_list(drink[0].new_ingredients):
+        for x in likes_list(drink.new_ingredients):
 
             ingredient = Ingredient()
             if request.POST.getlist(x)[0] == "base":
@@ -246,9 +254,10 @@ class ApproveRecipes(View):
                 ingredient.ingredient_type = 1
             ingredient.ingredient_name = x 
             ingredient.save()
-        drink[0].ingredients = likes_list(drink[0].ingredients) + base
-        drink[0].modifiers = likes_list(drink[0].modifiers) + mod
-        drink[0].save()
+        drink.ingredients = likes_list(drink.ingredients) + base
+        drink.modifiers = likes_list(drink.modifiers) + mod
+        drink.new_ingredients = []
+        drink.save()
 
 
         model = Recipe
