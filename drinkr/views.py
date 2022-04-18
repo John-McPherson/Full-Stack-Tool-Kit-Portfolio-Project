@@ -275,39 +275,41 @@ class ApproveRecipes(View):
     def post(self,request, *args, **kwargs):
         old_name = request.POST.get('old-name')
         drink = Recipe.objects.get(recipe_name=old_name)
+        if request.POST.get('sub') == 'reject':
+            drink.delete()
+        else: 
+            drink.recipe_name = request.POST.get('drink-name')
+            recipe_steps = request.POST.getlist('step')
+            drink.drink_type = request.POST.get('type')
+            drink.approved = 1
+    
+            if drink.new_ingredients != "[]":
+                drink.ingredients_list = request.POST.getlist('ingredient')
+                mod = []
+                base = []
+                for x in likes_list(drink.new_ingredients):
+                    ingredient = Ingredient()
+                    print(x)
+                    print(type(x))
+                    if request.POST.getlist(x) == "base":
+                        base.append(x)
+                        ingredient.ingredient_type = 0
+                    else:
+                        mod.append(x)
+                        ingredient.ingredient_type = 1
+                    ingredient.ingredient_name = x 
+                    ingredient.save()
+                drink.ingredients = likes_list(drink.ingredients) + base
+                drink.modifiers = likes_list(drink.modifiers) + mod
+                drink.new_ingredients = []
+            drink.save()
 
-        drink.recipe_name = request.POST.get('drink-name')
-        recipe_steps = request.POST.getlist('step')
-        drink.drink_type = request.POST.get('type')
-        drink.approved = 1
-   
-        if drink.new_ingredients != "[]":
-            drink.ingredients_list = request.POST.getlist('ingredient')
-            mod = []
-            base = []
-            for x in likes_list(drink.new_ingredients):
-                ingredient = Ingredient()
-                print(x)
-                print(type(x))
-                if request.POST.getlist(x) == "base":
-                    base.append(x)
-                    ingredient.ingredient_type = 0
-                else:
-                    mod.append(x)
-                    ingredient.ingredient_type = 1
-                ingredient.ingredient_name = x 
-                ingredient.save()
-            drink.ingredients = likes_list(drink.ingredients) + base
-            drink.modifiers = likes_list(drink.modifiers) + mod
-            drink.new_ingredients = []
-        drink.save()
 
-
-        model = Recipe
-        queryset = Recipe.objects.filter(approved=0)
-        ingredients = likes_list(queryset[0].ingredients_list)
-        recipe_steps = likes_list(queryset[0].recipe_steps)
-        new_ingredients = likes_list(queryset[0].new_ingredients)
+        # model = Recipe
+        # queryset = Recipe.objects.filter(approved=0)
+        # ingredients = likes_list(queryset[0].ingredients_list)
+        # recipe_steps = likes_list(queryset[0].recipe_steps)
+        # new_ingredients = likes_list(queryset[0].new_ingredients)
 
         return render(
             request,'account_details.html', {
