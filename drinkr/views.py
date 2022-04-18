@@ -151,7 +151,7 @@ class SubmitRecipe(View):
             recipe = Recipe()
             does_recipe_exist = False
 
-            ingredients = modifer_or_ingredient_list(request.POST.getlist('ingredient'), 'ingredient')
+            ingredients = request.POST.getlist('ingredient')
             measurement = request.POST.getlist('measurement')
             volume = request.POST.getlist('volume')
             title = request.POST.get('drink-name').title()
@@ -220,12 +220,49 @@ class ApproveRecipes(View):
                 recipe = queryset[0]
         else: 
             recipe = queryset[0]
+        new_ingredients = likes_list(recipe.new_ingredients)
+
         ingredients = likes_list(recipe.ingredients_list)
         steps = likes_list(recipe.recipe_steps)
-        new_ingredients = likes_list(recipe.new_ingredients)
+
+
         if new_ingredients[0] == "":
             new_ingredients = ['No New Ingredients']
-       
+        else: 
+            # updates recipe with exisiting ingredients
+            recipe_up = Recipe.objects.get(recipe_name= queryset[0].recipe_name)
+
+            mods = likes_list(recipe_up.modifiers)
+            ings = likes_list(recipe_up.ingredients)
+            if ings[0] == "":
+                recipe_up.ingredients = modifer_or_ingredient_list(likes_list(recipe_up.new_ingredients), "ingredient")
+            else:
+                recipe_up.ingredients = ings + modifer_or_ingredient_list(likes_list(recipe_up.new_ingredients), "ingredient")
+            if mods[0] == "":
+                recipe_up.modifiers = modifer_or_ingredient_list(likes_list(recipe_up.new_ingredients), "modifier")
+            else: 
+                recipe_up.modifiers = mods + modifer_or_ingredient_list(likes_list(recipe_up.new_ingredients), "modifier")  
+                
+
+   
+
+            
+
+            
+            # recipe_up.ingredients = ings + modifer_or_ingredient_list(likes_list(recipe_up.new_ingredients), "ingredient")
+            new_ingredients = modifer_or_ingredient_list(likes_list(recipe_up.new_ingredients),'new')
+            recipe_up.new_ingredients = new_ingredients
+
+    
+            recipe_up.save()
+            print("ings")
+            # new_ingredients =  Recipe.objects.filter(recipe_name= recipe_up.recipe_name)[0].new_ingredients
+            print(new_ingredients)
+            print(type(new_ingredients))
+
+            if recipe_up.new_ingredients == "[]":
+                new_ingredients = ['No New Ingredients']
+                
 
         return render(
             request,'awaiting_approval.html', {
@@ -250,7 +287,9 @@ class ApproveRecipes(View):
             base = []
             for x in likes_list(drink.new_ingredients):
                 ingredient = Ingredient()
-                if request.POST.getlist(x)[0] == "base":
+                print(x)
+                print(type(x))
+                if request.POST.getlist(x) == "base":
                     base.append(x)
                     ingredient.ingredient_type = 0
                 else:
@@ -271,9 +310,7 @@ class ApproveRecipes(View):
         new_ingredients = likes_list(queryset[0].new_ingredients)
 
         return render(
-            request,'awaiting_approval.html', {
-            'recipe': queryset[0],
-            'ingredients': ingredients,
-            'new_ingredients': new_ingredients,
-            'steps': recipe_steps
+            request,'account_details.html', {
+            # 'user_data': userData,
+            'user': request.user
         })
