@@ -223,6 +223,8 @@ class ApproveRecipes(View):
         ingredients = likes_list(recipe.ingredients_list)
         steps = likes_list(recipe.recipe_steps)
         new_ingredients = likes_list(recipe.new_ingredients)
+        if new_ingredients[0] == "":
+            new_ingredients = ['No New Ingredients']
        
 
         return render(
@@ -239,24 +241,26 @@ class ApproveRecipes(View):
 
         drink.recipe_name = request.POST.get('drink-name')
         recipe_steps = request.POST.getlist('step')
-        drink.ingredients_list = request.POST.getlist('ingredient')
+        drink.drink_type = request.POST.get('type')
         drink.approved = 1
-        mod = []
-        base = []
-        for x in likes_list(drink.new_ingredients):
-
-            ingredient = Ingredient()
-            if request.POST.getlist(x)[0] == "base":
-                base.append(x)
-                ingredient.ingredient_type = 0
-            else:
-                mod.append(x)
-                ingredient.ingredient_type = 1
-            ingredient.ingredient_name = x 
-            ingredient.save()
-        drink.ingredients = likes_list(drink.ingredients) + base
-        drink.modifiers = likes_list(drink.modifiers) + mod
-        drink.new_ingredients = []
+   
+        if drink.new_ingredients != "[]":
+            drink.ingredients_list = request.POST.getlist('ingredient')
+            mod = []
+            base = []
+            for x in likes_list(drink.new_ingredients):
+                ingredient = Ingredient()
+                if request.POST.getlist(x)[0] == "base":
+                    base.append(x)
+                    ingredient.ingredient_type = 0
+                else:
+                    mod.append(x)
+                    ingredient.ingredient_type = 1
+                ingredient.ingredient_name = x 
+                ingredient.save()
+            drink.ingredients = likes_list(drink.ingredients) + base
+            drink.modifiers = likes_list(drink.modifiers) + mod
+            drink.new_ingredients = []
         drink.save()
 
 
