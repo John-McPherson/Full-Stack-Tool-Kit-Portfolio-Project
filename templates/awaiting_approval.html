@@ -18,6 +18,26 @@
             <input type="text" name="drink-name" id="drink-name" class="account-management recipe-input"
                 value="{{recipe}}" required>
             <div class="col-10 ">
+                <h2>Drink Type</h2>
+                <div class="decorative-line"></div>
+            </div>
+            <div id="type-section">
+
+
+                <input type="radio" id="up" name="type" value="0" class="d-inline" required>
+                <label for="up" class="d-inline"></label>Up</label>
+
+                <input type="radio" id="rocks" name="type" value="1" class="d-inline">
+                <label for="rocks" class="d-inline"></label>On The Rocks</label>
+
+                <input type="radio" id="long" name="type" value="2" class="d-inline">
+                <label for="long" class="d-inline"></label>Long</label>
+
+
+
+
+            </div>
+            <div class="col-10 ">
                 <h2>Ingredients</h2>
                 <div class="decorative-line"></div>
             </div>
@@ -36,6 +56,9 @@
                 <input class='recipe-input' type="text" id="step-{{forloop.counter}}" name="step" value="{{step}}">
                 {%endfor%}
             </div>
+            {% if new_ingredients.0 == "No New Ingredients"%}
+            <!-- do nothing -->
+            {%else%}
             <div class="col-10 ">
                 <h2>Base/Modifier?</h2>
                 <div class="decorative-line"></div>
@@ -53,9 +76,11 @@
                 </div>
                 {%endfor%}
             </div>
+            {% endif %}
             <div class="row justify-content-center">
                 <div class="col-10 col-md-5 d-flex justify-content-center">
-                    <button class="account-management-btn mixr-button text-uppercase" type="submit" value="reject">
+                    <button class="account-management-btn mixr-button text-uppercase warning" type="submit"
+                        value="reject">
                         Reject
                     </button>
                 </div>
