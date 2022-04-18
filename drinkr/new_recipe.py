@@ -21,13 +21,11 @@ def ingredient_list(ingredients,measurement, volume):
     ing_list = []
     y = 0 
     for ingredient in ingredients:
-        if ingredient:
-            print(f'{volume[y]} {measurement[y]} of {ingredient.title()}')
+        if ingredient:     
             ing_list.append(f'{volume[y]} {measurement[y]} of {ingredient.title()}')
             y+=1
         else: 
             print("not working")
-    print (ing_list)
     return ing_list
 
 def modifer_or_ingredient_list(ingredients, type):
