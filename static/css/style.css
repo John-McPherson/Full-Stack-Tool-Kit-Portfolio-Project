@@ -9,6 +9,8 @@
     --highlight: #011936;
     /* black color for text */
     --black: #000000;
+    /* warning color */
+    --warning: #D3320D;
     /* heading text */
     --heading-text: 'forma-djr-deck', sans-serif;
     /* body text*/
@@ -470,4 +472,10 @@ input:checked+label {
 
 label {
     display: block;
+}
+
+/* warning buttons */
+
+.warning {
+    background-color: var(--warning);
 }
