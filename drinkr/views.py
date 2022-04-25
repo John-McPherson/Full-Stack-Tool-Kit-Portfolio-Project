@@ -286,17 +286,24 @@ class ApproveRecipes(View):
                 base = []
                 for x in likes_list(drink.new_ingredients):
                     ingredient = Ingredient()
-                    print(request.POST.getlist(x))
                     if request.POST.getlist(x)[0] == "base":
                         base.append(x)
                         ingredient.ingredient_type = 0
-                    else:
+                    elif request.POST.getlist(x)[0] == "modifier":
                         mod.append(x)
                         ingredient.ingredient_type = 1
+                    
                     ingredient.ingredient_name = x 
                     ingredient.save()
-                drink.ingredients = likes_list(drink.ingredients) + base
-                drink.modifiers = likes_list(drink.modifiers) + mod
+
+                if likes_list(drink.ingredients)[0] == '':
+                    drink.ingredients = base
+                else: 
+                    drink.ingredients = likes_list(drink.ingredients) + base
+                if likes_list(drink.modifiers)[0] == '':
+                    drink.modifiers = mod
+                else: 
+                    drink.modifiers = likes_list(drink.modifiers) + mod
                 drink.new_ingredients = []
             drink.save()
 
