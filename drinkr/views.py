@@ -255,11 +255,8 @@ class ApproveRecipes(View):
 
     
             recipe_up.save()
-            print("ings")
             # new_ingredients =  Recipe.objects.filter(recipe_name= recipe_up.recipe_name)[0].new_ingredients
-            print(new_ingredients)
-            print(type(new_ingredients))
-
+   
             if recipe_up.new_ingredients == "[]":
                 new_ingredients = ['No New Ingredients']
                 
@@ -289,9 +286,8 @@ class ApproveRecipes(View):
                 base = []
                 for x in likes_list(drink.new_ingredients):
                     ingredient = Ingredient()
-                    print(x)
-                    print(type(x))
-                    if request.POST.getlist(x) == "base":
+                    print(request.POST.getlist(x))
+                    if request.POST.getlist(x)[0] == "base":
                         base.append(x)
                         ingredient.ingredient_type = 0
                     else:
