@@ -2,95 +2,115 @@
 
 {% block content %}
 <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-7 page-heading">
+            <div class="row justify-content-center">
+                <div class="col-12 page-heading">
+                    <h1>{{recipe.0.recipe_name}}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12  icon-container">
+                    <!-- if statment to check recipe type and loads correct fontawesome icon -->
+                    {% if recipe.0.drink_type is 0 %}
+                    <i class="fa-solid fa-martini-glass"></i>
+                    {% elif recipe.0.drink_type is 1 %}
+                    <i class="fa-solid fa-whiskey-glass"></i>
+                    {% elif recipe.0.drink_type is 2 %}
+                    <i class="fa-solid fa-glass"></i>
+                    {% endif %}
+                </div>
+            </div>
 
-    <div class="row">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-4 ">
+                    <div class="row justify-content-center">
+                        <div class="col-10 sub-heading page-heading remove-margin decorative-line">
+                            <h2>Ingredients</h2>
+                        </div>
+                        <div class="col-10 ">
+                            {%for ingredient in ingredients%}
+                            <p class="recipe-text">
+                                {{ingredient}}
+                            </p>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 ">
+                    <div class="row justify-content-center">
 
-        <div class="col-10 offset-1 page-heading">
-            <h1>{{recipe.0.recipe_name}}</h1>
-        </div>
-        <div class="row">
-            <div class="col-10 offset-1 icon-container">
-                <!-- if statment to check recipe type and loads correct fontawesome icon -->
-                {% if recipe.0.drink_type is 0 %}
-                <i class="fa-solid fa-martini-glass"></i>
-                {% elif recipe.0.drink_type is 1 %}
-                <i class="fa-solid fa-whiskey-glass"></i>
-                {% elif recipe.0.drink_type is 2 %}
-                <i class="fa-solid fa-glass"></i>
-                {% endif %}
+                        <div class="col-10 sub-heading page-heading remove-margin decorative-line">
+                            <h2>How to make</h2>
+                        </div>
+                        <div class="col-10">
+                            {%for step in steps%}
+                            <p class="recipe-text">
+                                {{step}}
+
+                            </p>
+                            {%endfor%}
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-10 offset-1 sub-heading page-heading remove-margin decorative-line">
-            <h2>Ingredients</h2>
-        </div>
-        <div class="col-10 offset-1">
-            {%for ingredient in ingredients%}
-            <p class="recipe-text">
-                {{ingredient}}
-            </p>
-            {%endfor%}
 
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-10 offset-1 sub-heading page-heading remove-margin decorative-line">
-            <h2>How to make</h2>
-        </div>
-        <div class="col-10 offset-1">
-            {%for step in steps%}
-            <p class="recipe-text">
-                {{step}}
+        <div class="col-10 col-md-5 ">
 
-            </p>
-            {%endfor%}
+            <div class="row sticky-md-top justify-content-center">
+                <div class="col-10  p-2 d-none d-md-inline">
+                    <div class="spacer"></div>
+                    <div class="spacer"></div>
 
-        </div>
-    </div>
-    <div class="row ">
-        <div class="col-10 offset-1 sub-heading page-heading remove-margin">
-            <h2 class="bold-header decorative-line">How'd you like it?</h2>
-        </div>
-        <div class="row container-gap ">
-            <div class="col-4 offset-1 icon-container icon-container-small">
-                <form method="post">
-                    {% csrf_token %}
-                    <input type="text" value="{{recipe.0.recipe_name}}" name="drink_name" class="d-none">
-                    <input type="submit" name="liked" value='dislike' id="dislike-button" class="d-none">
-                    <label for="dislike-button" class="clickable">
-                        <i class="fa-solid fa-circle-xmark"></i>
-                        <p>Not my thing</p>
-                    </label>
-                </form>
+                </div>
+                <div class="col-10 sub-heading  remove-margin-all">
+                    <h2 class="bold-header decorative-line">How'd you like it?</h2>
+                </div>
+                <div class="row">
+                    <div class="col-4 col-md-6 icon-container icon-container-small">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="text" value="{{recipe.0.recipe_name}}" name="drink_name" class="d-none">
+                            <input type="submit" name="liked" value='dislike' id="dislike-button" class="d-none">
+                            <label for="dislike-button" class="clickable">
+                                <i class="fa-solid fa-circle-xmark"></i>
+                                <p>Not my thing</p>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="col-4 col-md-6  icon-container icon-container-small ">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="text" value="{{recipe.0.recipe_name}}" name="drink_name" class="d-none">
+                            <input type="submit" name="liked" value='like' id="like-button" class="d-none">
+                            <label for="like-button" class="clickable">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <p>Loved it</p>
+                            </label>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="col-8 col-md-12 icon-container icon-container-small smaller-icon">
+                    <div class="spacer"></div>
+                    <a href="{% url 'modifier_list' %}">
+                        <i class="fa-solid fa-martini-glass-empty"></i>
+                        <p>Fancy a differnt drink?</p>
+                    </a>
+                </div>
             </div>
-            <div class="col-4 offset-2 icon-container icon-container-small ">
-                <form method="post">
-                    {% csrf_token %}
-                    <input type="text" value="{{recipe.0.recipe_name}}" name="drink_name" class="d-none">
-                    <input type="submit" name="liked" value='like' id="like-button" class="d-none">
-                    <label for="like-button" class="clickable">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <p>Loved it</p>
-                    </label>
-                </form>
 
-            </div>
-        </div>
-    </div>
-    <div class="row">
 
-        <div class="col-8 offset-2 icon-container icon-container-small smaller-icon">
-            <a href="{% url 'modifier_list' %}">
-                <i class="fa-solid fa-martini-glass-empty"></i>
-                <p>Fancy a differnt drink?</p>
-            </a>
+
         </div>
+
     </div>
 
 </div>
-
 
 </div>
 
