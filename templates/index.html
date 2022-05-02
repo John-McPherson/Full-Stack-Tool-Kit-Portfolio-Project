@@ -1,6 +1,15 @@
 <!-- checks to see if the user is authenticated and loads the correct template -->
 {% if user.is_authenticated %}
+
+
+{% if UserDataExists%}
+{% if canUserDrink%}
 {% include "base.html" %}
+{% else %}
+{% include "landing_page.html" %}
+
+{% endif%}
+{% endif%}
 {% else %}
 {% include "login_landing_page.html" %}
 {% endif%}
@@ -11,6 +20,24 @@
 <!-- checks to see if the user has any ingredients -->
 
 {% if UserDataExists%}
+{% if not canUserDrink%}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 page-heading col-md-6 text-center">
+            <i class="fas fa-id-card id"></i>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-10  page-heading col-md-6">
+            <h1>Can we see some ID?</h1>
+
+            <p>I’m sorry but it looks like you’re not old enough to drink. Please come back when you turn
+                18.</p>
+        </div>
+    </div>
+
+</div>
+{% else%}
 <div class="container">
     <div class="row">
         <div class="col-10 offset-1 page-heading">
@@ -44,6 +71,7 @@
     </div>
 
 </div>
+{%endif%}
 {%else%}
 <div class="container">
     <div class="row">

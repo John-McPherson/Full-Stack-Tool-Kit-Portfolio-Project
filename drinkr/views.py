@@ -4,27 +4,31 @@ from .models import Ingredient, Recipe, UserData
 from .recipe_checker import check_ingredients, get_random_recipe
 from .new_recipe import recipe_steps, ingredient_list, modifer_or_ingredient_list
 from . likes_dislikes import likes, likes_list, fav_drink_types
+from . dob_check import dob_check
 import datetime
 current_recipe = None
 
 
 class home_page(View):
     def get(self,request):
-        UserDataExists = False
+        user_data_exists = False
+        user_old_enough = False
         if request.user.is_authenticated:
             if UserData.objects.filter(user_name=request.user).exists():
-                UserDataExists = True
-                # dob = UserData.objects.filter(user_name=request.user)
-                # dob = dob[0].user_dob
-            else:
-                UserDataExists = False
+                user_data_exists = True
+                
+                dob = UserData.objects.filter(user_name=request.user)
+                user_old_enough = (dob_check(dob[0].user_dob))
+
 
         return render(
             request,'index.html',
             {
-                'UserDataExists' : UserDataExists
+                'UserDataExists' : user_data_exists,
+                'canUserDrink': user_old_enough
             }
             )
+    
     def post(self,request, *args, **kwargs):
         data = UserData()
         data.user_name = request.user
@@ -34,11 +38,13 @@ class home_page(View):
         data.user_favs =  "[]"
         data.user_drinks =  "[]"
         data.user_ingredients =  "[]"
+        user_old_enough = dob_check(data.user_dob)
         data.save()
         return render(
             request,'index.html',
             {
-                'UserDataExists' : True
+                'UserDataExists' : True,
+                'canUserDrink': user_old_enough
             }
             )
 
