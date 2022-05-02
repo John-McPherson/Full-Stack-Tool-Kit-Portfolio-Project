@@ -1,10 +1,13 @@
-{% extends "base.html" %}
+{% if canUserDrink%}
+{% include "base.html" %}
+{% else %}
+{% include "landing_page.html" %}
 
+{%endif%}
 {% block content %}
 
-<div class="row">
-
-    <div class="col-10 offset-1 page-heading">
+<div class="row justify-content-center">
+    <div class="col-10 page-heading col-md-6">
         <h1>Your Profile</h1>
     </div>
 </div>

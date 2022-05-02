@@ -174,13 +174,14 @@ footer a :hover {
 }
 
 
+
 /* user submitted cocktails */
 
 input[type=number] {
     text-align: center;
 }
 
-.recipe-input {
+.input-wide {
     width: 100%;
 }
 
@@ -333,8 +334,8 @@ select {
 }
 
 .page-heading {
-    margin-top: 8vh;
-    margin-bottom: 5vh;
+    margin-top: 4vh;
+    margin-bottom: 3vh;
 }
 
 .page-heading h1 {

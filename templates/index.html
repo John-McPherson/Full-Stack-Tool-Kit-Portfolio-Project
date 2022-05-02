@@ -1,18 +1,19 @@
 <!-- checks to see if the user is authenticated and loads the correct template -->
 {% if user.is_authenticated %}
-
-
-{% if UserDataExists%}
 {% if canUserDrink%}
 {% include "base.html" %}
 {% else %}
 {% include "landing_page.html" %}
-
-{% endif%}
 {% endif%}
 {% else %}
 {% include "login_landing_page.html" %}
-{% endif%}
+{%endif%}
+
+
+
+
+
+
 {% block content %}
 {% if user.is_authenticated %}
 <!-- if the user is logged loads main content-->
@@ -73,22 +74,26 @@
 {%endif%}
 {%else%}
 <div class="container">
-    <div class="row">
-        <div class="col-10 offset-1 page-heading">
-            <i class="fas fa-id-card"></i>
-            <h1>Hold on, one last thing...</h1>
-            <h2>Can we see some ID?</h2>
+    <div class="row justify-content-center">
+        <div class="col-11 page-heading col-md-6 text-center">
+            <i class="fas fa-id-card id"></i>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-11 page-heading col-md-6 remove-margin-total">
+                <h1>Hold on, one last thing...</h1>
+                <p>Can we see some ID?</p>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-10 offset-1 page-heading">
+    <div class="row justify-content-center">
+        <div class="col-10  col-md-6 text-center account-management">
             <form method="post">
                 <div>
                     {% csrf_token %}
-                    <label for="dob">Birthday:</label>
-                    <input type="date" id="dob" name="dob">
+                    <input type="date" id="dob" name="dob" class="input-wide">
+                    <label for="dob">Please enter your date of birth:</label>
                 </div>
-                <div>
+                <div class="text-center">
                     <button class="account-management-btn mixr-button" type="submit">
                         Submit
                     </button>
