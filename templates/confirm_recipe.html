@@ -18,7 +18,7 @@
             </div>
             <div class="spacer"></div>
             <div class="row justify-content-center">
-                <div class="col-10 col-md-12 offset-1 icon-container">
+                <div class="col-10 col-md-12 icon-container">
                     <!-- if statment to check recipe type and loads correct fontawesome icon -->
                     {% if recipe.0.drink_type is 0 %}
                     <i class="fa-solid fa-martini-glass"></i>
@@ -29,6 +29,7 @@
                     {% endif %}
                     <h2 class="sub-heading"> {{recipe.0.recipe_name}} </h2>
                 </div>
+                <div class="spacer"></div>
             </div>
         </div>
 
@@ -41,14 +42,14 @@
                         <p>Sounds <br>good</p>
                     </a>
                 </div>
+                <div class="col-2 d-md-none icon-container icon-container-small">
+
+                </div>
                 <div class="col-4 col-md-5 icon-container icon-container-small">
                     <a href="#">
                         <i class="fa-solid fa-circle-xmark"></i>
                         <p>I’m not <br>sure…</p>
                     </a>
-                </div>
-                <div class="col-2 d-md-none icon-container icon-container-small">
-
                 </div>
             </div>
         </div>
