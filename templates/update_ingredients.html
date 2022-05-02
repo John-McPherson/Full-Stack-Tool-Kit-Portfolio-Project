@@ -2,39 +2,42 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
-
-
-        <div class="col-10 offset-1 page-heading remove-margin">
+    <div class="row justify-content-center">
+        <div class="col-10  page-heading col-md-7 page-heading">
             <h1>What’s in your cupboards?</h1>
             <p>Let’s put those dusty old bottles to use. Select all bottles you have below…</p>
         </div>
     </div>
 
-    <div class="row">
-
-        <div class="col-12 justify-content-around">
+    <div class="row justify-content-center">
+        <div class="col-11   col-md-11 remove-margin-total">
             <form method="post">
                 {% csrf_token %}
+                <div class="row justify-content-center">
+                    <div class="col-12  page-heading col-md-10 remove-margin-total">
 
-                {% for ingredient in ingredient_list %}
-                <!-- checks to see if the user already has the ingredient in their database -->
-                {% if ingredient.ingredient_name in user_ingredients.0.0 %}
-                <input class="d-none" type="checkbox" id="{{ingredient.ingredient_name| lower | cut:' '}}" checked
-                    name="ingredient" value="{{ingredient.ingredient_name}}">
-                {%else%}
-                <input class="d-none" type="checkbox" id="{{ingredient.ingredient_name| lower | cut:' '}}"
-                    name="ingredient" value="{{ingredient.ingredient_name}}">
-                {%endif%}
-                <label class="ingredient"
-                    for="{{ingredient.ingredient_name| lower | cut:' '}}">{{ingredient.ingredient_name}}</label>
-                {% endfor %}
-                <!-- submit button -->
-                <div class="col-4 offset-3">
+                        {% for ingredient in ingredient_list %}
+                        <!-- checks to see if the user already has the ingredient in their database -->
+                        {% if ingredient.ingredient_name in user_ingredients.0.0 %}
+                        <input class="d-none" type="checkbox" id="{{ingredient.ingredient_name| lower | cut:' '}}"
+                            checked name="ingredient" value="{{ingredient.ingredient_name}}">
+                        {%else%}
+                        <input class="d-none" type="checkbox" id="{{ingredient.ingredient_name| lower | cut:' '}}"
+                            name="ingredient" value="{{ingredient.ingredient_name}}">
+                        {%endif%}
+                        <label class="ingredient"
+                            for="{{ingredient.ingredient_name| lower | cut:' '}}">{{ingredient.ingredient_name}}</label>
+                        {% endfor %}
+                        <!-- submit button -->
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
 
-                    <button class="account-management-btn mixr-button" type="submit">
-                        UPDATE
-                    </button>
+                        <button class="account-management-btn mixr-button" type="submit">
+                            UPDATE
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
