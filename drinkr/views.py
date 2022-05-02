@@ -143,12 +143,18 @@ class ConfirmRecipe(View):
 class DisplayRecipe(View):
 
     def get(self,request):
+        steps = current_recipe[0].recipe_steps
+        ingredients = current_recipe[0].ingredients_list
+  
+        
     
 
         return render(
             request,'recipe.html',
             {
-                 'recipe' : current_recipe
+                 'recipe' : current_recipe,
+                 'steps' : likes_list(steps),
+                 'ingredients': likes_list(ingredients)
             }
             )
     
