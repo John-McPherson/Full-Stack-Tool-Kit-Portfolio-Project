@@ -311,7 +311,11 @@ select {
 .icon-container {
     text-align: center;
     height: auto;
+}
+
+.stacked-icons {
     padding-bottom: 2.5em;
+
 }
 
 .icon-container a :hover {
