@@ -6,38 +6,51 @@
 
 
 <div class="container">
+    <div class="spacer"></div>
     <div class="row">
-        <div class="col-10 offset-1 page-heading">
-            <h1>We think you'll love an {{recipe.0.recipe_name}} </h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-10 offset-1 icon-container">
-            <!-- if statment to check recipe type and loads correct fontawesome icon -->
-            {% if recipe.0.drink_type is 0 %}
-            <i class="fa-solid fa-martini-glass"></i>
-            {% elif recipe.0.drink_type is 1 %}
-            <i class="fa-solid fa-whiskey-glass"></i>
-            {% elif recipe.0.drink_type is 2 %}
-            <i class="fa-solid fa-glass"></i>
-            {% endif %}
-            <h2 class="sub-heading"> {{recipe_list.0.recipe_name}}</h2>
-        </div>
-    </div>
+        <div class="col-12 col-md-8">
 
 
-    <div class="row">
-        <div class="col-4 offset-1 icon-container icon-container-small">
-            <a href="#">
-                <i class="fa-solid fa-circle-xmark"></i>
-                <p>I’m not sure…</p>
-            </a>
+            <div class="row justify-content-center">
+                <div class="col-10 col-md-7 page-heading text-center">
+                    <h1>We think you'll love an </h1>
+                </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="row justify-content-center">
+                <div class="col-10 col-md-12 offset-1 icon-container">
+                    <!-- if statment to check recipe type and loads correct fontawesome icon -->
+                    {% if recipe.0.drink_type is 0 %}
+                    <i class="fa-solid fa-martini-glass"></i>
+                    {% elif recipe.0.drink_type is 1 %}
+                    <i class="fa-solid fa-whiskey-glass"></i>
+                    {% elif recipe.0.drink_type is 2 %}
+                    <i class="fa-solid fa-glass"></i>
+                    {% endif %}
+                    <h2 class="sub-heading"> {{recipe.0.recipe_name}} </h2>
+                </div>
+            </div>
         </div>
-        <div class="col-4 offset-2 icon-container icon-container-small">
-            <a href="{% url 'display_recipe' %}" id="test">
-                <i class=" fa-solid fa-circle-check"></i>
-                <p>Sounds good</p>
-            </a>
+
+
+        <div class="col-12 col-md-4">
+            <div class="row justify-content-center justify-content-md-between align-items-md-end h-100">
+                <div class="col-4 col-md-5 icon-container icon-container-small">
+                    <a href="{% url 'display_recipe' %}" id="test">
+                        <i class=" fa-solid fa-circle-check"></i>
+                        <p>Sounds <br>good</p>
+                    </a>
+                </div>
+                <div class="col-4 col-md-5 icon-container icon-container-small">
+                    <a href="#">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                        <p>I’m not <br>sure…</p>
+                    </a>
+                </div>
+                <div class="col-2 d-md-none icon-container icon-container-small">
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
