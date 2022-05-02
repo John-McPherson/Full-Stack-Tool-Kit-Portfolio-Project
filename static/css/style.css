@@ -479,3 +479,10 @@ label {
 .warning {
     background-color: var(--warning);
 }
+
+/* id section */
+
+.id {
+    font-size: 1000%;
+    color: #FFC71F;
+}
