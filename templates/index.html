@@ -46,27 +46,27 @@
         </div>
     </div>
     <div class="row justify-content-around">
-        <div class=" col-6 icon-container ">
+        <div class=" col-6 col-md-4 icon-container ">
             <a href="{% url 'modifier_list' %}">
                 <i class="fa-solid fa-martini-glass-empty"></i>
             </a>
             <p>Drink?</p>
         </div>
-        <div class="col-6">
-            <div class="icon-container">
-                <a href="{% url 'ingredient_list' %}">
-                    <i class="fa-solid fa-wine-bottle"></i>
-                </a>
-                <p>Ingredients</p>
-            </div>
+
+        <div class="col-6 col-md-4 icon-container ">
+            <a href="{% url 'ingredient_list' %}">
+                <i class="fa-solid fa-wine-bottle"></i>
+            </a>
+            <p>Ingredients</p>
         </div>
-        <div class="col-6">
-            <div class="icon-container">
-                <a href="{% url 'submit_recipe' %}">
-                    <i class="fa-solid fa-file-circle-plus"></i>
-                </a>
-                <p>Recipes</p>
-            </div>
+
+        <div class=" col-6 col-md-4 icon-container ">
+
+            <a href="{% url 'submit_recipe' %}">
+                <i class="fa-solid fa-file-circle-plus"></i>
+            </a>
+            <p>Recipes</p>
+
         </div>
     </div>
 

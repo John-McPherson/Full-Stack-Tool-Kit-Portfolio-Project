@@ -39,7 +39,7 @@ a {
 /* adds space so that the footer doesn't overlap with content at bottom of page */
 
 .spacer {
-    height: 10vh;
+    height: 4vh;
 }
 
 /* NavBar styles */
