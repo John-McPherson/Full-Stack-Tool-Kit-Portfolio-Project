@@ -10,7 +10,7 @@
 
 <!-- checks to see if the user has any ingredients -->
 
-
+{% if UserDataExists%}
 <div class="container">
     <div class="row">
         <div class="col-10 offset-1 page-heading">
@@ -44,6 +44,36 @@
     </div>
 
 </div>
+{%else%}
+<div class="container">
+    <div class="row">
+        <div class="col-10 offset-1 page-heading">
+            <i class="fas fa-id-card"></i>
+            <h1>Hold on, one last thing...</h1>
+            <h2>Can we see some ID?</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1 page-heading">
+            <form method="post">
+                <div>
+                    {% csrf_token %}
+                    <label for="dob">Birthday:</label>
+                    <input type="date" id="dob" name="dob">
+                </div>
+                <div>
+                    <button class="account-management-btn mixr-button" type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+{% endif %}
 
 
 {% else %}

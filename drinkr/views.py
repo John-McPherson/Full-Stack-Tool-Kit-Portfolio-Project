@@ -4,11 +4,44 @@ from .models import Ingredient, Recipe, UserData
 from .recipe_checker import check_ingredients, get_random_recipe
 from .new_recipe import recipe_steps, ingredient_list, modifer_or_ingredient_list
 from . likes_dislikes import likes, likes_list, fav_drink_types
-import numpy as np
+import datetime
 current_recipe = None
 
-def home_page(request):
-    return render(request, '../templates/index.html')
+
+class home_page(View):
+    def get(self,request):
+        UserDataExists = False
+        if request.user.is_authenticated:
+            if UserData.objects.filter(user_name=request.user).exists():
+                UserDataExists = True
+                # dob = UserData.objects.filter(user_name=request.user)
+                # dob = dob[0].user_dob
+            else:
+                UserDataExists = False
+
+        return render(
+            request,'index.html',
+            {
+                'UserDataExists' : UserDataExists
+            }
+            )
+    def post(self,request, *args, **kwargs):
+        data = UserData()
+        data.user_name = request.user
+        data.user_modifers = "[]"
+        data.user_dob = request.POST.getlist('dob')[0]
+        data.user_dislikes =  "[]"
+        data.user_favs =  "[]"
+        data.user_drinks =  "[]"
+        data.user_ingredients =  "[]"
+        data.save()
+        return render(
+            request,'index.html',
+            {
+                'UserDataExists' : True
+            }
+            )
+
 
 
 class IngredientList(View):
