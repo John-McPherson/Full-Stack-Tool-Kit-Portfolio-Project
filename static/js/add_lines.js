@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     addLines(stepCounter, 'step')
     addLines(ingredientCounter, 'ingredient')
 })
-let ingredientCounter = 3;
-let stepCounter = 3;
+let ingredientCounter = 5;
+let stepCounter = 5;
 
 function incrementSteps(event) {
     event.preventDefault();
@@ -43,10 +43,10 @@ function addLines(counter, type) {
         if (type === 'step') {
             html += ` <div class="row">
             <div class="col-1 offset-1">
-            <p class='recipe-input input-p align-items-center'>${i+1}.</p>
+            <p class='input-wide  input-p align-items-center'>${i+1}.</p>
             </div>
             <div class="col-9">
-            <input class='recipe-input' type="text" id="step-${i+1}" name="step" placeholder="Step">
+            <input class='input-wide ' type="text" id="step-${i+1}" name="step" placeholder="Step">
             </div>
             </div>
             `
@@ -54,11 +54,11 @@ function addLines(counter, type) {
             html += `<div class="row">
             <div class="col-2 offset-1">
             <label for="volume-${i+1}" class='d-none'></label>
-                <input class='recipe-input' type="number" name="volume" id="volume-${i+1}" placeholder="00">
+                <input class='input-wide ' type="number" name="volume" id="volume-${i+1}" placeholder="00">
             </div>
             <div class="col-2">
             <label for="measurement-${i+1}" class='d-none'></label>
-                <select class='recipe-input' id="measurement-${i+1}" name="measurement">
+                <select class='input-wide ' id="measurement-${i+1}" name="measurement">
                     <option value="ml">ml</option>
                     <option value="barspoons">bsp</option>
                     <option value="dashes">dashes</option>
@@ -66,11 +66,11 @@ function addLines(counter, type) {
                 </select>
             </div>
             <div class="col-1 d-flex">
-                <p class='recipe-input input-p align-items-center'>of</p>
+                <p class='input-wide input-p align-items-center'>of</p>
             </div>
             <div class="col-5">
             <label for="ingredient-name-${i}" class='d-none'></label>
-                <input class='recipe-input' type="text" id="ingredient-name-${i}" name="ingredient"
+                <input class='input-wide' type="text" id="ingredient-name-${i}" name="ingredient"
                     placeholder="ingredient">
             </div>
         </div>
