@@ -6,33 +6,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('drinkr', '0003_alter_userdata_user_dob'),
+        ("drinkr", "0003_alter_userdata_user_dob"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='userdata',
-            name='user_dislikes',
+            model_name="userdata",
+            name="user_dislikes",
             field=models.TextField(null=True),
         ),
         migrations.AlterField(
-            model_name='userdata',
-            name='user_drinks',
+            model_name="userdata",
+            name="user_drinks",
             field=models.TextField(null=True),
         ),
         migrations.AlterField(
-            model_name='userdata',
-            name='user_favs',
+            model_name="userdata",
+            name="user_favs",
             field=models.TextField(null=True),
         ),
         migrations.AlterField(
-            model_name='userdata',
-            name='user_ingredients',
+            model_name="userdata",
+            name="user_ingredients",
             field=models.TextField(null=True),
         ),
         migrations.AlterField(
-            model_name='userdata',
-            name='user_modifers',
+            model_name="userdata",
+            name="user_modifers",
             field=models.TextField(null=True),
         ),
     ]

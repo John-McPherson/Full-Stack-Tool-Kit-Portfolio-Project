@@ -8,21 +8,21 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('drinkr', '0001_initial'),
+        ("drinkr", "0001_initial"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='Ingredients',
-            new_name='Ingredient',
+            old_name="Ingredients",
+            new_name="Ingredient",
         ),
         migrations.RenameModel(
-            old_name='Recipes',
-            new_name='Recipe',
+            old_name="Recipes",
+            new_name="Recipe",
         ),
         migrations.AddField(
-            model_name='userdata',
-            name='user_dob',
+            model_name="userdata",
+            name="user_dob",
             field=models.DateTimeField(auto_now=True),
         ),
     ]

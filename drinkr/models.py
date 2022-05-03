@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Choices for integerFields in classes. 
+# Choices for integerFields in classes.
 STATUS = ((0, "Awaiting Approval"), (1, "Approved"))
 INGREDIENT_TYPES = ((0, "Base"), (1, "Modifier"))
 DRINK_TYPES = ((0, "Up"), (1, "On The Rocks"), (2, "Long"))
@@ -50,7 +50,9 @@ class Recipe(models.Model):
     modifiers = models.TextField()
     ingredients = models.TextField()
     new_ingredients = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="author"
+    )
     approved = models.IntegerField(choices=STATUS, default=0)
 
     def __str__(self):
