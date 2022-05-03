@@ -1,86 +1,47 @@
 // adds extra recipe step and ingredient lines to the submit recipe form 
 
 document.addEventListener('DOMContentLoaded', function () {
-
     buttons = document.getElementsByClassName('minus-plus');
     for (button of buttons) {
-        button.addEventListener('click', incrementSteps)
+        button.addEventListener('click', incrementCounter)
     }
-    addLines(stepCounter, 'step')
-    addLines(ingredientCounter, 'ingredient')
 })
 let ingredientCounter = 5;
 let stepCounter = 5;
+let stepPlus = false;
+let ingredientPlus = false;
 
-function incrementSteps(event) {
-    event.preventDefault();
-    ingredientSection = document.getElementById('ingredients-section');
-    if (this.id === 'ing-plus') {
-        ingredientCounter++
-        addLines(ingredientCounter, 'ingredient')
-    } else if (this.id === 'ing-minus') {
-        if (ingredientCounter !== 1) {
-            ingredientCounter--
-            addLines(ingredientCounter, 'ingredient')
-        }
 
-    } else if (this.id === 'step-plus') {
-        stepCounter++
-        addLines(stepCounter, 'step')
-
-    } else if (this.id === 'step-minus') {
-        if (stepCounter !== 1) {
-            stepCounter--
-            addLines(stepCounter, 'step')
-        }
-    }
+const extraLines = (counter, type) => {
+    document.getElementsByClassName(type)[counter].classList.toggle("d-none")
 
 }
 
-function addLines(counter, type) {
-    html = ``
-    for (let i = 0; i < counter; i++) {
-        if (type === 'step') {
-            html += ` <div class="row">
-            <div class="col-1 offset-1">
-            <p class='input-wide  input-p align-items-center'>${i+1}.</p>
-            </div>
-            <div class="col-9">
-            <input class='input-wide ' type="text" id="step-${i+1}" name="step" placeholder="Step">
-            </div>
-            </div>
-            `
-        } else if (type === 'ingredient') {
-            html += `<div class="row">
-            <div class="col-2 offset-1">
-            <label for="volume-${i+1}" class='d-none'></label>
-                <input class='input-wide ' type="number" name="volume" id="volume-${i+1}" placeholder="00">
-            </div>
-            <div class="col-2">
-            <label for="measurement-${i+1}" class='d-none'></label>
-                <select class='input-wide ' id="measurement-${i+1}" name="measurement">
-                    <option value="ml">ml</option>
-                    <option value="barspoons">bsp</option>
-                    <option value="dashes">dashes</option>
-                    <option value="fl-oz">fl oz</option>
-                </select>
-            </div>
-            <div class="col-1 d-flex">
-                <p class='input-wide input-p align-items-center'>of</p>
-            </div>
-            <div class="col-5">
-            <label for="ingredient-name-${i}" class='d-none'></label>
-                <input class='input-wide' type="text" id="ingredient-name-${i}" name="ingredient"
-                    placeholder="ingredient">
-            </div>
-        </div>
-    </div>`
-
+function incrementCounter(event) {
+    event.preventDefault();
+    if (this.id === "step-plus") {
+        if (stepPlus) {
+            stepCounter++
         }
-    }
-    if (type === 'step') {
-        document.getElementById('step-container').innerHTML = html
-    } else {
-        document.getElementById('ingredients-section').innerHTML = html
+        (stepCounter > 7) ? stepCounter = 7: extraLines(stepCounter, "step")
+        stepPlus = true
+    } else if (this.id === "step-minus") {
+        if (stepPlus == false) {
+            stepCounter--
+        }
+        (stepCounter < 1) ? stepCounter = 1: extraLines(stepCounter, 'step')
+        stepPlus = false
+    } else if (this.id === "ing-plus") {
+        if (ingredientPlus) {
+            ingredientCounter++
+        }
+        (ingredientCounter > 7) ? ingredientCounter = 7: extraLines(ingredientCounter, 'ingredients')
+        ingredientPlus = true
+    } else if (this.id === "ing-minus") {
+        if (ingredientPlus == false) {
+            ingredientCounter--
+        }
+        (ingredientCounter < 1) ? ingredientCounter = 1: extraLines(ingredientCounter, 'ingredients')
+        ingredientPlus = false
     }
 }
