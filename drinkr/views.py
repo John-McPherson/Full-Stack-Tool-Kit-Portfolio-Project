@@ -39,9 +39,9 @@ class home_page(View):
         data.user_name = request.user
         data.user_modifers = "[]"
         data.user_dob = request.POST.getlist("dob")[0]
-        data.user_dislikes = "[]"
-        data.user_favs = "[]"
-        data.user_drinks = "[]"
+        data.user_dislikes = "['No Recipes']"
+        data.user_favs = "['No Recipes']"
+        data.user_drinks = "['No Recipes']"
         data.user_ingredients = "[]"
         user_old_enough = dob_check(data.user_dob)
         data.save()
@@ -224,8 +224,16 @@ class FavsList(View):
     def get(self, request, *args, **kwargs):
 
         favs = UserData.objects.get(user_name=request.user).user_favs
+        if len(likes_list(favs)) == 1:
+            no_favs = True
+        else:
+            no_favs = False
 
-        return render(request, "favs.html", {"favs": fav_drink_types(favs)})
+
+        return render(request, "favs.html", {
+            "favs": fav_drink_types(favs),
+            "no_favs": no_favs
+        })
 
     def post(self, request):
         drink_name = request.POST.get("drink_name")
@@ -235,6 +243,7 @@ class FavsList(View):
             request,
             "recipe.html",
             {"recipe": Recipe.objects.filter(recipe_name=drink_name)},
+          
         )
 
 

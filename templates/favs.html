@@ -3,7 +3,16 @@
 {% block content %}
 
 <div class="container">
+    {% if no_favs%}
     <div class="row">
+        <div class="col-10 offset-1 page-heading remove-margin">
+            <h1>So Empty :(</h1>
+            <p>Looks like you haven't liked any drinks yet.
+            </p>
+        </div>
+    </div>
+    {%else%}
+    <div class=" row">
         <div class="col-10 offset-1 page-heading remove-margin">
             <h1>Your favourite drinks</h1>
         </div>
@@ -12,7 +21,9 @@
         <div class="col-10 offset-1">
             <div class="row">
                 {% for drink in favs%}
-                <div class="col-10 sub-heading col-md-5 page-heading remove-margin-total">
+                {% if drink.0 == 'No Recipes'%}
+                {%else%}
+                <div class="col-10 sub-heading col-md-6 page-heading remove-margin-total">
 
                     <form method="post">
                         {% csrf_token %}
@@ -29,13 +40,15 @@
                                 {% endif %}
                             </h2>
                         </label>
+
                     </form>
 
-
                 </div>
-                {% endfor%}
             </div>
+            {% endif %}
+            {% endfor%}
 
+            {%endif%}
 
         </div>
     </div>
