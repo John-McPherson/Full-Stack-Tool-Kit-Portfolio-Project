@@ -38,6 +38,11 @@ a {
 
 /* adds space so that the footer doesn't overlap with content at bottom of page */
 
+.fixed-bottom {
+    padding-top: 10em;
+}
+
+/* spacers */
 .spacer {
     height: 4vh;
 }
