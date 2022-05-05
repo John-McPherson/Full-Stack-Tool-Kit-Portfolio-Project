@@ -155,6 +155,10 @@ footer a :hover {
     margin: .5em 0;
 }
 
+.small-btn {
+    font-size: .75em;
+}
+
 .account-management-btn:hover {
     background-color: var(--highlight);
 }
@@ -173,7 +177,26 @@ footer a :hover {
     border-bottom: #FFC71F solid 3px;
 }
 
+.account-update {
+    color: var(--black);
+    font-family: var(--heading-text);
+    font-size: 24px;
+}
 
+.account-link:hover {
+    color: var(--mixr-yellow);
+    border-bottom: var(--black) solid 3px;
+}
+
+.small-link {
+    font-family: var(--body-text);
+    color: var(--highlight);
+}
+
+.small-link:hover {
+    color: var(--mixr-yellow);
+    border-bottom: var(--highlight) solid 1px;
+}
 
 /* user submitted cocktails */
 
@@ -244,6 +267,8 @@ select {
 .account-management ::-ms-input-placeholder {
     color: var(--black);
 }
+
+
 
 /* Landing page */
 

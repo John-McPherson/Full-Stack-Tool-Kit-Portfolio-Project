@@ -11,21 +11,54 @@
         <h1>{{user}}'s Profile</h1>
     </div>
     <div class="row justify-content-center">
-        <div class="col-10 page-heading col-md-6">
-            <a href="{% url 'account_change_password' %}">Change Password</a>
+        <div class="col-10  col-md-6">
+            <div class="row">
+                <div class="col-1 account-update">
+                    >
+                </div>
+                <div class="col-11">
+                    <a href=" {% url 'account_change_password' %}" class="account-link  account-update">Change
+                        Password</a>
+
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-10 page-heading col-md-6">
-            <a href="{% url 'account_email' %}">Update Emails</a>
+        <div class="col-10  col-md-6 ">
+            <div class="row">
+                <div class="col-1 account-update">
+                    >
+                </div>
+                <div class="col-11">
+                    <a href="{% url 'account_email' %}" class="account-link  account-update">Update Email</a>
+                </div>
+            </div>
         </div>
     </div>
+    {% if user.is_superuser %}
     <div class="row justify-content-center">
-        <div class="col-10 page-heading col-md-6">
+        <div class="col-10  col-md-6">
+            <div class="row">
+                <div class="col-1 account-update">
+                    >
+                </div>
+                <div class="col-11">
+                    <a href="{% url 'awaiting_approval' %}" class="account-link  account-update"
+                        class="account-update">Approve
+                        Recipes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endif%}
+    <div class="row justify-content-center">
+        <div class="col-10 page-heading col-md-6 account-management ">
             <form method="post">
                 {% csrf_token %}
                 <input type="date" id="dob" name="dob" class="input-wide">
-                <label for="dob">Please enter your date of birth:</label>
+                <label for="dob">Want to change your date of birth? We won't tell anyone</label>
 
                 <div class="text-center">
                     <button class="account-management-btn mixr-button" type="submit">
@@ -37,11 +70,5 @@
     </div>
 </div>
 
-{% if user.is_superuser %}
-<div class="row justify-content-center">
-    <div class="col-10 page-heading col-md-6">
-        <a href="{% url 'awaiting_approval' %}">Approve Recipes</a>
-    </div>
-</div>
-{%endif%}
+
 {%endblock%}
