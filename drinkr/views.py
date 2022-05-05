@@ -9,6 +9,7 @@ from .new_recipe import (
 )
 from .likes_dislikes import likes, likes_list, fav_drink_types
 from .dob_check import dob_check
+from datetime import datetime
 
 current_recipe = None
 
@@ -226,7 +227,7 @@ class FavsList(View):
 
         return render(request, "favs.html", {"favs": fav_drink_types(favs)})
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         drink_name = request.POST.get("drink_name")
         model = Recipe
 
@@ -238,15 +239,29 @@ class FavsList(View):
 
 
 class AccountDetails(View):
-    def get(self, request, *args, **kwargs):
-        # userData = UserData.objects.get(user_name=request.user)
-        user = request.user
+    def get(self, request):
+        userData = UserData.objects.get(user_name=request.user)
+        
         return render(
             request,
             "account_details.html",
             {
-                # 'user_data': userData,
-                "user": user
+                'user_data': userData,
+                "user": request.user
+,
+            },
+        )
+    def post(self, request):
+        userData = UserData.objects.get(user_name=request.user)
+        userData.user_dob = request.POST.getlist("dob")[0]
+        userData.save()
+        return render(
+            request,
+            "account_details.html",
+            {
+                'user_data': userData,
+                "user": request.user
+,
             },
         )
 
