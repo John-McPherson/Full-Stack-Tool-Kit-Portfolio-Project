@@ -5,18 +5,28 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8">
 
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit" class="account-management-btn">{% trans "Sign Up" %}</button>
-</form>
-<a href="{% url 'home'%}">
-  <button class="account-management-btn">Back</button>
-</a>
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %} <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+          <button type="submit" class="account-management-btn">{% trans "Sign Up" %}</button> </div>
+      </div>
+    </form>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
 
+        <a href="{% url 'home'%}">
+          <button class="account-management-btn">Back</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
