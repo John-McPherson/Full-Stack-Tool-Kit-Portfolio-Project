@@ -36,7 +36,7 @@
                                 {% elif drink.1 is 1 %}
                                 <i class="fa-solid fa-whiskey-glass"></i></span> {{drink.0}}
                                 {% elif drink.1  is 2 %}
-                                <i class="fa-solid fa-glass"></i></span> {{drink.0}}
+                                <i class="fa-solid fa-glass-water"></i></span> {{drink.0}}
                                 {% endif %}
                             </h2>
                         </label>
@@ -44,9 +44,9 @@
                     </form>
 
                 </div>
+                {% endif %}
+                {% endfor%}
             </div>
-            {% endif %}
-            {% endfor%}
 
             {%endif%}
 
