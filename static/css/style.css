@@ -524,6 +524,10 @@ label {
     background-color: var(--warning);
 }
 
+.warning-text {
+    color: var(--warning);
+}
+
 /* id section */
 
 .id {
