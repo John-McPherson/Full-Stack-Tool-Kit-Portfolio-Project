@@ -180,6 +180,7 @@ footer a :hover {
     color: --black;
     border: none;
     border-bottom: #FFC71F solid 3px;
+    width: 100%;
 }
 
 .account-update {
@@ -201,6 +202,14 @@ footer a :hover {
 .small-link:hover {
     color: var(--mixr-yellow);
     border-bottom: var(--highlight) solid 1px;
+}
+
+#id_remember {
+    display: none;
+}
+
+label[for="id_remember"] {
+    display: none;
 }
 
 /* user submitted cocktails */

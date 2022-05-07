@@ -30,18 +30,18 @@
         </nav>
     </header>
     <main>
-        <!-- empty container to push down content -->
-        <div class="container">
-            <div class="row empty col-12">
-
-            </div>
-        </div>
+        <!-- empty divs to push down content -->
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <!-- main content container -->
         <div class="container account-management">
 
-            <div class="row">
+            <div class="row justify-content-center">
 
 
-                <div class="col-10 col-md-6 offset-1 offset-md-2">
+                <div class="col-10 col-md-6">
                     {% block content %}
                     <!-- Content Goes here -->
                     {% endblock content %}

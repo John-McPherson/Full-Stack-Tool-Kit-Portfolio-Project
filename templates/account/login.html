@@ -8,19 +8,31 @@
 {% block content %}
 
 
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8">
 
-<form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <!-- <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a> -->
-  <button class="primaryAction account-management-btn" type="submit">{% trans "Sign In" %}</button>
-</form>
-<a href="{% url 'home'%}">
-  <button class="account-management-btn">Back</button>
-</a>
+    <form class="login" method="POST" action="{% url 'account_login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" class="input-wide" />
+      {% endif %}
+      <a class="button secondaryAction small-link"
+        href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+          <button class="primaryAction account-management-btn" type="submit">{% trans "Sign In" %}</button>
+        </div>
+      </div>
+    </form>
 
 
-{% endblock %}
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <a href="{% url 'home'%}">
+          <button class="account-management-btn">Back</button>
+        </a>
+      </div>
+    </div>
+
+    {% endblock %}
