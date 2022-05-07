@@ -45,3 +45,5 @@ function incrementCounter(event) {
         ingredientPlus = false
     }
 }
+
+module.exports = extraLines;

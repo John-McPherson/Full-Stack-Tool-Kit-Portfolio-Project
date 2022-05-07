@@ -1,0 +1,23 @@
+{
+  "name": "full-stack-tool-kit-portfolio-project",
+  "version": "1.0.0",
+  "description": "This project is the forth milestone project for the Code Institute Diploma in Full Stack Software Development.  <!-- You can see the final deployed site [here.](site) -->",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/issues"
+  },
+  "homepage": "https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project#readme",
+  "devDependencies": {
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0"
+  }
+}
