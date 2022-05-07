@@ -83,9 +83,9 @@ class IngredientList(View):
 
         return render(
             request,
-            "update_ingredients.html",
+            "update_modifiers.html",
             {
-                "ingredient_list": queryset,
+                "ingredient_list": Ingredient.objects.filter(ingredient_type=1),
                 "user_ingredients": list(user_ingredients),
             },
         )
