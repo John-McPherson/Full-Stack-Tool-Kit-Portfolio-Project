@@ -6,20 +6,16 @@ def likes(drink, likes):
     checks to see if a drink exists in users likes
     """
     print(likes)
-    print(type(likes))
+
     if drink[0] in likes:
         return likes
     else:
-        if likes == "[]":
+        if likes == "['No Recipes']":
             likes = [drink]
         else:
-            likes = (
-                likes.replace("[", "")
-                .replace("'", "")
-                .replace("[" ",", "")
-                .replace("]", "")
-                .split(",")
-            )
+            likes = likes_list(likes)
+            print(likes)
+            print(type(likes))
             likes.append(drink)
         return likes
 
@@ -51,7 +47,9 @@ def fav_drink_types(favs):
     """
     drinks = []
     loop_count = 0
+
     for fav in likes_list(favs):
+        print(f"loop {loop_count}")
         recipe = Recipe.objects.filter(recipe_name=fav)
         drink = [recipe[0].recipe_name, recipe[0].drink_type]
         loop_count = +1
