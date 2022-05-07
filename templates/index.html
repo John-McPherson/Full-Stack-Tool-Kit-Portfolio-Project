@@ -113,22 +113,28 @@
 
 {% else %}
 <!-- Else the load the sign up/ login page -->
-<div class="col-12 logo-container">
-    <h1 class="logo logo-landing-page">MIXr<i class="fa-solid fa-martini-glass-citrus"></i></h1>
+<div class="row justify-content-center">
+    <div class="col-12 logo-container">
+        <h1 class="logo logo-landing-page">MIXr<i class="fa-solid fa-martini-glass-citrus"></i></h1>
+    </div>
+    <div class="spacer"></div>
 </div>
-<div class="col-8  offset-3">
-    <a href="{% url 'account_login' %}">
-        <button class="account-management-btn alt-btn">Login</button>
-    </a>
-    <a href="{% url 'account_signup' %}">
-        <button class="account-management-btn alt-btn">Sign up</button>
-    </a>
+<div class="row justify-content-center">
+    <div class="col-10 col-md-3">
+        <a href="{% url 'account_login' %}">
+            <button class="account-management-btn alt-btn input-wide">Login</button>
+        </a>
+        <a href="{% url 'account_signup' %}">
+            <button class="account-management-btn alt-btn">Sign up</button>
+        </a>
+    </div>
 </div>
-<div class="col-10  offset-1"></div>
-<p class="legal-disclaimer">Drink Responsibly. For infomation about healthy drinking habits please visit <a
-        href="https://www.drinkaware.co.uk/" target="_blank"
-        aria-label="external link to the drink aware site">drinkaware.co.uk</a></p>
-</div>
+<div class="row justify-content-center">
+    <div class="col-10 col-md-5">
+        <p class="legal-disclaimer">Drink Responsibly. For infomation about healthy drinking habits please visit <a
+                href="https://www.drinkaware.co.uk/" target="_blank"
+                aria-label="external link to the drink aware site">drinkaware.co.uk</a></p>
+    </div>
 </div>
 
 

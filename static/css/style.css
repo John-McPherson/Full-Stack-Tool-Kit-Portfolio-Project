@@ -297,7 +297,7 @@ select {
 .alt-btn {
     color: var(--mixr-yellow);
     background-color: var(--white);
-    width: 80%;
+
     font-size: 1.2em;
 }
 
@@ -308,7 +308,7 @@ select {
     color: var(--white);
     text-align: center;
     padding: 0;
-    margin-top: 50vh;
+    margin-top: 40vh;
 }
 
 .logo-landing-page i {
