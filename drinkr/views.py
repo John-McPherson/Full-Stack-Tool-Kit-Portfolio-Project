@@ -86,7 +86,9 @@ class IngredientList(View):
             "update_modifiers.html",
             {
                 "ingredient_list": Ingredient.objects.filter(ingredient_type=1),
-                "user_ingredients": list(user_ingredients),
+                "user_ingredients": list(UserData.objects.filter(
+            user_name=request.user
+        ).values_list("user_modifers")),
             },
         )
 
