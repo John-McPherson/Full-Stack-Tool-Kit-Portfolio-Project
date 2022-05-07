@@ -154,6 +154,8 @@ class DisplayRecipe(View):
         )
 
     def post(self, request, *args, **kwargs):
+        steps = current_recipe[0].recipe_steps
+        ingredients = current_recipe[0].ingredients_list
 
         user = UserData.objects.get(user_name=request.user)
         if request.POST.getlist("liked")[0] == "like":
@@ -167,7 +169,10 @@ class DisplayRecipe(View):
                 request.POST.getlist("drink_name")[0], user.user_dislikes
             )
             user.save()
-        return render(request, "recipe.html", {"recipe": current_recipe})
+        return render(request, "recipe.html", {
+            "recipe": current_recipe,
+            "steps": likes_list(steps),
+            "ingredients": likes_list(ingredients),})
 
 
 class SubmitRecipe(View):
