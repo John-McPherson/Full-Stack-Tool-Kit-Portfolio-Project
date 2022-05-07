@@ -177,10 +177,15 @@ footer a :hover {
     font-family: var(--heading-text);
     font-weight: 800;
     font-size: 1.5em;
-    color: --black;
+    color: var(--black);
     border: none;
     border-bottom: #FFC71F solid 3px;
     width: 100%;
+}
+
+.header-input input {
+    color: var(--highlight);
+    font-size: 2em;
 }
 
 .account-update {
@@ -261,6 +266,12 @@ select {
     font-size: 1.25em;
     margin-bottom: 0 !important;
     line-height: normal;
+}
+
+.input-p-no-padding {
+
+    padding-top: 0;
+
 }
 
 /* code to change default placeholder text taken from https://www.w3schools.com/howto/howto_css_placeholder.asp */
@@ -396,14 +407,19 @@ select {
     padding: .5em;
     font-family: var(--heading-text);
     font-weight: 800;
+}
 
-
+.larger-subheading {
+    font-size: 2em;
+    color: var(--highlight);
 }
 
 .bold-header {
     font-weight: 800;
     font-size: 1.75em;
 }
+
+.header-input {}
 
 .decorative-line {
     border-bottom: 3px solid var(--mixr-yellow);
@@ -445,6 +461,32 @@ input:checked+label {
 
 }
 
+.mod-ing input:checked+label {
+    border: none;
+    border-bottom: solid var(--highlight) 3px;
+    color: var(--mixr-yellow);
+    background-color: var(--white);
+
+}
+
+/* icons to select drink types */
+
+.radio-icon {
+    width: 42px;
+    height: 42px;
+
+    padding: 8px 10px 8px 10px;
+    border-radius: 50%;
+    border: 2px solid var(--black);
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.wide-padding {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
 /* removes the margin from the default page heading */
 .remove-margin {
     margin-bottom: 0;
@@ -468,6 +510,8 @@ input:checked+label {
     padding: .25em;
 
 }
+
+
 
 .icon-container-small p {
     margin-top: .5em;

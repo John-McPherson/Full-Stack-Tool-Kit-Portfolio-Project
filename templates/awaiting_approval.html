@@ -2,81 +2,119 @@
 
 {% block content %}
 
-<div class="row">
+<div class="row justify-content-center">
+
     {%if recipe.recipe_name == "No Recipes"%}
-    <div class="col-10 offset-1 page-heading">
+    <div class="col-10 col-md-6  page-heading">
         <h1>There's nothing left to approve</h1>
     </div>
     {%else%}
-    <div class="col-10 offset-1 page-heading">
-        <h1>{{recipe}}</h1>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="col-10 col-md-6">
         <form method="post">
-            {% csrf_token %}
-            <label for="drink-name">Recipe Name</label>
-            <input type="text" name="old-name" id="old-name" class="account-management recipe-input d-none"
-                value="{{recipe}}" required>
-            <input type="text" name="drink-name" id="drink-name" class="account-management recipe-input"
-                value="{{recipe}}" required>
-            <div class="col-10 ">
-                <h2>Drink Type</h2>
-                <div class="decorative-line"></div>
+            <div class="row justify-content-center">
+                <div class="col-12 account-management  header-input">
+                    {% csrf_token %}
+                    <input type="text" name="old-name" id="old-name" class="account-management recipe-input d-none"
+                        value="{{recipe}}" required>
+                    <input type="text" name="drink-name" id="drink-name" class="account-management " value="{{recipe}}"
+                        required>
+                    <label for="drink-name">Recipe Name</label>
+                </div>
             </div>
-            <div id="type-section">
-
-
-                <input type="radio" id="up" name="type" value="0" class="d-inline" required>
-                <label for="up" class="d-inline"></label>Up</label>
-
-                <input type="radio" id="rocks" name="type" value="1" class="d-inline">
-                <label for="rocks" class="d-inline"></label>On The Rocks</label>
-
-                <input type="radio" id="long" name="type" value="2" class="d-inline">
-                <label for="long" class="d-inline"></label>Long</label>
-
-
-
-
+            <div class="row justify-content-center">
+                <div class="col-12 account-management">
+                    <h2 class="larger-subheading">Drink Type</h2>
+                    <div class="decorative-line"></div>
+                </div>
             </div>
-            <div class="col-10 ">
-                <h2>Ingredients</h2>
-                <div class="decorative-line"></div>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="row justify-content-spacearound mt-4">
+                        <div class="col-4 text-center ">
+                            <input type="radio" id="up" name="type" value="0" class="d-none" required>
+                            <label for="up" class="d-inline  radio-icon"><i
+                                    class="fa-solid fa-martini-glass"></i></label>
+                        </div>
+                        <div class="col-4 text-center">
+                            <input type="radio" id="rocks" name="type" value="1" class="d-none">
+                            <label for="rocks" class="d-inline radio-icon"><i
+                                    class="fa-solid fa-whiskey-glass"></i></label>
+                        </div>
+                        <div class="col-4 text-center">
+                            <input type="radio" id="long" name="type" value="2" class="d-none">
+                            <label for="long" class="d-inline radio-icon wide-padding"><i
+                                    class="fa-solid fa-glass-water"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="ingredient-section">
+
+            <div class="row justify-content-center">
+                <div class="col-12 page-heading account-management">
+                    <h2 class="larger-subheading">Ingredients</h2>
+                    <div class="decorative-line"></div>
+
+                </div>
+            </div>
+            <div id="ingredient-section " class="col-12 account-management">
                 {%for ingredient in ingredients%}
-                <input class='recipe-input' type="text" id="ingredient-{{forloop.counter}}" name="ingredient"
+                <input class='recipe-input' type=" text" id="ingredient-{{forloop.counter}}" name="ingredient"
                     value="{{ingredient}}">
                 {%endfor%}
             </div>
-            <div class="col-10 ">
-                <h2>Steps</h2>
-                <div class="decorative-line"></div>
+            <div class="row justify-content-center">
+                <div class="col-12 page-heading account-management">
+                    <h2 class="larger-subheading">Steps</h2>
+                    <div class="decorative-line"></div>
+                </div>
             </div>
-            <div id="step-section">
-                {%for step in steps%}
-                <input class='recipe-input' type="text" id="step-{{forloop.counter}}" name="step" value="{{step}}">
-                {%endfor%}
+            <div class="row justify-content-center">
+                <div class="col-12 account-management" id="step-section">
+                    {%for step in steps%}
+                    <input class='recipe-input' type="text" id="step-{{forloop.counter}}" name="step" value="{{step}}">
+                    {%endfor%}
+                </div>
             </div>
             {% if new_ingredients.0 == "No New Ingredients"%}
             <!-- do nothing -->
             {%else%}
-            <div class="col-10 ">
-                <h2>Base/Modifier?</h2>
-                <div class="decorative-line"></div>
-            </div>
-            <div id="new-ingredients-section">
-                {%for ingredient in new_ingredients%}
-                <div class="col-12">
-                    <p class="d-inline"></p>{{ingredient}}:</p>
-                    <input type="radio" id="base-{{ingredient}}" name="{{ingredient}}" value="base" class="d-inline"
-                        required>
-                    <label for="base-{{ingredient}}" class="d-inline"></label>Base</label>
-                    <input type="radio" id="modifier-{{ingredient}}" name="{{ingredient}}" value="modifier"
-                        class="d-inline">
-                    <label for="modifier-{{ingredient}}" class="d-inline"></label>Modifier</label>
+            <div class="row justify-content-center">
+                <div class="col-12 page-heading account-management">
+                    <h2 class="larger-subheading">Base/Modifier?</h2>
+                    <div class="decorative-line"></div>
                 </div>
-                {%endfor%}
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 ">
+                    {%for ingredient in new_ingredients%}
+                    <div class="row justify-content-center mt-4" id="new-ingredients-section">
+                        <div class="col-6 account-management">
+
+                            <p class="input-wide input-p input-p-no-padding">{{ingredient}}:</p>
+
+                        </div>
+                        <div class="col-3 mod-ing text-center">
+                            <input type="radio" id="base-{{ingredient}}" name="{{ingredient}}" value="base" required
+                                class="d-none ">
+                            <label class="input-p input-p-no-padding" for="base-{{ingredient}}">Base</label>
+
+                        </div>
+                        <div class="col-3 mod-ing text-center">
+                            <input type="radio" id="modifier-{{ingredient}}" name="{{ingredient}}" value="modifier"
+                                class="d-none">
+                            <label class=" input-p input-p-no-padding " for="modifier-{{ingredient}}"
+                                class="d-inline">Modifier</label>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
             </div>
             {% endif %}
+            <div class="spacer"></div>
+            <div class="spacer"></div>
             <div class="row justify-content-center">
                 <div class="col-10 col-md-5 d-flex justify-content-center">
                     <button class="account-management-btn mixr-button text-uppercase warning" type="submit" name="sub"
@@ -91,15 +129,14 @@
                     </button>
                 </div>
             </div>
-
-
-
-
-
         </form>
     </div>
-
-    {%endif%}
+</div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+{%endif%}
 </div>
 
 {%endblock%}
