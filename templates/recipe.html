@@ -74,7 +74,8 @@
                         <form method="post">
                             {% csrf_token %}
                             <input type="text" value="{{recipe.0.recipe_name}}" name="drink_name" class="d-none">
-                            <input type="submit" name="liked" value='dislike' id="dislike-button" class="d-none">
+                            <input type="submit" name="liked" value='dislike' id="dislike-button" class="d-none"
+                                aria-label="adds the recipe to users disliked list">
                             <label for="dislike-button" class="clickable">
                                 <i class="fa-solid fa-circle-xmark"></i>
                                 <p>Not my thing</p>
@@ -85,7 +86,8 @@
                         <form method="post">
                             {% csrf_token %}
                             <input type="text" value="{{recipe.0.recipe_name}}" name="drink_name" class="d-none">
-                            <input type="submit" name="liked" value='like' id="like-button" class="d-none">
+                            <input type="submit" name="liked" value='like' id="like-button"
+                                aria-label="adds the drink to the users liked list" class="d-none">
                             <label for="like-button" class="clickable">
                                 <i class="fa-solid fa-circle-check"></i>
                                 <p>Loved it</p>
@@ -97,7 +99,7 @@
 
                 <div class="col-8 col-md-12 icon-container icon-container-small smaller-icon">
                     <div class="spacer"></div>
-                    <a href="{% url 'modifier_list' %}">
+                    <a href="{% url 'modifier_list' %}" aria-label="Opens modifer list">
                         <i class="fa-solid fa-martini-glass-empty"></i>
                         <p>Fancy a differnt drink?</p>
                     </a>

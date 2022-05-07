@@ -28,13 +28,14 @@
                         <label class="ingredient"
                             for="{{ingredient.ingredient_name| lower | cut:' '}}">{{ingredient.ingredient_name}}</label>
                         {% endfor %}
-                        <!-- submit button -->
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
 
-                        <button class="account-management-btn mixr-button" type="submit">
+                        <!-- submit button -->
+                        <button class="account-management-btn mixr-button"
+                            aria-label="updates the ingredient list and loads the modifer list page" type="submit">
                             UPDATE
                         </button>
                     </div>

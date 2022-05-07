@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-10 offset-1">
             <div class="icon-container">
-                <a href="{% url 'ingredient_list' %}">
+                <a href="{% url 'ingredient_list' %}" aria-label="update ingredients page">
                     <i class="fa-solid fa-wine-bottle"></i>
                 </a>
                 <p>Ingredients</p>
@@ -55,7 +55,7 @@
         <div class="col-12 col-md-4">
             <div class="row justify-content-center justify-content-md-between align-items-md-end h-100">
                 <div class="col-4 col-md-5 icon-container icon-container-small">
-                    <a href="{% url 'display_recipe' %}" id="test">
+                    <a href="{% url 'display_recipe' %}" id="test" aria-label="loads the recipe page">
                         <i class=" fa-solid fa-circle-check"></i>
                         <p>Sounds <br>good</p>
                     </a>
@@ -64,7 +64,7 @@
 
                 </div>
                 <div class="col-4 col-md-5 icon-container icon-container-small">
-                    <a href="#">
+                    <a href="#" aria-label="loads another drink">
                         <i class="fa-solid fa-circle-xmark"></i>
                         <p>I’m not <br>sure…</p>
                     </a>

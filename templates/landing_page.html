@@ -24,7 +24,7 @@
     <!-- Nav bar -->
     <header>
         <nav class="navbar navbar-dark bg-primary navbar-expand-sm">
-            <a href="{% url 'home' %}" class="navbar-brand h1 logo mb-0">
+            <a href="{% url 'home' %}" class="navbar-brand h1 logo mb-0" aria-label="Opens the home page">
                 MIXr<i class="fa-solid fa-martini-glass-citrus"></i>
             </a>
             <button class="navbar-toggler pe-3 " type="button" data-bs-toggle="collapse" data-bs-target="#narbarMenu"
@@ -34,11 +34,12 @@
             <div class="collapse navbar-collapse  justify-content-end pe-3-up-md" id="narbarMenu">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="{% url 'account_details' %}" class="nav-link"><i class="fa-solid fa-user pe-1"></i>
+                        <a href="{% url 'account_details' %}" class="nav-link"><i class="fa-solid fa-user pe-1"
+                                aria-label="Opens the account management page"></i>
                             Account</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'account_logout' %}" class="nav-link"><i
+                        <a href="{% url 'account_logout' %}" class="nav-link" aria-label="Opens the log out page"><i
                                 class="fa-solid fa-arrow-right-from-bracket pe-1"></i>
                             Logout</a>
                     </li>

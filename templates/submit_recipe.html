@@ -227,8 +227,10 @@
         <!-- adds/ removes ingredient lines -->
         <div class="row justify-content-center">
             <div class="col-6 d-flex justify-content-around ">
-                <button class="account-management-btn  minus-plus" id="ing-minus">-</button>
-                <button class="account-management-btn minus-plus" id="ing-plus">+</button>
+                <button class="account-management-btn  minus-plus" id="ing-minus"
+                    aria-label="removes a line from the ingredient section">-</button>
+                <button class="account-management-btn minus-plus" id="ing-plus"
+                    aria-label="adds  a line to the ingredient section">+</button>
             </div>
         </div>
         <div class="row justify-content-center ">
@@ -307,13 +309,15 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-6 d-flex justify-content-around ">
-                <button class="account-management-btn minus-plus" id="step-minus">-</button>
-                <button class="account-management-btn  minus-plus" id="step-plus">+</button>
+                <button class="account-management-btn minus-plus" id="step-minus"
+                    aria-label="removes a line from the step section">-</button>
+                <button class="account-management-btn  minus-plus" id="step-plus"
+                    aria-label="adds a line to the step section">+</button>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-10 col-md-6 text-center">
-                <button class="account-management-btn mixr-button" type="submit">
+                <button class="account-management-btn mixr-button" aria-label="submits the recipe form" type="submit">
                     SUBMIT
                 </button>
             </div>

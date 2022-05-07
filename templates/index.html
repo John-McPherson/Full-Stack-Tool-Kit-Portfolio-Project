@@ -50,14 +50,14 @@
     </div>
     <div class="row justify-content-around">
         <div class=" col-6 col-md-4 icon-container stacked-icons">
-            <a href="{% url 'modifier_list' %}">
+            <a href="{% url 'modifier_list' %}" aria-label="Opens modifer list">
                 <i class="fa-solid fa-martini-glass-empty"></i>
             </a>
             <p>Drink?</p>
         </div>
 
         <div class="col-6 col-md-4 icon-container stacked-icons ">
-            <a href="{% url 'ingredient_list' %}">
+            <a href="{% url 'ingredient_list' %} " aria-label="Opens ingredient list">
                 <i class="fa-solid fa-wine-bottle"></i>
             </a>
             <p>Ingredients</p>
@@ -65,7 +65,7 @@
 
         <div class=" col-6 col-md-4 icon-container stacked-icons ">
 
-            <a href="{% url 'submit_recipe' %}">
+            <a href="{% url 'submit_recipe' %}" aria-label="Opens submit recipe form">
                 <i class="fa-solid fa-file-circle-plus"></i>
             </a>
             <p>Recipes</p>
@@ -121,10 +121,10 @@
 </div>
 <div class="row justify-content-center">
     <div class="col-10 col-md-3">
-        <a href="{% url 'account_login' %}">
+        <a href="{% url 'account_login' %}" aria-label="Opens account login">
             <button class="account-management-btn alt-btn input-wide">Login</button>
         </a>
-        <a href="{% url 'account_signup' %}">
+        <a href="{% url 'account_signup' %}" aria-label="Opens account sign up">
             <button class="account-management-btn alt-btn">Sign up</button>
         </a>
     </div>

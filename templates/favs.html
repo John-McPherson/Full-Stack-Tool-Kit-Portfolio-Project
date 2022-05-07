@@ -29,7 +29,7 @@
                         {% csrf_token %}
                         <input type="text" value="{{drink.0}}" name="{{drink.0}}" class="d-none">
                         <input type="submit" name="{{drink.0}}" value='{{drink.0}}' id="{{drink.0}}" class="d-none">
-                        <label for="{{drink.0}}" class="clickable">
+                        <label for="{{drink.0}}" class="clickable" aria-label="Opens the recipe page for {{drink.0}}">
                             <h2><span class="drink-icon-small">
                                     {% if drink.1 is 0 %}
                                     <i class="fa-solid fa-martini-glass"></i></span> {{drink.0}}
