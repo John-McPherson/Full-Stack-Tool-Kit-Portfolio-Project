@@ -3,47 +3,66 @@
 document.addEventListener('DOMContentLoaded', function () {
     buttons = document.getElementsByClassName('minus-plus');
     for (button of buttons) {
-        button.addEventListener('click', incrementCounter)
+        button.addEventListener('click', addLines)
     }
 })
-let ingredientCounter = 5;
-let stepCounter = 5;
-let stepPlus = false;
-let ingredientPlus = false;
 
+const data = {
+    'ingredientCounter': 5,
+    'stepCounter': 5,
+    'stepPlus': false,
+    'ingredientPlus': false
+}
+
+// let ingredientCounter = 5;
+// let stepCounter = 5;
+// let stepPlus = false;
+// let ingredientPlus = false;
+
+
+function addLines(event) {
+    event.preventDefault();
+    incrementCounter(this.id)
+}
 
 const extraLines = (counter, type) => {
     document.getElementsByClassName(type)[counter].classList.toggle("d-none")
 
 }
 
-function incrementCounter(event) {
-    event.preventDefault();
-    if (this.id === "step-plus") {
-        if (stepPlus) {
-            stepCounter++
+function incrementCounter(id) {
+
+    if (id === "step-plus") {
+        if (data.stepPlus) {
+            data.stepCounter++
         }
-        (stepCounter > 7) ? stepCounter = 7: extraLines(stepCounter, "step")
-        stepPlus = true
-    } else if (this.id === "step-minus") {
-        if (stepPlus == false) {
-            stepCounter--
+        (data.stepCounter > 7) ? data.stepCounter = 7: extraLines(data.stepCounter, "step")
+        data.stepPlus = true
+    } else if (id === "step-minus") {
+        if (data.stepPlus == false) {
+            data.stepCounter--
         }
-        (stepCounter < 1) ? stepCounter = 1: extraLines(stepCounter, 'step')
-        stepPlus = false
-    } else if (this.id === "ing-plus") {
-        if (ingredientPlus) {
-            ingredientCounter++
+        (data.stepCounter < 1) ? data.stepCounter = 1: extraLines(data.stepCounter, 'step')
+        data.stepPlus = false
+    } else if (id === "ing-plus") {
+        if (data.ingredientPlus) {
+            data.ingredientCounter++
         }
-        (ingredientCounter > 7) ? ingredientCounter = 7: extraLines(ingredientCounter, 'ingredients')
-        ingredientPlus = true
-    } else if (this.id === "ing-minus") {
-        if (ingredientPlus == false) {
-            ingredientCounter--
+        (data.ingredientCounter > 7) ? data.ingredientCounter = 7: extraLines(data.ingredientCounter, 'ingredients')
+        data.ingredientPlus = true
+    } else if (id === "ing-minus") {
+        if (data.ingredientPlus == false) {
+            data.ingredientCounter--
         }
-        (ingredientCounter < 1) ? ingredientCounter = 1: extraLines(ingredientCounter, 'ingredients')
-        ingredientPlus = false
+        (data.ingredientCounter < 1) ? data.ingredientCounter = 1: extraLines(data.ingredientCounter, 'ingredients')
+        data.ingredientPlus = false
     }
+
 }
 
-module.exports = extraLines;
+module.exports = {
+    extraLines,
+    incrementCounter,
+    data
+
+};
