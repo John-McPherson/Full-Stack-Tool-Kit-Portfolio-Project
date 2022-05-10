@@ -8,7 +8,9 @@ def dob_check(userdob):
     now = date.today()
     if isinstance(userdob, str):
 
-        userdob = datetime.strptime(userdob.replace("-", " "), "%Y %m %d")
+        userdob = datetime.strptime(
+            userdob.replace("-", " "), "%Y %m %d"
+        )
 
     age = (
         now.year

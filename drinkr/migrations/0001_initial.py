@@ -33,7 +33,8 @@ class Migration(migrations.Migration):
                 (
                     "ingredient_type",
                     models.IntegerField(
-                        choices=[(0, "Base"), (1, "Modifier")], default=0
+                        choices=[(0, "Base"), (1, "Modifier")],
+                        default=0,
                     ),
                 ),
             ],
@@ -77,11 +78,18 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("recipe_name", models.CharField(max_length=200, unique=True)),
+                (
+                    "recipe_name",
+                    models.CharField(max_length=200, unique=True),
+                ),
                 (
                     "drink_type",
                     models.IntegerField(
-                        choices=[(0, "Up"), (1, "On The Rocks"), (2, "Long")],
+                        choices=[
+                            (0, "Up"),
+                            (1, "On The Rocks"),
+                            (2, "Long"),
+                        ],
                         default=0,
                     ),
                 ),
@@ -92,7 +100,10 @@ class Migration(migrations.Migration):
                 (
                     "approved",
                     models.IntegerField(
-                        choices=[(0, "Awaiting Approval"), (1, "Approved")],
+                        choices=[
+                            (0, "Awaiting Approval"),
+                            (1, "Approved"),
+                        ],
                         default=0,
                     ),
                 ),
