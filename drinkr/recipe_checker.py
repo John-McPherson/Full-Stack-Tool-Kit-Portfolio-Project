@@ -53,9 +53,7 @@ def check_ingredients(user, update_type):
             .split(", ")
         )
         # checks to see if the ingredients exist in the users stock
-        result = all(
-            elm in user_ingredients for elm in drink_ingredients
-        )
+        result = all(elm in user_ingredients for elm in drink_ingredients)
         if result:
             # adds the recipe name to the user_recipe list
             user_recipes.append(drink_name)

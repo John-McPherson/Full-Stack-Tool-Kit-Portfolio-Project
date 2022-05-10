@@ -25,9 +25,7 @@ class HomePage(View):
         user_data_exists = False
         user_old_enough = False
         if request.user.is_authenticated:
-            if UserData.objects.filter(
-                user_name=request.user
-            ).exists():
+            if UserData.objects.filter(user_name=request.user).exists():
                 user_data_exists = True
 
                 dob = UserData.objects.filter(user_name=request.user)
@@ -166,6 +164,7 @@ class ConfirmRecipe(View):
     lets the user confirm that they want to make the drink
      generated for them
     """
+
     model = Recipe
     queryset = Recipe.objects.filter(approved=1)
     template_name = "confirm_recipe.html"
@@ -176,6 +175,7 @@ class DisplayRecipe(View):
     loads the selected recipe and generates a list of steps
     and ingredients
     """
+
     def get(self, request):
         """
         loads the selected recipe
@@ -229,6 +229,7 @@ class SubmitRecipe(View):
     """
     allows the user to submit recipes
     """
+
     def get(self, request):
         """
         loads the submit recipe form
@@ -270,9 +271,7 @@ class SubmitRecipe(View):
             recipe.ingredients_list = ingredient_list(
                 ingredients, measurement, volume
             )
-            recipe.recipe_steps = recipe_steps(
-                request.POST.getlist("step")
-            )
+            recipe.recipe_steps = recipe_steps(request.POST.getlist("step"))
             recipe.new_ingredients = modifer_or_ingredient_list(
                 request.POST.getlist("ingredient"), "new"
             )
@@ -289,6 +288,7 @@ class FavsList(View):
     """
     loads the users liked drinks
     """
+
     def get(self, request):
         """
         loads fav list page and loads it with users liked
@@ -322,6 +322,7 @@ class AccountDetails(View):
     """
     opens the users account management page
     """
+
     def get(self, request):
         """
         gets the user's data and loads their details
@@ -358,6 +359,7 @@ class ApproveRecipes(View):
     """
     allows superuser to approve recipes from the application
     """
+
     def get(self, request):
         """
         loads a recipe that hasn't been approved. Checks if
@@ -394,24 +396,18 @@ class ApproveRecipes(View):
                     "ingredient",
                 )
             else:
-                recipe_up.ingredients = (
-                    ings
-                    + modifer_or_ingredient_list(
-                        likes_list(recipe_up.new_ingredients),
-                        "ingredient",
-                    )
+                recipe_up.ingredients = ings + modifer_or_ingredient_list(
+                    likes_list(recipe_up.new_ingredients),
+                    "ingredient",
                 )
             if mods[0] == "":
                 recipe_up.modifiers = modifer_or_ingredient_list(
                     likes_list(recipe_up.new_ingredients), "modifier"
                 )
             else:
-                recipe_up.modifiers = (
-                    mods
-                    + modifer_or_ingredient_list(
-                        likes_list(recipe_up.new_ingredients),
-                        "modifier",
-                    )
+                recipe_up.modifiers = mods + modifer_or_ingredient_list(
+                    likes_list(recipe_up.new_ingredients),
+                    "modifier",
                 )
             new_ingredients = modifer_or_ingredient_list(
                 likes_list(recipe_up.new_ingredients), "new"
@@ -447,9 +443,7 @@ class ApproveRecipes(View):
             drink.approved = 1
 
             if drink.new_ingredients != "[]":
-                drink.ingredients_list = request.POST.getlist(
-                    "ingredient"
-                )
+                drink.ingredients_list = request.POST.getlist("ingredient")
                 mod = []
                 base = []
                 for x in likes_list(drink.new_ingredients):
@@ -467,15 +461,11 @@ class ApproveRecipes(View):
                 if likes_list(drink.ingredients)[0] == "":
                     drink.ingredients = base
                 else:
-                    drink.ingredients = (
-                        likes_list(drink.ingredients) + base
-                    )
+                    drink.ingredients = likes_list(drink.ingredients) + base
                 if likes_list(drink.modifiers)[0] == "":
                     drink.modifiers = mod
                 else:
-                    drink.modifiers = (
-                        likes_list(drink.modifiers) + mod
-                    )
+                    drink.modifiers = likes_list(drink.modifiers) + mod
                 drink.new_ingredients = []
             drink.save()
 
