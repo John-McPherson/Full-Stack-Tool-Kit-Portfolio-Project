@@ -3,12 +3,15 @@
 * [Validation](#Validation)
 * [Functionality Testing](#functionality-testing)
     * [User Story Evaluations](#user-story-valuations)
-* [TDD](#tdd)
+* [Automated Testing](#automated-testing)
 * [Bug Fixes](#bug-fixes)
 * [Known Bugs](#known-bugs)
 
 
 ## Functionality Testing
+
+
+
 ### User Story Evaluations
 
 As part of my functional testing I reviewed my intial user stories. For quick reference I have highlighted the completed user stories in <span style='color:#28a745;'>green</span>, those that are not implemented in <span style='color:#dc3545;'>red</span>, and features that have some implementation in <span style='color:#ffc107;'>yellow</span>.
@@ -51,7 +54,7 @@ I have also included a brief summary of how each user story was implemented or w
 
 #### **Users should be able to submit their own cocktail recipies.** 
 
-* <span style='color:#28a745;'>As a user I can submit my 
+* <span style='color:#28a745;'>As a user I can submit my own recipes so that I can share my knowledge
 
     __*There is a user submitted cocktail form easily accesable from the main page.*__
 
@@ -78,3 +81,27 @@ I have also included a brief summary of how each user story was implemented or w
 * <span style='color:#28a745;'>As a user I can select which ingredients I have so that I am only suggested drinks that I can make</span>
 
     __*Users can update modifiers and ingredients. Whenever a new recipe is called for the app checks the users ingredients/ modifiers and cross references it with the recipes to only offer drinks the user can make.*__
+
+## Automated Testing
+
+I created a series of Jest test suites to ensure that my javascript files worked as expected. 
+
+I also created unitest test suites for the dob_check functions and the new_recipe functions.
+
+All test files are included in the repo. 
+
+<span style='color:#dc3545;'> **Note;** when running the unitest tests the database needs to be changed in the project_drinkr settings.</span> 
+
+To set up the database for testing you have to comment out the working database and add back in the test database. This will allow you to run the unit tests. 
+
+Once the tests have been run you will need to reverse any changes you made to the setting files. 
+
+I have included some images showing how the settings should look when testing or in production 
+
+#### **Production;**
+
+![database change 1](./static/images/database-change-1.png) 
+
+#### **Testing;**
+
+![database change 2](./static/images/database-change-2.png) 
