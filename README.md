@@ -32,7 +32,7 @@ The application is designed to help beginer mixologists create cocktails based o
 
 The app is designed to allow new mixologists to easily make cocktails using ingredients that they already have in stock. I used an agile methodology to devlop the app. The various features were broken up into the following user stories and grouped into epics where applicable. 
 
-#### Users should be able to create an account so their settings can persist over multiple sessions. 
+#### **Users should be able to create an account so their settings can persist over multiple sessions.** 
 
 * As a user I can create an account so that my ingredient selections are saved between sessions
 * As a user I can log out and in so that my account is secure
@@ -40,13 +40,13 @@ The app is designed to allow new mixologists to easily make cocktails using ingr
 * As a user I can add an email address to my account so that I can recover my account if I forget my password
 * As a user I can change my account details so that I can increase security
 
-#### Users should be able to get cocktail recommendations based on what ingredients they have.
+#### **Users should be able to get cocktail recommendations based on what ingredients they have.**
 
 * As a user I can get a randomly generated drink recommendation that I can make with ingredients that I have so that I can use the app to make a drink
 * As a user I can reject the recommended drink so that I can have a drink that better suits my tastes
 * As a user I can rate drinks so that I not suggested drinks that I didn't like
 
-#### Users should be able to submit their own cocktail recipies. 
+#### **Users should be able to submit their own cocktail recipies.** 
 
 * As a user I can submit my own recipes so that I can share my knowledge
 * As a user I can get email notifications when my recipes are approved/ rejected so that can keep track of my submissions
@@ -55,7 +55,7 @@ The app is designed to allow new mixologists to easily make cocktails using ingr
 * As a admin I can get emails letting me know when a recipe is submitted so that I can approve recipes quicker
 * As a admin I can modify user submissions so that I can ensure a base level quality for all recipes
 
-#### Users should be able to easily update their ingredients.
+#### **Users should be able to easily update their ingredients.**
 
 * As a user I can select which ingredients I have so that I am only suggested drinks that I can make
 
