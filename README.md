@@ -16,7 +16,7 @@ The application is designed to help beginer mixologists create cocktails based o
     * [feature](#feature-screen)
 * [Features left to implement](features-left-to-implement)
      * [feature](#feature-screen) -->
-<!-- * [Testing](#testing) -->
+* [Testing](#testing)
 * [Technologies Used](#technologies-used)
     * [Languages](#languages)
     * [Version Control](#version-control)
@@ -82,6 +82,10 @@ To help understand the logic required when designing the apps processes I built 
 To help sketch out what data would be needed and how best to store it I created the following diagram; 
 
 ![admin-flowchart](./static/images/database-schema.png) 
+
+## Technologies Used
+
+[Link to External testing document](./TESTING.md)
 
 ## Technologies Used
 
