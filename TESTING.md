@@ -14,9 +14,9 @@
 
 ### User Story Evaluations
 
-As part of my functional testing I reviewed my intial user stories. For quick reference I have highlighted the completed user stories in <span style='color:#28a745;'>green</span>, those that are not implemented in <span style='color:#dc3545;'>red</span>, and features that have some implementation in <span style='color:#ffc107;'>yellow</span>.
+As part of my functional testing I reviewed my intial user stories. Because I was working in an agile manner some features did not see full development for this release.
 
-I have also included a brief summary of how each user story was implemented or why I chose not to add the feature. 
+I have also included a brief summary of how each user story was implemented or why I chose not to add the feature in this release. 
 
 #### **Users should be able to create an account so their settings can persist over multiple sessions.** 
 * <span style='color:#28a745;'>As a user I can create an account so that my ingredient selections are saved between sessions</span>
@@ -105,3 +105,6 @@ I have included some images showing how the settings should look when testing or
 #### **Testing;**
 
 ![database change 2](./static/images/database-change-2.png) 
+
+You will need to make sure that the changes are reverted when you are finished running any unitest tests. 
+
