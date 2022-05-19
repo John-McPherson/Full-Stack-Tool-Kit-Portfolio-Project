@@ -1,7 +1,7 @@
-# **DrinkR - a application for beginner mixologist**
+# **MixR - a application for beginner mixologists**
 
 This project is the forth milestone project for the Code Institute Diploma in Full Stack Software Development. 
-<!-- You can see the final deployed site [here.](site) -->
+You can see the final deployed site [here.](site)
 
 The application is designed to help beginer mixologists create cocktails based on ingredients they already have. 
 
@@ -12,10 +12,6 @@ The application is designed to help beginer mixologists create cocktails based o
     * [Wire Frames](#wire-frames)
     * [Flow Chart](#flowchart)
     * [Database schema](#database-schema)
-<!-- * [Features](#features) 
-    * [feature](#feature-screen)
-* [Features left to implement](features-left-to-implement)
-     * [feature](#feature-screen) -->
 * [Testing](#testing)
 * [Technologies Used](#technologies-used)
     * [Languages](#languages)
@@ -140,13 +136,14 @@ The app is deplpoyed via [Heroku](https://www.heroku.com/). If you have cloned t
 
 9. Select main branch in the manual deployment section and click deploy branch. 
 
-
-
 ## **Credits**
 
 ### **Content**
 
-Any code that is not included as part of a framework or libary was was written by me.
+Any code that is not included as part of a framework or libary was was written by me with the following exceptions;
+
+* The code to reset the style for select buttons was taken from [modern css](https://moderncss.dev/custom-select-styles-with-pure-css/)
+* The code to style default placeholder text was taken from [w3schools](https://www.w3schools.com/howto/howto_css_placeholder.asp)
 
 ### **Acknowledgements** 
 
