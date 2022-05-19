@@ -108,3 +108,32 @@ I have included some images showing how the settings should look when testing or
 
 You will need to make sure that the changes are reverted when you are finished running any unitest tests. 
 
+## Bug Fixes
+
+During testing I discovered and fixed the following bugs; 
+
+1. If the user entered a long name when submitting a cocktail it would break the layout in the form submit page. This was resolved by adding overflow scroll to any container that used user data. This was fixed in commit [1ae27a](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/1ea27a71a760ff6ccf722771c8a274d74681d150)
+
+2. I did not include a max length in the user submitted cocktail form allowing users to submit data that would break the form. This was fixed by adding a max length to the title submission. This was resolved in commit [2b6393](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/2b63932f1638f68134fea2aa2196ccdd50c9b147)
+
+3. As users liked more drinks due to the way that they data was handled extra spaces would be added to the begining of the drinks. this would cause the app to crash as it attempeted to load data that did not exist. This was resolved by using the likes_list function to prep the data. This was fixed in commit [7d10fc](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/7d10fc4f4d3afe188c7b4e6437a7394c2ec30e0c)
+
+4. When a user liked a drink it would reload the page but wouldn't load the drink ingredients and steps. This was fixed by duplicating the view's get function render in the post function render. This was fixed in commit [64f57b](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/64f57b6caade2468e308d04dc046f28a08a88a09)
+
+5. When the user loaded the favs page before they had liked any drinks it would cause the app to crash because there was no data to load. This was fixed by adding a "no recipe" entry to user_likes when creating a new user. This was fixed in commit [b45a7b](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/b45a7bb8ac8a2d063cbc2573a23c821144255487)
+
+6. The date of birth function would cause an issue when using data from the database as it would be passed to it as a string. Added a line to the function to convert the string into a useable date object. This was fixed in commit [3aea8b](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/3aea8bf3987fb8814e5fd7f06147b327cdb2a588)
+
+7. When approving cocktails all ingredients were being added as a base. Fixed in commit [41d671](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/41d671fe770b7c152121830e1ff0547bdacdea26)
+
+8. When approving cocktails the ingredient list would display incorrectly after approving a drink. This was fixed by adding a if statment to check the new ingredients and redirecting the user to account management page to give the database time to update. This was fixed in [ed3e95](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/ed3e95df870e961bdf660f71e6baab24101b97cc)
+
+9. When updating a recipe the database would not update. This was resolved by updating the view with the correct data. It was fixed in commits [51173c](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/51173c60b1100b2a1c3bab723f61828a324f6dc1) and [0a4549](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/0a4549894d9ae8d412b7a756fdfee66efb3205b2)
+
+10. Fix issue when user cause when the user likes their first drink it would add an empty array. This was fixed by adding a if statment to check if the users likes are empty and overwriting the data rather than appending it to an array. This was fixed in commit [bd42ed](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/bd42ede8d3a98014d12292c57bc8dd6acd892e00) 
+
+11. The code to generate a random drink would crash if the user didn't have the ingredients to make a drink. This was resolved by checking to see if data exists. This was fixed in commits [90e8be](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/90e8be0e5f2314b2b9f78e0290d3a1979c718aca) and [1a899e](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/1a899e476e851522a6e20adac7af4ca146cc6c3f)
+
+12. When loading the user modifiers the users data wouldn't persist. This was due to a error where the ingredient data was incorrectly used when rendering the modifier template. This was fixed in commit [d3019c](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/d3019c463b8d2bf8b6f8bb6ae944fd3507102edc)
+
+13. 
