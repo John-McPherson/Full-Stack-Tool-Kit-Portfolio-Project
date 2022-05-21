@@ -1,6 +1,5 @@
 # **Testing** 
 
-* [Validation](#Validation)
 * [Functionality Testing](#functionality-testing)
     * [User Story Evaluations](#user-story-valuations)
 * [Automated Testing](#automated-testing)
@@ -136,8 +135,8 @@ During testing I discovered and fixed the following bugs;
 
 12. When loading the user modifiers the users data wouldn't persist. This was due to a error where the ingredient data was incorrectly used when rendering the modifier template. This was fixed in commit [d3019c](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/d3019c463b8d2bf8b6f8bb6ae944fd3507102edc)
 
-13. 
+13. If commas are added to when users are submitting a steps it causes the steps to be broken up irratically in the approve cocktail page. This was fixed in commit[bc1c70](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/bc1c70a76f720d5f190da78e5c51ee2bf8aad11e)
 
 ## Known Bugs
 
-1. If commas are added to when users are submitting a steps it causes the steps to be broken up irratically in the approve cocktail page. As this only creates a small house keeping issue for site admins and doesn't have an impact on the user's experiance it is considered low priority. 
+There are currently no known bugs. 
