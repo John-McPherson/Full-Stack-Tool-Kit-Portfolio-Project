@@ -10,6 +10,120 @@
 
 ## Functionality Testing
 
+As part of my testing profile I created test plan for manual testing. This way I could ensure that all functionality was working as expected. Whenever I would make a new version of the site live I would carry out the following tests before merging the main branch and the development branch. 
+
+#### **Account management** 
+
+1. Create a new account. 
+    * Check that you can't create an account with an already existing user name
+    * Check that you can create an account without entering your email address. 
+    * Check that you are prompted to enter your dob
+        * Test that you cannot access the site if you are under the age of 18 
+        * Test that you can access the site if you are over the age of 18 
+    * Check to see that all functions generated from user data present as empty including;
+        * Favs list
+        * Ingredient list
+        * Drink list
+    * Check to see that the user doesn't have access to the site admin functions including;
+        * Approve recipes. 
+2. Logout and log back in as super user. 
+    * Check admin panel to see all userdata has been created. 
+
+#### **Create recipe**
+
+1. Add new recipe
+    * Navigate to the add recipe page. 
+    * enter the following data; 
+        Drink name: test
+        Ingredients: 60 ml Gin, 2 dashes of petrol, 1 bsp of lime juice, 1 fl oz lighter fluid
+        Recipe steps: 1. put your right foot in, 2. put your right foot out, 3. in, out 4. in, out 5. Shake it all about, 6. do the hokey kokey
+    * Adjust the recipe steps and ingredient steps. The data should remain visable
+    * Click the submit button. It should say that the recipe is waiting for approval. 
+2. Repeat step 1. 
+    * You should get a page saying the recipe has already been submitted. 
+    * Repeat step 1 again but change the name to Test 2
+3. Check to see if it will let you submit form data from an entry form
+    * Navigate back to the add recipe page
+    * try submitting an empty form. It shouldn't let you
+    * Enter test 3 and submit. It should let you submit 
+4. Check that the data is caputred as expected
+    * Log out as user
+    * Login as a admin
+    * Navigate to the admin panel
+    * Click on recipes
+    * Click on Test
+    * Check to see that it looks like this;
+    <!-- insert image of admin panel -->
+
+#### **Check Approve recipes is working as intended**
+1. Navigate to the approve recipes page
+    * Click on account
+    * On the account page click on approve recipes
+2. Fill out the form;
+    * Leave name, ingredients, and steps as they are 
+    * For drink type select up (martini glass)
+    * For Petrol select modifer
+    * For lighter fluid select base
+    * Check data looks like this;
+    <!-- insert image of admin panel -->
+3. Approve test 2
+    * For test 2 no base/modifiers should appear as they have already 
+    * Change the recipe name to test 4
+    * Change 60m ml of Gin to 40ml of Gin
+    * Change 2 dashes of petrol to 1 dash
+    * Click approve 
+    * Check data looks like this;
+    <!-- insert image of admin panel -->
+4.  Reject test 3
+    * Click reject on test 3 
+    * Check the admin page to ensure it has been deleted. 
+5. Check that the ingredient list has been updated as expected
+    * Navigate to the ingredient page
+    * Ligher fuild should be listed in the ingredients
+    * Navigate to the mixers and modifiers page.
+    * Petrol should be listed in the mixers
+    * Check in the admin panel that they are both listed in the ingredients page
+
+#### **Recipe generation** 
+
+1. Test to see if the ingredient selection is working
+    * Open the update ingredient page
+    * deselect all ingredients
+    * click update. The button should change text to updated
+    * In another tab log on to the admin page and open your user data page
+    * The ingredient section should be empty
+    * go back to the ingredient page. 
+    * Randomly select two ingredients
+    * Refresh user data. Both ingredients should be in the user's ingredients
+    * Repeat the process on the mixers and modifers page.
+
+2. Test to see if the random drink selector is working
+    * Navigate to the update ingredient page
+    * deselect all ingredients
+    * Select Gin and lighter fluid
+    * Click update followed by mixr
+    * Deslect all modifers
+    * Select lime juice and petrol and click mixr
+    * you should get either test or test 4
+    * Reject the first drink until you see the second (this may take a couple of tries).
+    * Check user data to ensure both drinks are in the user's recipes
+
+3. Test to see like list is behaving as expected
+    * Generate a drink
+    * Click loved it 
+    * Navigate to the favs list page 
+    * check to ensure that your drink appears on the page
+    * Click on the recipe link. 
+
+#### **Delete all test data from the database**
+1. Manually delete all test data from the database;
+    * Go back to the admin page
+    * Delete test 1 and test 4 from the recipes page 
+    * Delete petrol and lighter fluid from the ingredients page
+
+#### **Check that the favs list is no longer including deleted drinks**
+1. Check favs list
+    * Test and test 4 should no longer be included in the favs list. 
 
 
 ### User Story Evaluations
