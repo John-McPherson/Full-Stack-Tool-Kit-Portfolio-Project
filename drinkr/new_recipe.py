@@ -67,4 +67,3 @@ def modifer_or_ingredient_list(ingredients, ing_type):
         return new_ing_list
     else:
         return ing_list
-

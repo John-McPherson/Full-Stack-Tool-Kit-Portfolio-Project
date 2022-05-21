@@ -6,7 +6,7 @@ from .new_recipe import (
     recipe_steps,
     ingredient_list,
     modifer_or_ingredient_list,
-) 
+)
 from .likes_dislikes import likes, likes_list, fav_drink_types
 from .dob_check import dob_check
 
@@ -75,9 +75,9 @@ class IngredientList(View):
         can be prefillled out as much as possible.
         """
         queryset = Ingredient.objects.filter(ingredient_type=0)
-        user_ingredients = UserData.objects.filter(
-            user_name=request.user
-        ).values_list("user_ingredients")
+        user_ingredients = UserData.objects.filter(user_name=request.user).values_list(
+            "user_ingredients"
+        )
 
         return render(
             request,
@@ -102,13 +102,11 @@ class IngredientList(View):
             request,
             "update_modifiers.html",
             {
-                "ingredient_list": Ingredient.objects.filter(
-                    ingredient_type=1
-                ),
+                "ingredient_list": Ingredient.objects.filter(ingredient_type=1),
                 "user_ingredients": list(
-                    UserData.objects.filter(
-                        user_name=request.user
-                    ).values_list("user_modifers")
+                    UserData.objects.filter(user_name=request.user).values_list(
+                        "user_modifers"
+                    )
                 ),
             },
         )
@@ -125,9 +123,9 @@ class ModifierList(View):
         prepopulates it with the user's list of modifiers
         """
         queryset = Ingredient.objects.filter(ingredient_type=1)
-        user_ingredients = UserData.objects.filter(
-            user_name=request.user
-        ).values_list("user_modifers")
+        user_ingredients = UserData.objects.filter(user_name=request.user).values_list(
+            "user_modifers"
+        )
 
         return render(
             request,
@@ -154,9 +152,7 @@ class ModifierList(View):
         # accessed by other views
         global current_recipe
         current_recipe = get_random_recipe(user)
-        return render(
-            request, "confirm_recipe.html", {"recipe": current_recipe}
-        )
+        return render(request, "confirm_recipe.html", {"recipe": current_recipe})
 
 
 class ConfirmRecipe(View):
@@ -268,9 +264,7 @@ class SubmitRecipe(View):
             recipe.modifiers = modifer_or_ingredient_list(
                 request.POST.getlist("ingredient"), "modifier"
             )
-            recipe.ingredients_list = ingredient_list(
-                ingredients, measurement, volume
-            )
+            recipe.ingredients_list = ingredient_list(ingredients, measurement, volume)
             recipe.recipe_steps = recipe_steps(request.POST.getlist("step"))
 
             recipe.new_ingredients = modifer_or_ingredient_list(
@@ -386,9 +380,7 @@ class ApproveRecipes(View):
             new_ingredients = ["No New Ingredients"]
         else:
             # updates recipe with exisiting ingredients
-            recipe_up = Recipe.objects.get(
-                recipe_name=queryset[0].recipe_name
-            )
+            recipe_up = Recipe.objects.get(recipe_name=queryset[0].recipe_name)
 
             mods = likes_list(recipe_up.modifiers)
             ings = likes_list(recipe_up.ingredients)

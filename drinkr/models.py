@@ -23,7 +23,7 @@ class Ingredient(models.Model):
     ingredient_type = models.IntegerField(choices=INGREDIENT_TYPES, default=0)
 
     def __str__(self):
-        return f'{self.ingredient_name}'
+        return f"{self.ingredient_name}"
 
 
 class Recipe(models.Model):
@@ -50,13 +50,11 @@ class Recipe(models.Model):
     modifiers = models.TextField()
     ingredients = models.TextField()
     new_ingredients = models.TextField()
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="author"
-    )
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author")
     approved = models.IntegerField(choices=STATUS, default=0)
 
     def __str__(self):
-        return f'{self.recipe_name}'
+        return f"{self.recipe_name}"
 
 
 class UserData(models.Model):
