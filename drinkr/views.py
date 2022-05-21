@@ -6,7 +6,7 @@ from .new_recipe import (
     recipe_steps,
     ingredient_list,
     modifer_or_ingredient_list,
-)
+) 
 from .likes_dislikes import likes, likes_list, fav_drink_types
 from .dob_check import dob_check
 
@@ -272,9 +272,11 @@ class SubmitRecipe(View):
                 ingredients, measurement, volume
             )
             recipe.recipe_steps = recipe_steps(request.POST.getlist("step"))
+
             recipe.new_ingredients = modifer_or_ingredient_list(
                 request.POST.getlist("ingredient"), "new"
             )
+
             recipe.save()
 
         return render(

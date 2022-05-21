@@ -1,4 +1,5 @@
 from .models import Ingredient
+from .data_prep import data_prep
 
 
 def recipe_steps(recipe):
@@ -9,6 +10,7 @@ def recipe_steps(recipe):
     x = 1
     for step in recipe:
         if step:
+            step = data_prep(step)
             steps.append(f"{x}. {step.capitalize()}")
             x += 1
     return steps
@@ -23,7 +25,7 @@ def ingredient_list(ingredients, measurement, volume):
     for ingredient in ingredients:
         if ingredient:
             ing_list.append(
-                f"{volume[y]} {measurement[y]} of {ingredient.title()}"
+                f"{volume[y]} {measurement[y]} of {data_prep(ingredient.title())}"
             )
             y += 1
         else:
@@ -53,7 +55,6 @@ def modifer_or_ingredient_list(ingredients, ing_type):
                     .filter(ingredient_name=ingredient.title())
                     .values_list()
                 )
-                # ing_list.append(ingredient.title())
                 if ing:
                     ing_list.append(ingredient.title())
             else:
@@ -66,4 +67,4 @@ def modifer_or_ingredient_list(ingredients, ing_type):
         return new_ing_list
     else:
         return ing_list
-    # print(queryset)
+
