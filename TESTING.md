@@ -5,6 +5,7 @@
 * [Automated Testing](#automated-testing)
 * [Bug Fixes](#bug-fixes)
 * [Known Bugs](#known-bugs)
+* [Code Validation](#code-validation)
 
 
 ## Functionality Testing
@@ -140,3 +141,15 @@ During testing I discovered and fixed the following bugs;
 ## Known Bugs
 
 There are currently no known bugs. 
+
+## **Code Validation**
+
+Finally I ran the code through various third party validatiors to ensure that my code is compliant. 
+
+I then ran the code through the [W3C CSS validation](https://jigsaw.w3.org/css-validator/) service and it passed.
+
+![W3C CSS validation ](./static/images/w3c-css-mixr.png) 
+
+I also ran my JavaScript files through [jshint.com](https://jshint.com/) and it didn't through up any errors. 
+
+![jshint JS validation ](./static/images/jshint_mixr.png) 
