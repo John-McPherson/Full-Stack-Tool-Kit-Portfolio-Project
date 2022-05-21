@@ -504,6 +504,13 @@ input:checked+label {
     width: 200px;
 }
 
+/* ingredient page buttons */
+
+.ing-btns {
+    padding: 0em;
+    height: 70px;
+}
+
 /* smaller icons */
 
 .icon-container-small i {

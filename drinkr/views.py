@@ -84,7 +84,7 @@ class IngredientList(View):
             "update_ingredients.html",
             {
                 "ingredient_list": queryset,
-                "user_ingredients": list(user_ingredients),
+                "user_ingredients": list(user_ingredients),"btn_text":"UPDATE",
             },
         )
 
@@ -100,14 +100,15 @@ class IngredientList(View):
 
         return render(
             request,
-            "update_modifiers.html",
+            "update_ingredients.html",
             {
-                "ingredient_list": Ingredient.objects.filter(ingredient_type=1),
+                "ingredient_list": Ingredient.objects.filter(ingredient_type=0),
                 "user_ingredients": list(
                     UserData.objects.filter(user_name=request.user).values_list(
-                        "user_modifers"
+                        "user_ingredients"
                     )
                 ),
+                "btn_text":"UPDATED",
             },
         )
 
@@ -464,16 +465,12 @@ class ApproveRecipes(View):
             drink.save()
 
         # model = Recipe
-        # queryset = Recipe.objects.filter(approved=0)
-        # ingredients = likes_list(queryset[0].ingredients_list)
-        # recipe_steps = likes_list(queryset[0].recipe_steps)
-        # new_ingredients = likes_list(queryset[0].new_ingredients)
 
         return render(
             request,
             "account_details.html",
             {
-                # 'user_data': userData,
+                'user_data': userData,
                 "user": request.user
             },
         )
