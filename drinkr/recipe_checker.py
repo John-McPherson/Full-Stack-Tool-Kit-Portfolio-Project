@@ -39,18 +39,10 @@ def check_ingredients(user, update_type):
         drink_name = x[1]
         # adds the drinks modifers and base spirits into one list
         drink_ingredients.extend(
-            x[5]
-            .replace("[", "")
-            .replace("'", "")
-            .replace("]", "")
-            .split(", ")
+            x[5].replace("[", "").replace("'", "").replace("]", "").split(", ")
         )
         drink_ingredients.extend(
-            x[6]
-            .replace("[", "")
-            .replace("'", "")
-            .replace("]", "")
-            .split(", ")
+            x[6].replace("[", "").replace("'", "").replace("]", "").split(", ")
         )
         # checks to see if the ingredients exist in the users stock
         result = all(elm in user_ingredients for elm in drink_ingredients)
@@ -68,9 +60,7 @@ def get_random_recipe(user):
     """
     if user.user_drinks:
         return Recipe.objects.filter(
-            recipe_name=user.user_drinks[
-                get_random_index(len(user.user_drinks))
-            ]
+            recipe_name=user.user_drinks[get_random_index(len(user.user_drinks))]
         )
     else:
         return Recipe.objects.filter(recipe_name="No Recipes")

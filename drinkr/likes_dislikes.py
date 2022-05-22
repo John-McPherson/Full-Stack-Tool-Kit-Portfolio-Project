@@ -6,7 +6,7 @@ def likes(drink, likes):
     checks to see if a drink exists in users likes
     """
 
-    if drink[0] in likes:
+    if drink in likes:
         return likes
     else:
         if likes == "['No Recipes']":

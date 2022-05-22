@@ -46,7 +46,7 @@
                         <div class="col-10">
                             {%for step in steps%}
                             <p class="recipe-text">
-                                {{step}}
+                                {{step|safe}}
 
                             </p>
                             {%endfor%}

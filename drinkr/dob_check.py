@@ -11,9 +11,7 @@ def dob_check(userdob):
         userdob = datetime.strptime(userdob.replace("-", " "), "%Y %m %d")
 
     age = (
-        now.year
-        - userdob.year
-        - ((now.month, now.day) < (userdob.month, userdob.day))
+        now.year - userdob.year - ((now.month, now.day) < (userdob.month, userdob.day))
     )
 
     if age > 18:
