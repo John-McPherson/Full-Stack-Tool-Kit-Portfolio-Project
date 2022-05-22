@@ -203,6 +203,7 @@ class DisplayRecipe(View):
             user.user_favs = likes(
                 request.POST.getlist("drink_name")[0], user.user_favs
             )
+            print(request.POST.getlist("drink_name")[0])
             user.save()
 
         else:
@@ -308,10 +309,12 @@ class FavsList(View):
         loads the recipe page for the drink the user selects
         """
         drink_name = request.POST.get("drink_name")
+        recipe = Recipe.objects.filter(recipe_name=request.POST.get("drink_name"))
         return render(
             request,
             "recipe.html",
-            {"recipe": Recipe.objects.filter(recipe_name=drink_name)},
+            {"recipe": Recipe.objects.filter(recipe_name=drink_name), "steps": likes_list(recipe[0].recipe_steps),"ingredients": likes_list(recipe[0].ingredients_list)
+            },
         )
 
 
