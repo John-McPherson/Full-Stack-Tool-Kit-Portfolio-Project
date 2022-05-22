@@ -509,6 +509,8 @@ input:checked+label {
 .ing-btns {
     padding: 0em;
     height: 70px;
+    margin: .5rem 0 !important;
+    /* margin-bottom: .25em !important; */
 }
 
 /* smaller icons */
