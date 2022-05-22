@@ -252,6 +252,10 @@ During testing I discovered and fixed the following bugs;
 
 13. If commas are added to when users are submitting a steps it causes the steps to be broken up irratically in the approve cocktail page. This was fixed in commit[bc1c70](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/bc1c70a76f720d5f190da78e5c51ee2bf8aad11e)
 
+14. During code base maintence the like/dislike function stopped working. This was fixed in commit [cbe21c](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/cbe21cb4a6ea945beb3417112c33565a80958454)
+
+15. During code base maintence the favs list stopped pulling drink data through when loading recipes. This was fixed in commit [6cbbbba](https://github.com/John-McPherson/Full-Stack-Tool-Kit-Portfolio-Project/commit/6cbbbba400898498598802a630e0845c3bf9d1fd)
+
 ## Known Bugs
 
 There are currently no known bugs. 
