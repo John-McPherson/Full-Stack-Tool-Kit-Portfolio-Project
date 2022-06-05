@@ -472,7 +472,7 @@ class ApproveRecipes(View):
             request,
             "account_details.html",
             {
-                'user_data': userData,
+                'user_data': user_data,
                 "user": request.user
             },
         )
