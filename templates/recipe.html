@@ -70,7 +70,7 @@
                     <h2 class="bold-header decorative-line">How'd you like it?</h2>
                 </div>
                 <div class="row">
-                    <div class="col-4 col-md-6 icon-container icon-container-small">
+                    <div class="col-6 icon-container icon-container-small">
                         <form method="post">
                             {% csrf_token %}
                             <input type="text" value="{{recipe.0.recipe_name}}" name="drink_name" class="d-none">
@@ -82,7 +82,7 @@
                             </label>
                         </form>
                     </div>
-                    <div class="col-4 col-md-6  icon-container icon-container-small ">
+                    <div class="col-6  icon-container icon-container-small ">
                         <form method="post">
                             {% csrf_token %}
                             <input type="text" value="{{recipe.0.recipe_name}}" name="drink_name" class="d-none">
