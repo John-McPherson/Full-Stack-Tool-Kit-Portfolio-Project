@@ -466,14 +466,13 @@ class ApproveRecipes(View):
                     drink.modifiers = likes_list(drink.modifiers) + mod
                 drink.new_ingredients = []
             drink.save()
-
-        # model = Recipe
+        user_data = UserData.objects.get(user_name=request.user)
 
         return render(
             request,
             "account_details.html",
             {
-                'user_data': userData,
+                'user_data': user_data,
                 "user": request.user
             },
         )
