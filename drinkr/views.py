@@ -35,8 +35,6 @@ class HomePage(View):
                 if user_old_enough:
                     index = "base.html"
 
-
-
         return render(
             request,
             "index.html",
@@ -44,7 +42,6 @@ class HomePage(View):
                 "UserDataExists": user_data_exists,
                 "canUserDrink": user_old_enough,
                 "index": index,
-
             },
         )
 
@@ -66,12 +63,12 @@ class HomePage(View):
         data.save()
         index = "landing_page.html"
         if user_old_enough:
-            index = 'base.html'
+            index = "base.html"
 
         return render(
             request,
             "index.html",
-            {"UserDataExists": True, "canUserDrink": user_old_enough,'index': index},
+            {"UserDataExists": True, "canUserDrink": user_old_enough, "index": index},
         )
 
 
@@ -96,7 +93,8 @@ class IngredientList(View):
             "update_ingredients.html",
             {
                 "ingredient_list": queryset,
-                "user_ingredients": list(user_ingredients),"btn_text":"UPDATE",
+                "user_ingredients": list(user_ingredients),
+                "btn_text": "UPDATE",
             },
         )
 
@@ -120,7 +118,7 @@ class IngredientList(View):
                         "user_ingredients"
                     )
                 ),
-                "btn_text":"UPDATED",
+                "btn_text": "UPDATED",
             },
         )
 
@@ -325,7 +323,10 @@ class FavsList(View):
         return render(
             request,
             "recipe.html",
-            {"recipe": Recipe.objects.filter(recipe_name=drink_name), "steps": likes_list(recipe[0].recipe_steps),"ingredients": likes_list(recipe[0].ingredients_list)
+            {
+                "recipe": Recipe.objects.filter(recipe_name=drink_name),
+                "steps": likes_list(recipe[0].recipe_steps),
+                "ingredients": likes_list(recipe[0].ingredients_list),
             },
         )
 
@@ -483,8 +484,5 @@ class ApproveRecipes(View):
         return render(
             request,
             "account_details.html",
-            {
-                'user_data': user_data,
-                "user": request.user
-            },
+            {"user_data": user_data, "user": request.user},
         )
