@@ -53,7 +53,9 @@ As part of my testing profile I created test plan for manual testing. This way I
     * Click on recipes
     * Click on Test
     * Check to see that it looks like this;
-    <!-- insert image of admin panel -->
+
+
+   ![Test 1](./static/images/test.png) 
 
 #### **Check Approve recipes is working as intended**
 1. Navigate to the approve recipes page
@@ -65,7 +67,10 @@ As part of my testing profile I created test plan for manual testing. This way I
     * For Petrol select modifer
     * For lighter fluid select base
     * Check data looks like this;
-    <!-- insert image of admin panel -->
+
+
+   ![Test 2](./static/images/test2.png) 
+
 3. Approve test 2
     * For test 2 no base/modifiers should appear as they have already 
     * Change the recipe name to test 4
@@ -73,7 +78,10 @@ As part of my testing profile I created test plan for manual testing. This way I
     * Change 2 dashes of petrol to 1 dash
     * Click approve 
     * Check data looks like this;
-    <!-- insert image of admin panel -->
+
+
+   ![Test 3](./static/images/test3.png) 
+
 4.  Reject test 3
     * Click reject on test 3 
     * Check the admin page to ensure it has been deleted. 
