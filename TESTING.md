@@ -264,6 +264,10 @@ There are currently no known bugs.
 
 Finally I ran the code through various third party validatiors to ensure that my code is compliant. 
 
+Firstly I ran the html through the [W3C HTML validation](https://validator.w3.org/nu/) and it passed.
+
+![W3C CSS validation ](./static/images/html-validation.png) 
+
 I then ran the code through the [W3C CSS validation](https://jigsaw.w3.org/css-validator/) service and it passed.
 
 ![W3C CSS validation ](./static/images/w3c-css-mixr.png) 
