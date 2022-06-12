@@ -5,7 +5,7 @@ You can see the final deployed site [here.](site)
 
 The application is designed to help beginer mixologists create cocktails based on ingredients they already have. 
 
-<!-- ![Site mock-up](./assets/imgs/site-mock-up.png) -->
+![Site mock-up](./static/images/site-mock-up.png)
 
 * [UX](#ux)
     * [User Stories](#user-stories)
