@@ -1,5 +1,8 @@
 <!-- checks to see if the user is authenticated and loads the correct template -->
-{% if user.is_authenticated %}
+{% extends index %}
+
+
+<!-- {% if user.is_authenticated %}
 {% if canUserDrink%}
 {% include "base.html" %}
 {% else %}
@@ -7,7 +10,7 @@
 {% endif%}
 {% else %}
 {% include "login_landing_page.html" %}
-{%endif%}
+{%endif%} -->
 
 
 
