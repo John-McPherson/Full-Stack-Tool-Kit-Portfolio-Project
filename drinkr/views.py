@@ -24,12 +24,18 @@ class HomePage(View):
         """
         user_data_exists = False
         user_old_enough = False
+        index = "login_landing_page.html"
         if request.user.is_authenticated:
             if UserData.objects.filter(user_name=request.user).exists():
                 user_data_exists = True
 
                 dob = UserData.objects.filter(user_name=request.user)
                 user_old_enough = dob_check(dob[0].user_dob)
+                if user_old_enough:
+                    index = "base.html"
+                else:
+                    index = "landing_page.html"
+
 
         return render(
             request,
@@ -37,6 +43,8 @@ class HomePage(View):
             {
                 "UserDataExists": user_data_exists,
                 "canUserDrink": user_old_enough,
+                "index": index,
+
             },
         )
 
