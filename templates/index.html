@@ -1,5 +1,8 @@
 <!-- checks to see if the user is authenticated and loads the correct template -->
-{% if user.is_authenticated %}
+{% extends index %}
+
+
+<!-- {% if user.is_authenticated %}
 {% if canUserDrink%}
 {% include "base.html" %}
 {% else %}
@@ -7,7 +10,7 @@
 {% endif%}
 {% else %}
 {% include "login_landing_page.html" %}
-{%endif%}
+{%endif%} -->
 
 
 
@@ -38,8 +41,8 @@
 
 </div>
 {% else%}
-<div class="spacer"></div>
-<div class="spacer"></div>
+<div class="spacer d-none d-md-block"></div>
+<div class="spacer d-none d-md-block"></div>
 
 <div class="container">
     <div class="row">
@@ -138,6 +141,7 @@
 </div>
 
 
-
-{% endif%}
+{% endif%}<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
 {%endblock%}

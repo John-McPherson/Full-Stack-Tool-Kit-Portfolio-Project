@@ -440,7 +440,15 @@ h2 {
 
 
 /* style for the ingredient buttons */
+
+.ingredient-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
 .ingredient {
+    font-size: .85em;
     border: 2px solid var(--black);
     display: inline-block;
     margin: .25em;
