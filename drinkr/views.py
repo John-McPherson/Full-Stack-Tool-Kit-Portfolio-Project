@@ -26,6 +26,7 @@ class HomePage(View):
         user_old_enough = False
         index = "login_landing_page.html"
         if request.user.is_authenticated:
+            index = "landing_page.html"
             if UserData.objects.filter(user_name=request.user).exists():
                 user_data_exists = True
 
@@ -33,8 +34,7 @@ class HomePage(View):
                 user_old_enough = dob_check(dob[0].user_dob)
                 if user_old_enough:
                     index = "base.html"
-                else:
-                    index = "landing_page.html"
+
 
 
         return render(
@@ -64,10 +64,14 @@ class HomePage(View):
         data.user_ingredients = "[]"
         user_old_enough = dob_check(data.user_dob)
         data.save()
+        index = "landing_page.html"
+        if user_old_enough:
+            index = 'base.html'
+
         return render(
             request,
             "index.html",
-            {"UserDataExists": True, "canUserDrink": user_old_enough},
+            {"UserDataExists": True, "canUserDrink": user_old_enough,'index': index},
         )
 
 
