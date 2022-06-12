@@ -1,22 +1,6 @@
 <!-- checks to see if the user is authenticated and loads the correct template -->
 {% extends index %}
 
-
-<!-- {% if user.is_authenticated %}
-{% if canUserDrink%}
-{% include "base.html" %}
-{% else %}
-{% include "landing_page.html" %}
-{% endif%}
-{% else %}
-{% include "login_landing_page.html" %}
-{%endif%} -->
-
-
-
-
-
-
 {% block content %}
 {% if user.is_authenticated %}
 <!-- if the user is logged loads main content-->
